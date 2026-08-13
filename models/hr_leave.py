@@ -3,8 +3,6 @@ from odoo import api, models
 from odoo.tools.misc import format_date
 from odoo.tools.translate import _
 
-from .hr_leave_type import EMPLOYEE_REQUESTABLE_LEAVE_TYPE_NAMES
-
 
 class HrLeave(models.Model):
     _inherit = "hr.leave"
@@ -19,33 +17,6 @@ class HrLeave(models.Model):
             self.holiday_status_id
             and "maladie" in (self.holiday_status_id.name or "").lower()
         )
-
-    @api.model
-    def default_get(self, fields_list):
-        """Évite de préremplir un type technique (ex. Paramétrage DPI) pour un non-admin."""
-        res = super().default_get(fields_list)
-        if self.env.user.has_group("chc_cds_planning.group_planning_admin"):
-            return res
-        if "holiday_status_id" not in fields_list and "holiday_status_id" not in res:
-            return res
-
-        leave_type_id = res.get("holiday_status_id")
-        if leave_type_id:
-            leave_type = self.env["hr.leave.type"].browse(leave_type_id)
-            if leave_type.name in EMPLOYEE_REQUESTABLE_LEAVE_TYPE_NAMES:
-                return res
-
-        allowed = (
-            self.env["hr.leave.type"]
-            .with_context(chc_filter_employee_leave_types=1)
-            .search(
-                [("name", "in", list(EMPLOYEE_REQUESTABLE_LEAVE_TYPE_NAMES))],
-                order="sequence",
-                limit=1,
-            )
-        )
-        res["holiday_status_id"] = allowed.id if allowed else False
-        return res
 
     # ------------------------------------------------------------------
     # Surcharges de contraintes

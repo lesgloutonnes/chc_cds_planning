@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Exécuté à chaque -u : pousse les types Paramétrage DPI en fin de liste -->
+    <data noupdate="0">
+        <function model="hr.leave.type" name="_chc_push_dpi_leave_types_to_end"/>
+    </data>
+</odoo>

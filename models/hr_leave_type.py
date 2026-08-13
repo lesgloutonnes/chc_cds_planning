@@ -1,40 +1,32 @@
 # -*- coding: utf-8 -*-
 from odoo import api, models
-from odoo.osv import expression
-
-
-# Types visibles par les non-admins à la création d'une demande de congé.
-EMPLOYEE_REQUESTABLE_LEAVE_TYPE_NAMES = ("Congés", "Maladie", "Congé parental")
 
 
 class HrLeaveType(models.Model):
     _inherit = "hr.leave.type"
 
     @api.model
-    def _should_filter_employee_leave_types(self):
-        """Filtre visuel actif uniquement si le contexte le demande et hors admin planning."""
-        return bool(
-            self.env.context.get("chc_filter_employee_leave_types")
-            and not self.env.user.has_group(
-                "chc_cds_planning.group_planning_admin"
-            )
-        )
+    def _chc_push_dpi_leave_types_to_end(self):
+        """Place les types « Paramétrage DPI » en fin de liste (champ sequence).
 
-    @api.model
-    def _search(
-        self, domain, offset=0, limit=None, order=None, access_rights_uid=None
-    ):
-        if self._should_filter_employee_leave_types():
-            domain = expression.AND(
-                [
-                    domain or [],
-                    [("name", "in", list(EMPLOYEE_REQUESTABLE_LEAVE_TYPE_NAMES))],
-                ]
-            )
-        return super()._search(
-            domain,
-            offset=offset,
-            limit=limit,
-            order=order,
-            access_rights_uid=access_rights_uid,
+        Appelé à chaque mise à jour du module. Tous les utilisateurs voient
+        toujours tous les types ; seuls les 3 DPI passent en bas du dropdown.
+        """
+        dpi_types = self.with_context(active_test=False).search(
+            [("name", "ilike", "Paramétrage DPI")],
+            order="sequence, id",
         )
+        if not dpi_types:
+            return
+
+        other_types = self.with_context(active_test=False).search(
+            [("id", "not in", dpi_types.ids)],
+            order="sequence desc",
+            limit=1,
+        )
+        base_sequence = (other_types.sequence if other_types else 0) + 10
+
+        for index, leave_type in enumerate(dpi_types):
+            desired = base_sequence + index
+            if leave_type.sequence != desired:
+                leave_type.sequence = desired

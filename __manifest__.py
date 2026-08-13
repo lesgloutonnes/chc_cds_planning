@@ -23,7 +23,6 @@
         "views/planning_report.xml",
         "views/monthly_planning_generator_views.xml",
         "views/planning_stats_views.xml",
-        "views/hr_leave_views.xml",
         "wizard/planning_template_wizard_views.xml",
         "wizard/planning_confirm_override_wizard_views.xml",
         "wizard/public_holidays_import_wizard_views.xml",
@@ -35,6 +34,7 @@
         "data/init_l1_guard_calendar_data.xml",
         "data/init_employee_unavailability_data.xml",
         "data/default_planning_data.xml",
+        "data/hr_leave_type_data.xml",
     ],
     "assets": {
         "web.assets_backend": [
