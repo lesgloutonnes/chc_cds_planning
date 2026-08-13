@@ -14,4 +14,11 @@
         <field name="category_id" ref="base.module_category_services"/>
     </record>
 
+    <!-- Droit Technique : case à cocher (sans category_id) pour le menu Stats -->
+    <record id="group_planning_presence_stats" model="res.groups">
+        <field name="name">Stats présence / Vendredis PM</field>
+        <field name="comment">Accès au menu Configuration → Stats présence / Vendredis PM</field>
+        <field name="implied_ids" eval="[(4, ref('chc_cds_planning.group_planning_user'))]"/>
+    </record>
+
 </odoo>

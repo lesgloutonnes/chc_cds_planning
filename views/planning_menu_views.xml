@@ -77,6 +77,6 @@
         parent="menu_chc_cds_planning_config"
         action="action_refresh_presence_stats"
         sequence="40"
-        groups="chc_cds_planning.group_planning_admin" />
+        groups="chc_cds_planning.group_planning_presence_stats" />
 
 </odoo>
