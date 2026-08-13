@@ -112,7 +112,7 @@
         <field name="model_id" ref="model_chc_cds_planning_planning_presence_stats" />
         <field name="binding_model_id" ref="model_chc_cds_planning_planning_presence_stats" />
         <field name="binding_view_types">list</field>
-        <field name="groups_id" eval="[(4, ref('chc_cds_planning.group_planning_admin'))]" />
+        <field name="groups_id" eval="[(6, 0, [ref('chc_cds_planning.group_planning_presence_stats')])]" />
         <field name="state">code</field>
         <field name="code">action = model.action_refresh_stats()</field>
     </record>
