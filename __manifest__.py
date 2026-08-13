@@ -34,6 +34,7 @@
         "data/init_l1_guard_calendar_data.xml",
         "data/init_employee_unavailability_data.xml",
         "data/default_planning_data.xml",
+        "data/hr_leave_type_data.xml",
     ],
     "assets": {
         "web.assets_backend": [

@@ -6,6 +6,7 @@ from . import (
     employee_unavailability,
     friday_rotation_counter,
     hr_leave,
+    hr_leave_type,
     l1_guard_calendar,
     monthly_planning_generator,
     permanence_type,
