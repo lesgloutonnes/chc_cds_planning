@@ -1,5 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+================================================================================
+ARCHIVÉ / NON CHARGÉ — retiré du __manifest__.py
+Conservé comme seed de référence. Les données métier se gèrent désormais en UI.
+Pour réactiver : restaurer le contenu actif ci-dessous et remettre le fichier
+dans le manifest.
+================================================================================
+
 <odoo noupdate="1">
-    <!-- employee ROMAC -->
+     employee ROMAC 
     <record id="employee_romac" model="hr.employee">
         <field name="name">Romain Macors</field>
         <field name="employee_code">ROMAC</field>
@@ -7,7 +16,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_romac_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_romac" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -50,7 +59,7 @@
         <field name="priority">5</field>
     </record>
 
-    <!-- employee DAANT -->
+     employee DAANT 
     <record id="employee_daant" model="hr.employee">
         <field name="name">David Antoine</field>
         <field name="employee_code">DAANT</field>
@@ -58,7 +67,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_daant_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_daant" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -101,7 +110,7 @@
         <field name="priority">3</field>
     </record>
 
-    <!-- employee GUMAR -->
+     employee GUMAR 
     <record id="employee_gumar" model="hr.employee">
         <field name="name">Guillaume Marotte</field>
         <field name="employee_code">GUMAR</field>
@@ -109,7 +118,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_gumar_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_gumar" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -152,7 +161,7 @@
         <field name="priority">5</field>
     </record>
 
-    <!-- employee ANSCH -->
+     employee ANSCH 
     <record id="employee_ansch" model="hr.employee">
         <field name="name">Antoine Schmitz</field>
         <field name="employee_code">ANSCH</field>
@@ -160,7 +169,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_ansch_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_ansch" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -204,7 +213,7 @@
     </record>
 
 
-    <!-- employee PIMAC -->
+     employee PIMAC 
     <record id="employee_pimac" model="hr.employee">
         <field name="name">Pierre Machiels</field>
         <field name="employee_code">PIMAC</field>
@@ -212,7 +221,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_pimac_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_pimac" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -255,7 +264,7 @@
         <field name="priority">5</field>
     </record>
 
-    <!-- employee CHBUS -->
+     employee CHBUS 
     <record id="employee_chbus" model="hr.employee">
         <field name="name">Charles Bussers</field>
         <field name="employee_code">CHBUS</field>
@@ -263,7 +272,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
 
     <record id="qualif_chbus_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_chbus" />
@@ -307,7 +316,7 @@
         <field name="priority">4</field>
     </record>
 
-    <!-- employee MISTA -->
+     employee MISTA 
     <record id="employee_mista" model="hr.employee">
         <field name="name">Mike Staumont</field>
         <field name="employee_code">MISTA</field>
@@ -315,7 +324,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_mista_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_mista" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -358,7 +367,7 @@
         <field name="priority">1</field>
     </record>
 
-    <!-- employee KEHOA -->
+     employee KEHOA 
     <record id="employee_kehoa" model="hr.employee">
         <field name="name">Kevin Hoang</field>
         <field name="employee_code">KEHOA</field>
@@ -368,7 +377,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
    
     <record id="qualif_kehoa_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_kehoa" />
@@ -413,7 +422,7 @@
     </record>
 
 
-    <!-- employee JEDEL -->
+     employee JEDEL 
     <record id="employee_jedel" model="hr.employee">
         <field name="name">Jeremy Deltour</field>
         <field name="employee_code">JEDEL</field>
@@ -421,7 +430,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_jedel_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_jedel" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -464,8 +473,8 @@
         <field name="priority">4</field>
     </record>
 
-    <!-- employee DAMAL - QUITTÉ LE SERVICE -->
-    <!--
+     employee DAMAL - QUITTÉ LE SERVICE 
+    
     <record id="employee_damal" model="hr.employee">
         <field name="name">Daniel Malavolti</field>
         <field name="employee_code">DAMAL</field>
@@ -514,9 +523,9 @@
         <field name="site_id" ref="site_mle" />
         <field name="priority">5</field>
     </record>
-    -->
+    
 
-    <!-- employee CEJAD -->
+     employee CEJAD 
     <record id="employee_cejad" model="hr.employee">
         <field name="name">Cedric Jaduta</field>
         <field name="employee_code">CEJAD</field>
@@ -524,7 +533,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_cejad_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_cejad" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -567,7 +576,7 @@
         <field name="priority">5</field>
     </record>
 
-    <!-- employee GRMOR -->
+     employee GRMOR 
     <record id="employee_grmor" model="hr.employee">
         <field name="name">Gregory Morosow</field>
         <field name="employee_code">GRMOR</field>
@@ -575,7 +584,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_grmor_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_grmor" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -618,7 +627,7 @@
         <field name="priority">1</field>
     </record>
 
-    <!-- employee JUAPE -->
+     employee JUAPE 
     <record id="employee_juape" model="hr.employee">
         <field name="name">Junior Apetovi</field>
         <field name="employee_code">JUAPE</field>
@@ -626,7 +635,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_juape_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_juape" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -669,7 +678,7 @@
         <field name="priority">1</field>
     </record>
 
-    <!-- employee EMDEV -->
+     employee EMDEV 
     <record id="employee_emdev" model="hr.employee">
         <field name="name">Emmanuel Devillers</field>
         <field name="employee_code">EMDEV</field>
@@ -677,7 +686,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_emdev_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_emdev" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -720,7 +729,7 @@
         <field name="priority">5</field>
     </record>
 
-     <!-- employee PAVAN -->
+      employee PAVAN 
      <record id="employee_pavan" model="hr.employee">
         <field name="name">Pascal Vanbergen</field>
         <field name="employee_code">PAVAN</field>
@@ -728,7 +737,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_pavan_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_pavan" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -771,8 +780,8 @@
         <field name="priority">1</field>
     </record>
 
-    <!-- employee SEGIV - QUITTÉ LE SERVICE -->
-    <!--
+     employee SEGIV - QUITTÉ LE SERVICE 
+    
     <record id="employee_segiv" model="hr.employee">
         <field name="name">Sebastien Givard</field>
         <field name="employee_code">SEGIV</field>
@@ -821,9 +830,9 @@
         <field name="site_id" ref="site_mle" />
         <field name="priority">3</field>
     </record>
-    -->
+    
 
-    <!-- employee ALBAS -->
+     employee ALBAS 
     <record id="employee_albas" model="hr.employee">
         <field name="name">Alexandre Bastin</field>
         <field name="employee_code">ALBAS</field>
@@ -831,7 +840,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_albas_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_albas" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -874,7 +883,7 @@
         <field name="priority">2</field>
     </record>
 
-    <!-- employee JOMAR -->
+     employee JOMAR 
     <record id="employee_jomar" model="hr.employee">
         <field name="name">Jordan Marchese</field>
         <field name="employee_code">JOMAR</field>
@@ -882,7 +891,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_jomar_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_jomar" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -925,7 +934,7 @@
         <field name="priority">1</field>
     </record>
 
-    <!-- employee SEDEN -->
+     employee SEDEN 
     <record id="employee_seden" model="hr.employee">
         <field name="name">Sebastien Dengis</field>
         <field name="employee_code">SEDEN</field>
@@ -933,7 +942,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_seden_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_seden" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -976,7 +985,7 @@
         <field name="priority">3</field>
     </record>
 
-    <!-- employee CEVAN -->
+     employee CEVAN 
     <record id="employee_cevan" model="hr.employee">
         <field name="name">Cédric Vandervenden</field>
         <field name="employee_code">CEVAN</field>
@@ -984,7 +993,7 @@
         <field name="max_days_per_week">5</field>
     </record>
 
-    <!-- Qualifications liées -->
+     Qualifications liées 
     <record id="qualif_cevan_1" model="chc_cds_planning.employee_qualifications">
         <field name="employee_id" ref="employee_cevan" />
         <field name="permanence_type_id" ref="perm_type_atelier" />
@@ -1027,7 +1036,7 @@
         <field name="priority">3</field>
     </record>
 
-    <!-- employee ADVER (fallback L1) -->
+     employee ADVER (fallback L1) 
     <record id="employee_adver" model="hr.employee">
         <field name="name">Adrien Verschueren</field>
         <field name="employee_code">ADVER</field>
@@ -1036,3 +1045,4 @@
     </record>
 
 </odoo>
+-->
