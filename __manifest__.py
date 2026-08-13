@@ -30,8 +30,10 @@
         "views/planning_menu_views.xml",
         "data/init_site_perm_data.xml",
         "data/init_users_data.xml",
-        "data/init_employee_data.xml",
-        "data/init_l1_guard_calendar_data.xml",
+        # Seeds métier archivés (contenu commenté dans les fichiers) :
+        # ne plus les recharger au -u pour éviter d'écraser les données prod.
+        # "data/init_employee_data.xml",
+        # "data/init_l1_guard_calendar_data.xml",
         "data/init_employee_unavailability_data.xml",
         "data/default_planning_data.xml",
     ],
