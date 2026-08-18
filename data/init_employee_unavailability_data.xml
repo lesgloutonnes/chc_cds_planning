@@ -1,5 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+================================================================================
+ARCHIVÉ / NON CHARGÉ — retiré du __manifest__.py
+Conservé comme seed de référence. Les données métier se gèrent désormais en UI.
+Pour réactiver : restaurer le contenu actif ci-dessous et remettre le fichier
+dans le manifest.
+================================================================================
+
 <odoo noupdate="1">
-    <!-- CHBUS -->
+     CHBUS 
     <record id="unavailability_chbus_1" model="chc_cds_planning.employee_unavailability">
         <field name="employee_id" ref="employee_chbus" />
         <field name="day_of_week">0</field>
@@ -16,5 +25,5 @@
         <field name="reason">Formation</field>
     </record>
 
-    
 </odoo>
+-->
