@@ -7,7 +7,7 @@
     "website": "https://www.chc.be",
     "license": "LGPL-3",
     "category": "Uncategorized",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "depends": ["base", "web", "hr", "portal", "hr_holidays", "website", "mail"],
     "data": [
         "security/init_groups.xml",
@@ -34,7 +34,7 @@
         # ne plus les recharger au -u pour éviter d'écraser les données prod.
         # "data/init_employee_data.xml",
         # "data/init_l1_guard_calendar_data.xml",
-        "data/init_employee_unavailability_data.xml",
+        # "data/init_employee_unavailability_data.xml",
         "data/default_planning_data.xml",
         "data/hr_leave_type_data.xml",
     ],
