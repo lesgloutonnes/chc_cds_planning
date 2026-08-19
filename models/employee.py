@@ -77,8 +77,7 @@ class Employee(models.Model):
         [
             ("sakura", "🌸 Pétales de cerisier"),
             ("johnny_wolf_moon", "🐺🌕 Johnny Legend"),
-            ("birthday_party", "🎂🎈 Anniversaire"),
-            ("carni", "🌿🦠🦟☠️ Carni"),
+            ("the_division", "🟠 The Division (agent SHD)"),
         ],
         string="Skin bulle",
         default="sakura",

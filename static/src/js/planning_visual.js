@@ -280,15 +280,20 @@
        });
    }
 
+   // Correspondance type de skin (champ skin_type) -> classe CSS.
+   // Pour ajouter un skin : une entrée ici + le bloc CSS + la valeur dans la Selection Odoo.
+   const SKIN_CLASS_BY_TYPE = {
+       sakura: 'skin-sakura',
+       johnny_wolf_moon: 'skin-johnny-wolf-moon',
+       the_division: 'skin-the-division',
+   };
+
    function applyEmployeeSkin(element) {
        if (!element) {
            return;
        }
 
-       element.classList.remove('skin-sakura');
-       element.classList.remove('skin-johnny-wolf-moon');
-       element.classList.remove('skin-birthday-party');
-       element.classList.remove('skin-carni');
+       Object.values(SKIN_CLASS_BY_TYPE).forEach(cssClass => element.classList.remove(cssClass));
        const employeeId = element.getAttribute('data-employee-id');
        if (!employeeId) {
            return;
@@ -299,14 +304,9 @@
            return;
        }
 
-       if (skinInfo.type === 'sakura') {
-           element.classList.add('skin-sakura');
-       } else if (skinInfo.type === 'johnny_wolf_moon') {
-           element.classList.add('skin-johnny-wolf-moon');
-       } else if (skinInfo.type === 'birthday_party') {
-           element.classList.add('skin-birthday-party');
-       } else if (skinInfo.type === 'carni') {
-           element.classList.add('skin-carni');
+       const cssClass = SKIN_CLASS_BY_TYPE[skinInfo.type];
+       if (cssClass) {
+           element.classList.add(cssClass);
        }
    }
 

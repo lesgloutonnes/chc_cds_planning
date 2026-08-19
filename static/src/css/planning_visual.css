@@ -494,101 +494,80 @@
     pointer-events: none;
 }
 
-/* Skin Anniversaire (fun): confettis + gateau/ballon */
-.assignment-code.skin-birthday-party {
+/* Skin The Division: ambiance agent SHD — fond urbain sombre, anneau orange, HUD.
+   Entièrement en CSS (pas d'emoji) : gradients + pseudo-éléments dessinés. */
+.assignment-code.skin-the-division {
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(
-        135deg,
-        rgb(175, 4, 255) 0%,
-        rgb(0, 136, 255) 100%
-    );
-    /* Le texte reste visuellement prioritaire */
-    text-shadow:
-        0 1px 1px rgba(255, 255, 255, 0.65),
-        0 0 2px rgba(255, 255, 255, 0.55);
-    box-shadow:
-        0 2px 4px rgba(251, 191, 36, 0.3),
-        inset 0 0 0 1px rgba(236, 72, 153, 0.35);
-}
-
-.assignment-code.skin-birthday-party::before {
-    content: "🎊 🎊 🎊 🎊 🎊 🎊 🎊  🎊🎊 🎊 🎊 🎊 🎊";
-    position: absolute;
-    top: -2px;
-    right: 2px;
-    font-size: 12px;
-    line-height: 1;
-    opacity: 0.9;
-    pointer-events: none;
-}
-
-.assignment-code.skin-birthday-party::after {
-    content: "🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁 🎁";
-    position: absolute;
-    bottom: -2px;
-    left: 2px;
-    font-size: 12px;
-    line-height: 1;
-    opacity: 0.9;
-    pointer-events: none;
-}
-
-/* Confettis subtils (sans recouvrir le texte) */
-.assignment-code.skin-birthday-party {
     background-image:
-        radial-gradient(circle at 16% 30%, rgba(255, 105, 180, 0.42) 0 1.2px, transparent 1.3px),
-        radial-gradient(circle at 28% 72%, rgba(59, 130, 246, 0.40) 0 1.1px, transparent 1.2px),
-        radial-gradient(circle at 41% 24%, rgba(34, 197, 94, 0.38) 0 1.1px, transparent 1.2px),
-        radial-gradient(circle at 63% 70%, rgba(249, 115, 22, 0.42) 0 1.2px, transparent 1.3px),
-        radial-gradient(circle at 79% 36%, rgba(147, 51, 234, 0.4) 0 1.1px, transparent 1.2px),
+        /* Scanlines discrètes, effet écran de la montre d'agent */
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 138, 0, 0.06) 0px,
+            rgba(255, 138, 0, 0.06) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
         linear-gradient(
             135deg,
-            rgba(255, 238, 246, 0.58) 0%,
-            rgba(226, 241, 255, 0.52) 50%,
-            rgba(255, 247, 216, 0.54) 100%
+            rgba(24, 26, 31, 0.96) 0%,
+            rgba(43, 46, 54, 0.92) 55%,
+            rgba(17, 19, 23, 0.97) 100%
         );
-}
-
-/* Skin Carni: jungle verte + dionée + liane */
-.assignment-code.skin-carni {
-    position: relative;
-    overflow: hidden;
-    background-image: linear-gradient(
-        135deg,
-        rgba(22, 84, 44, 0.86) 0%,
-        rgba(34, 116, 55, 0.8) 55%,
-        rgba(17, 70, 40, 0.88) 100%
-    );
-    color: #ecffe9 !important;
+    color: #ffd9b0 !important;
     text-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.55),
-        0 0 2px rgba(162, 255, 174, 0.3);
+        0 1px 1px rgba(0, 0, 0, 0.75),
+        0 0 4px rgba(255, 138, 0, 0.45);
     box-shadow:
-        0 2px 4px rgba(10, 60, 20, 0.45),
-        inset 0 0 0 1px rgba(132, 255, 161, 0.26);
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 6px rgba(255, 122, 0, 0.35),
+        inset 0 0 0 1px rgba(255, 122, 0, 0.55);
 }
 
-.assignment-code.skin-carni::before {
-    content: "🦟 ";
+.assignment-code.skin-the-division::before {
+    /* Anneau orange de la montre SHD (segment manquant + rotation lente) */
+    content: "";
     position: absolute;
     top: 2px;
-    right: 10px;
-    font-size: 15px;
-    line-height: 1;
-    opacity: 1;
+    right: 3px;
+    width: 11px;
+    height: 11px;
+    border: 2px solid #ff7a00;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    box-shadow:
+        0 0 4px rgba(255, 122, 0, 0.8),
+        inset 0 0 3px rgba(255, 122, 0, 0.6);
     pointer-events: none;
+    animation: division-ring-spin 4s linear infinite;
 }
 
-.assignment-code.skin-carni::after {
-    content: "☠️";
+.assignment-code.skin-the-division::after {
+    /* Balayage lumineux type HUD le long du bas de la bulle */
+    content: "";
     position: absolute;
-    bottom: 2px;
-    left: 2px;
-    font-size: 15px;
-    line-height: 1;
-    opacity: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 122, 0, 0.9) 50%,
+        transparent 100%
+    );
     pointer-events: none;
+    animation: division-hud-sweep 3s ease-in-out infinite;
+}
+
+@keyframes division-ring-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes division-hud-sweep {
+    0%, 100% { transform: translateX(-60%); opacity: 0.4; }
+    50% { transform: translateX(60%); opacity: 1; }
 }
 
 /* ================================
