@@ -301,7 +301,7 @@
        pfff: 'skin-pfff',
        undead_lab: 'skin-undead-lab',
        james_bond: 'skin-james-bond',
-       pikachu: 'skin-pikachu',
+       pokemon: 'skin-pokemon',
        builder: 'skin-builder',
        av_tech: 'skin-av-tech',
        slimer: 'skin-slimer',
@@ -316,6 +316,7 @@
        telephony: 'skin-telephony',
        viandard: 'skin-viandard',
        barbu: 'skin-barbu',
+       wow: 'skin-wow',
    };
 
    function applyEmployeeSkin(element) {
