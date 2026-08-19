@@ -313,6 +313,9 @@
        jesus: 'skin-jesus',
        davinci_code: 'skin-davinci-code',
        beer_lover: 'skin-beer-lover',
+       telephony: 'skin-telephony',
+       viandard: 'skin-viandard',
+       barbu: 'skin-barbu',
    };
 
    function applyEmployeeSkin(element) {
