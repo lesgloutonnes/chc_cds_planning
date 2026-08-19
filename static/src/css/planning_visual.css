@@ -1016,29 +1016,30 @@
 }
 
 .assignment-code.skin-monster-ultra-white::before {
-    /* Déchirure diagonale du métal, dans l'esprit de la griffe Ultra:
-       bande aux bords dentelés, en transparence pour rester en fond */
+    /* Rangée de glaçons le long du bas, pour le côté frais de la boisson:
+       un cube de glace dupliqué par box-shadow, hauteurs légèrement variées */
     content: "";
     position: absolute;
-    top: 45%;
-    left: -8%;
-    width: 116%;
-    height: 8px;
-    background: linear-gradient(
-        180deg,
-        rgba(170, 180, 190, 0.6) 0%,
-        rgba(122, 132, 142, 0.55) 55%,
-        rgba(152, 162, 172, 0.6) 100%
-    );
-    clip-path: polygon(
-        0% 30%, 6% 10%, 12% 35%, 20% 5%, 28% 30%, 36% 12%, 44% 38%,
-        52% 8%, 60% 32%, 68% 10%, 76% 36%, 84% 6%, 92% 30%, 100% 12%,
-        100% 70%, 92% 95%, 84% 60%, 76% 90%, 68% 62%, 60% 95%, 52% 58%,
-        44% 92%, 36% 60%, 28% 88%, 20% 55%, 12% 90%, 6% 62%, 0% 85%
-    );
-    transform: rotate(-14deg);
-    filter: drop-shadow(0 1px 1px rgba(90, 100, 110, 0.45));
+    bottom: 1px;
+    left: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 1.5px;
+    background: rgba(175, 222, 248, 0.92);
+    box-shadow:
+        inset 0.5px 0.5px 1px rgba(255, 255, 255, 0.9),
+        8px 1px 0 0 rgba(160, 214, 244, 0.88),
+        16px -0.5px 0 0.3px rgba(185, 228, 250, 0.9),
+        24px 0.8px 0 -0.3px rgba(160, 214, 244, 0.85),
+        32px 0 0 0.2px rgba(180, 225, 248, 0.9),
+        40px 1px 0 -0.2px rgba(165, 216, 245, 0.85);
     pointer-events: none;
+    animation: monster-ice-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes monster-ice-shimmer {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.25) drop-shadow(0 0 2px rgba(160, 220, 250, 0.8)); }
 }
 
 .assignment-code.skin-monster-ultra-white::after {
@@ -2497,20 +2498,20 @@
 }
 
 .assignment-code.skin-beer-lover::after {
-    /* Bulles dorées qui montent du comptoir */
+    /* Petits cœurs qui s'élèvent du comptoir: l'amour de la bière */
     content: "";
     position: absolute;
     bottom: 3px;
     left: 5px;
-    width: 2.5px;
-    height: 2.5px;
-    border-radius: 50%;
-    background: rgba(255, 220, 120, 0.9);
-    box-shadow:
-        3px -2px 0 -0.8px rgba(255, 220, 120, 0.7),
-        -2px -4px 0 -1px rgba(255, 220, 120, 0.55);
+    width: 5px;
+    height: 4.5px;
+    background: linear-gradient(180deg, #ff8ab0 0%, #f04578 100%);
+    clip-path: polygon(
+        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
+        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
+    );
     pointer-events: none;
-    animation: beer-bubbles-rise 2.6s ease-in infinite;
+    animation: beer-hearts-rise 3s ease-out infinite;
 }
 
 @keyframes beer-cheers {
@@ -2518,10 +2519,14 @@
     70%, 80% { transform: rotate(-9deg); }
 }
 
-@keyframes beer-bubbles-rise {
-    0% { transform: translateY(2px) scale(0.5); opacity: 0; }
-    35% { opacity: 0.95; }
-    100% { transform: translateY(-8px) scale(1.2); opacity: 0; }
+@keyframes beer-hearts-rise {
+    /* Deux petits cœurs par cycle, à deux endroits différents */
+    0% { transform: translate(0, 2px) scale(0.5); opacity: 0; }
+    10% { opacity: 0.95; }
+    40% { transform: translate(1.5px, -6px) scale(1); opacity: 0; }
+    45% { transform: translate(6px, 2px) scale(0.45); opacity: 0; }
+    55% { opacity: 0.9; }
+    90%, 100% { transform: translate(5px, -7px) scale(0.9); opacity: 0; }
 }
 
 /* Skin Spécialiste téléphonie: fond télécom + smartphone + ondes de signal */
@@ -2746,61 +2751,84 @@
     to { background-position: 0 17px; }
 }
 
-/* Skin World of Warcraft: bleu d'Azeroth cadré d'or + épées croisées + portail */
+/* Skin World of Warcraft: la bulle EST la Porte des Ténèbres (Burning Crusade).
+   Le nom apparaît au cœur du portail: centre lumineux cyan, énergie verte
+   tourbillonnante, encadrement de pierre. */
 .assignment-code.skin-wow {
     position: relative;
     overflow: hidden;
-    background-image:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 209, 0, 0.16) 0%, transparent 55%),
-        linear-gradient(160deg, rgb(20, 32, 58) 0%, rgb(38, 54, 92) 55%, rgb(14, 24, 44) 100%);
-    color: #ffd100 !important; /* Le jaune or emblématique de WoW */
+    background-image: radial-gradient(
+        ellipse at 50% 50%,
+        rgba(212, 255, 250, 0.95) 0%,
+        rgba(130, 238, 175, 0.8) 30%,
+        rgba(62, 192, 92, 0.8) 55%,
+        rgba(22, 92, 42, 0.92) 80%,
+        rgb(12, 40, 22) 100%
+    );
+    color: #eaffff !important;
     text-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.9),
-        0 0 4px rgba(255, 180, 0, 0.4);
+        0 1px 2px rgba(0, 40, 20, 0.9),
+        0 0 5px rgba(120, 255, 170, 0.75);
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.55),
-        inset 0 0 0 1.5px rgba(212, 175, 55, 0.65); /* cadre doré des interfaces WoW */
+        0 0 7px rgba(80, 230, 120, 0.5),
+        /* Encadrement de pierre du portail */
+        inset 0 0 0 2px rgba(112, 118, 106, 0.9),
+        inset 0 0 0 3px rgba(58, 64, 54, 0.9),
+        /* Lueur verte qui lèche la pierre */
+        inset 0 0 8px rgba(80, 230, 120, 0.75);
 }
 
 .assignment-code.skin-wow::before {
-    /* Épées croisées en X, lames argentées */
+    /* Tourbillon d'énergie verte qui tourne lentement dans le portail */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(135deg, #e8edf2 0%, #9aa4b0 100%);
-    clip-path: polygon(
-        8% 0%, 50% 42%, 92% 0%, 100% 8%, 58% 50%, 100% 92%,
-        92% 100%, 50% 58%, 8% 100%, 0% 92%, 42% 50%, 0% 8%
+    top: -60%;
+    left: -30%;
+    width: 160%;
+    height: 220%;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 40deg,
+        rgba(140, 255, 185, 0.24) 60deg 80deg,
+        transparent 100deg 160deg,
+        rgba(90, 235, 130, 0.2) 180deg 200deg,
+        transparent 220deg 300deg,
+        rgba(180, 255, 215, 0.22) 320deg 340deg,
+        transparent 340deg 360deg
     );
-    filter: drop-shadow(0 0 2px rgba(255, 209, 0, 0.5));
     pointer-events: none;
+    animation: wow-portal-vortex 6s linear infinite;
 }
 
 .assignment-code.skin-wow::after {
-    /* Portail magique vert qui tourbillonne, façon Porte des Ténèbres */
+    /* Étincelles d'énergie fel qui s'échappent du bas du portail */
     content: "";
     position: absolute;
     bottom: 2px;
-    left: 3px;
-    width: 11px;
-    height: 11px;
+    left: 8px;
+    width: 2.5px;
+    height: 2.5px;
     border-radius: 50%;
-    background: conic-gradient(
-        #1a5c2a, #4de07a, #123d1c, #35c05a, #0d2e14, #4de07a, #1a5c2a
-    );
+    background: rgba(190, 255, 215, 0.95);
     box-shadow:
-        0 0 4px rgba(77, 224, 122, 0.85),
-        inset 0 0 2px rgba(0, 0, 0, 0.6);
+        12px -2px 0 -0.6px rgba(140, 255, 190, 0.8),
+        24px 1px 0 -0.8px rgba(160, 255, 200, 0.7),
+        30px -3px 0 -1px rgba(120, 245, 170, 0.6);
     pointer-events: none;
-    animation: wow-portal-swirl 2.4s linear infinite;
+    animation: wow-portal-sparks 2.2s ease-in infinite;
 }
 
-@keyframes wow-portal-swirl {
+@keyframes wow-portal-vortex {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes wow-portal-sparks {
+    0% { transform: translateY(2px); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(-8px); opacity: 0; }
 }
 
 /* ================================
