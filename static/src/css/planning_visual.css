@@ -1230,17 +1230,21 @@
 }
 
 .assignment-code.skin-dbz::before {
-    /* Boule de cristal: sphère orange brillante avec étoile rouge */
+    /* Boule de cristal à 4 étoiles (celle de Son Gohan): sphère orange
+       brillante, quatre étoiles rouges en losange au centre */
     content: "";
     position: absolute;
     top: 2px;
     right: 3px;
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.95) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 58% 58%, #d21f1f 0 1.7px, transparent 2.2px),
+        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.95) 0 1.3px, transparent 1.8px),
+        radial-gradient(circle at 50% 38%, #d21f1f 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 36% 56%, #d21f1f 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 64% 56%, #d21f1f 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 50% 74%, #d21f1f 0 1.2px, transparent 1.6px),
         radial-gradient(circle at 50% 45%, #ffcf4d 0% 55%, #ff9d00 100%);
     box-shadow:
         0 0 4px rgba(255, 190, 60, 0.9),
