@@ -1016,23 +1016,24 @@
 }
 
 .assignment-code.skin-monster-ultra-white::before {
-    /* Rangée de glaçons le long du bas, pour le côté frais de la boisson:
-       un cube de glace dupliqué par box-shadow, hauteurs légèrement variées */
+    /* Rangée de glaçons sur toute la largeur du bas, côté frais de la boisson */
     content: "";
     position: absolute;
     bottom: 1px;
     left: 2px;
-    width: 5px;
-    height: 5px;
+    right: 2px;
+    height: 6px;
     border-radius: 1.5px;
-    background: rgba(175, 222, 248, 0.92);
-    box-shadow:
-        inset 0.5px 0.5px 1px rgba(255, 255, 255, 0.9),
-        8px 1px 0 0 rgba(160, 214, 244, 0.88),
-        16px -0.5px 0 0.3px rgba(185, 228, 250, 0.9),
-        24px 0.8px 0 -0.3px rgba(160, 214, 244, 0.85),
-        32px 0 0 0.2px rgba(180, 225, 248, 0.9),
-        40px 1px 0 -0.2px rgba(165, 216, 245, 0.85);
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba(175, 222, 248, 0.95) 0px,
+        rgba(215, 242, 255, 0.95) 1.4px,
+        rgba(150, 208, 238, 0.9) 3.6px,
+        rgba(175, 222, 248, 0.95) 5px,
+        transparent 5px,
+        transparent 7.5px
+    );
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.75);
     pointer-events: none;
     animation: monster-ice-shimmer 3s ease-in-out infinite;
 }
@@ -2751,84 +2752,75 @@
     to { background-position: 0 17px; }
 }
 
-/* Skin World of Warcraft: la bulle EST la Porte des Ténèbres (Burning Crusade).
-   Le nom apparaît au cœur du portail: centre lumineux cyan, énergie verte
-   tourbillonnante, encadrement de pierre. */
+/* Skin World of Warcraft: icône officielle — bordure dorée épaisse,
+   nom or, fond bleu roi / bleu marine avec relief de carte. */
 .assignment-code.skin-wow {
     position: relative;
     overflow: hidden;
-    background-image: radial-gradient(
-        ellipse at 50% 50%,
-        rgba(212, 255, 250, 0.95) 0%,
-        rgba(130, 238, 175, 0.8) 30%,
-        rgba(62, 192, 92, 0.8) 55%,
-        rgba(22, 92, 42, 0.92) 80%,
-        rgb(12, 40, 22) 100%
-    );
-    color: #eaffff !important;
+    background-image:
+        /* Relief de carte: continents et sillons discrets */
+        radial-gradient(ellipse at 22% 35%, rgba(90, 140, 210, 0.35) 0 8px, transparent 14px),
+        radial-gradient(ellipse at 78% 62%, rgba(70, 120, 190, 0.3) 0 10px, transparent 16px),
+        radial-gradient(ellipse at 48% 78%, rgba(50, 95, 165, 0.28) 0 7px, transparent 12px),
+        repeating-radial-gradient(
+            circle at 40% 45%,
+            transparent 0 7px,
+            rgba(255, 255, 255, 0.05) 7px 8px
+        ),
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgb(52, 98, 178) 0%,
+            rgb(24, 48, 112) 55%,
+            rgb(10, 22, 58) 100%
+        );
+    color: #f0c040 !important;
     text-shadow:
-        0 1px 2px rgba(0, 40, 20, 0.9),
-        0 0 5px rgba(120, 255, 170, 0.75);
+        0 1px 1px rgba(70, 40, 0, 0.9),
+        0 0 4px rgba(255, 190, 50, 0.55);
     box-shadow:
-        0 2px 4px rgba(0, 0, 0, 0.55),
-        0 0 7px rgba(80, 230, 120, 0.5),
-        /* Encadrement de pierre du portail */
-        inset 0 0 0 2px rgba(112, 118, 106, 0.9),
-        inset 0 0 0 3px rgba(58, 64, 54, 0.9),
-        /* Lueur verte qui lèche la pierre */
-        inset 0 0 8px rgba(80, 230, 120, 0.75);
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        /* Bordure dorée épaisse, biseautée comme l'anneau de l'icône */
+        inset 0 0 0 2px #e8c34a,
+        inset 0 0 0 4px #9a7018,
+        inset 0 0 0 5px #f0d060,
+        inset 0 0 10px rgba(0, 15, 50, 0.45);
 }
 
 .assignment-code.skin-wow::before {
-    /* Tourbillon d'énergie verte qui tourne lentement dans le portail */
+    /* Reflet métallique sur la bordure supérieure, or martelé */
     content: "";
     position: absolute;
-    top: -60%;
-    left: -30%;
-    width: 160%;
-    height: 220%;
-    border-radius: 50%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg 40deg,
-        rgba(140, 255, 185, 0.24) 60deg 80deg,
-        transparent 100deg 160deg,
-        rgba(90, 235, 130, 0.2) 180deg 200deg,
-        transparent 220deg 300deg,
-        rgba(180, 255, 215, 0.22) 320deg 340deg,
-        transparent 340deg 360deg
+    top: 1px;
+    left: 4px;
+    right: 4px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 236, 160, 0.85) 50%,
+        transparent 100%
     );
     pointer-events: none;
-    animation: wow-portal-vortex 6s linear infinite;
+    animation: wow-gold-shimmer 3.4s ease-in-out infinite;
 }
 
 .assignment-code.skin-wow::after {
-    /* Étincelles d'énergie fel qui s'échappent du bas du portail */
+    /* Accents dorés dans les coins, façon boussole de l'icône */
     content: "";
     position: absolute;
-    bottom: 2px;
-    left: 8px;
-    width: 2.5px;
-    height: 2.5px;
-    border-radius: 50%;
-    background: rgba(190, 255, 215, 0.95);
-    box-shadow:
-        12px -2px 0 -0.6px rgba(140, 255, 190, 0.8),
-        24px 1px 0 -0.8px rgba(160, 255, 200, 0.7),
-        30px -3px 0 -1px rgba(120, 245, 170, 0.6);
+    inset: 0;
+    background:
+        linear-gradient(135deg, #e8c34a 0 4px, transparent 4px) left top / 7px 7px no-repeat,
+        linear-gradient(225deg, #e8c34a 0 4px, transparent 4px) right top / 7px 7px no-repeat,
+        linear-gradient(45deg, #e8c34a 0 4px, transparent 4px) left bottom / 7px 7px no-repeat,
+        linear-gradient(-45deg, #e8c34a 0 4px, transparent 4px) right bottom / 7px 7px no-repeat;
     pointer-events: none;
-    animation: wow-portal-sparks 2.2s ease-in infinite;
 }
 
-@keyframes wow-portal-vortex {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes wow-portal-sparks {
-    0% { transform: translateY(2px); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateY(-8px); opacity: 0; }
+@keyframes wow-gold-shimmer {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
 }
 
 /* ================================
