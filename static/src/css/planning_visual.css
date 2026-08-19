@@ -1092,6 +1092,263 @@
     50% { opacity: 1; height: 60%; }
 }
 
+/* Skin Top Chef: rouge brigade + toque blanche + vapeur de cuisine */
+.assignment-code.skin-top-chef {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+        135deg,
+        rgb(120, 12, 18) 0%,
+        rgb(168, 24, 30) 55%,
+        rgb(92, 8, 14) 100%
+    );
+    color: #ffe9d6 !important;
+    text-shadow:
+        0 1px 1px rgba(60, 0, 0, 0.8),
+        0 0 3px rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 2px 4px rgba(80, 0, 5, 0.5),
+        inset 0 0 0 1px rgba(255, 235, 220, 0.4);
+}
+
+.assignment-code.skin-top-chef::before {
+    /* Toque de chef: calotte bombée + bandeau */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 12px;
+    height: 11px;
+    background:
+        /* Bandeau bas de la toque */
+        linear-gradient(180deg, transparent 0 68%, #e8e8e8 68% 100%),
+        /* Calotte: 3 bosses via radial-gradients */
+        radial-gradient(circle at 22% 26%, #ffffff 0 3.4px, transparent 3.8px),
+        radial-gradient(circle at 50% 18%, #ffffff 0 3.9px, transparent 4.3px),
+        radial-gradient(circle at 78% 26%, #ffffff 0 3.4px, transparent 3.8px),
+        linear-gradient(180deg, transparent 0 26%, #ffffff 26% 100%);
+    border-radius: 3px 3px 1px 1px;
+    filter: drop-shadow(0 1px 1.5px rgba(60, 0, 0, 0.55));
+    pointer-events: none;
+}
+
+.assignment-code.skin-top-chef::after {
+    /* Vapeur qui monte du coin cuisine */
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 4px;
+    width: 10px;
+    height: 9px;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.75) 0 1.4px,
+        transparent 1.4px 4.2px
+    );
+    border-radius: 45%;
+    filter: blur(0.8px);
+    pointer-events: none;
+    animation: chef-steam-rise 2.6s ease-in-out infinite;
+}
+
+@keyframes chef-steam-rise {
+    0% { transform: translateY(3px) scaleY(0.7); opacity: 0; }
+    45% { opacity: 0.85; }
+    100% { transform: translateY(-6px) scaleY(1.25); opacity: 0; }
+}
+
+/* Skin Scream: nuit d'horreur + masque Ghostface + couteau */
+.assignment-code.skin-scream {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        radial-gradient(circle at 30% 70%, rgba(90, 0, 0, 0.35) 0%, transparent 55%),
+        linear-gradient(160deg, rgb(8, 8, 12) 0%, rgb(26, 26, 36) 55%, rgb(4, 4, 8) 100%);
+    color: #e8e8f0 !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.9),
+        0 0 4px rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.65),
+        inset 0 0 0 1px rgba(220, 220, 235, 0.3);
+}
+
+.assignment-code.skin-scream::before {
+    /* Masque Ghostface: visage blanc étiré, yeux et bouche noirs */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    width: 10px;
+    height: 13px;
+    background:
+        radial-gradient(1.5px 2.1px at 32% 30%, #000 0 70%, transparent 100%),
+        radial-gradient(1.5px 2.1px at 68% 30%, #000 0 70%, transparent 100%),
+        radial-gradient(1.7px 3.6px at 50% 72%, #000 0 70%, transparent 100%),
+        linear-gradient(180deg, #fafafa 0%, #d8d8dd 100%);
+    border-radius: 50% 50% 48% 48% / 42% 42% 58% 58%;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.45));
+    pointer-events: none;
+    animation: ghostface-float 3.2s ease-in-out infinite;
+}
+
+.assignment-code.skin-scream::after {
+    /* Couteau: manche sombre + lame argentée pointue */
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    width: 13px;
+    height: 3px;
+    background: linear-gradient(90deg, #3a3028 0 3.5px, #cdd3da 3.5px 100%);
+    clip-path: polygon(0% 0%, 78% 0%, 100% 50%, 78% 100%, 0% 100%);
+    transform: rotate(-28deg);
+    filter: drop-shadow(0 0 2px rgba(200, 210, 220, 0.5));
+    pointer-events: none;
+}
+
+@keyframes ghostface-float {
+    0%, 100% { transform: translateY(0); opacity: 0.92; }
+    50% { transform: translateY(-1.2px); opacity: 1; }
+}
+
+/* Skin Technicien nomade: camionnette médicale sur route défilante */
+.assignment-code.skin-tech-nomade {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+        180deg,
+        rgb(148, 200, 235) 0%,
+        rgb(190, 224, 245) 55%,
+        rgb(120, 178, 220) 100%
+    );
+    color: #113a5c !important;
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.8),
+        0 0 3px rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 2px 4px rgba(40, 90, 130, 0.35),
+        inset 0 0 0 1px rgba(30, 90, 140, 0.35);
+}
+
+.assignment-code.skin-tech-nomade::before {
+    /* Camionnette blanche avec croix médicale, cabine à droite */
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 15px;
+    height: 8px;
+    background:
+        /* Croix médicale rouge sur le flanc */
+        linear-gradient(90deg, transparent 0 4.5px, #d42020 4.5px 7px, transparent 7px 100%) 0 0 / 100% 100%,
+        linear-gradient(180deg, transparent 0 2.5px, #d42020 2.5px 5px, transparent 5px 100%) -3.75px 0 / 100% 100%,
+        /* Vitre de cabine */
+        linear-gradient(180deg, transparent 0 15%, rgba(80, 140, 190, 0.9) 15% 45%, transparent 45% 100%) 4.5px 0 / 100% 100%,
+        /* Roues sombres */
+        radial-gradient(circle at 20% 92%, #2a2e33 0 1.5px, transparent 1.9px),
+        radial-gradient(circle at 76% 92%, #2a2e33 0 1.5px, transparent 1.9px),
+        /* Carrosserie blanche */
+        linear-gradient(180deg, #fdfdfd 0%, #dde3e8 100%);
+    clip-path: polygon(0% 8%, 62% 8%, 78% 0%, 96% 30%, 100% 100%, 0% 100%);
+    filter: drop-shadow(0 1px 1px rgba(20, 50, 80, 0.45));
+    pointer-events: none;
+    animation: nomade-van-bounce 0.7s ease-in-out infinite;
+}
+
+.assignment-code.skin-tech-nomade::after {
+    /* Route grise avec marquage central qui défile */
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.85) 0 3px,
+            transparent 3px 8px
+        ) 0 50% / 100% 1px no-repeat,
+        linear-gradient(180deg, #4a4f56 0%, #33373d 100%);
+    pointer-events: none;
+    animation: nomade-road-scroll 0.9s linear infinite;
+}
+
+@keyframes nomade-van-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-0.6px); }
+}
+
+@keyframes nomade-road-scroll {
+    from { background-position: 0 50%, 0 0; }
+    to { background-position: -8px 50%, 0 0; }
+}
+
+/* Skin Pfff: grisaille de l'ennui + soupir "pfff" + nuage d'air expiré */
+.assignment-code.skin-pfff {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+        135deg,
+        rgb(176, 180, 186) 0%,
+        rgb(148, 153, 160) 55%,
+        rgb(128, 133, 140) 100%
+    );
+    color: #2e3238 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
+    box-shadow:
+        0 2px 4px rgba(80, 85, 92, 0.4),
+        inset 0 0 0 1px rgba(70, 75, 82, 0.35);
+}
+
+.assignment-code.skin-pfff::before {
+    /* Le soupir écrit, qui apparaît et s'éteint au rythme d'une longue expiration */
+    content: "pfff...";
+    position: absolute;
+    top: 0;
+    right: 3px;
+    font-size: 7px;
+    line-height: 1.4;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: rgba(52, 58, 66, 0.85);
+    pointer-events: none;
+    animation: pfff-sigh-text 3.5s ease-in-out infinite;
+}
+
+.assignment-code.skin-pfff::after {
+    /* Petit nuage d'air expiré qui dérive et se dissipe */
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow:
+        3.5px -1px 0 -0.5px rgba(255, 255, 255, 0.75),
+        6.5px 0.5px 0 -1px rgba(255, 255, 255, 0.65),
+        2px 2px 0 -1.2px rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    animation: pfff-air-puff 3.5s ease-out infinite;
+}
+
+@keyframes pfff-sigh-text {
+    0%, 10% { opacity: 0; }
+    25%, 60% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+}
+
+@keyframes pfff-air-puff {
+    0%, 15% { transform: translateX(0) scale(0.5); opacity: 0; }
+    30% { opacity: 0.9; }
+    70% { transform: translateX(9px) scale(1.25); opacity: 0.4; }
+    100% { transform: translateX(13px) scale(1.5); opacity: 0; }
+}
+
 /* ================================
    AJUSTEMENTS SPÉCIFIQUES: TABLE PERMANENCES SPÉCIALES
    ================================ */

@@ -295,6 +295,10 @@
        hard_rock: 'skin-hard-rock',
        french_pride: 'skin-french-pride',
        dbz: 'skin-dbz',
+       top_chef: 'skin-top-chef',
+       scream: 'skin-scream',
+       tech_nomade: 'skin-tech-nomade',
+       pfff: 'skin-pfff',
    };
 
    function applyEmployeeSkin(element) {
