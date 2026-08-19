@@ -476,43 +476,79 @@
 .assignment-code.skin-johnny-wolf-moon {
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(
-        135deg,
-        rgba(28, 34, 62, 0.92) 0%,
-        rgba(54, 45, 92, 0.88) 50%,
-        rgba(16, 21, 44, 0.94) 100%
-    );
-    color: #f5f7ff !important;
+    background-image:
+        /* Étoiles du t-shirt de fan */
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.85) 0 0.7px, transparent 1.1px),
+        radial-gradient(circle at 34% 10%, rgba(255, 255, 255, 0.65) 0 0.6px, transparent 1px),
+        radial-gradient(circle at 55% 24%, rgba(255, 255, 255, 0.7) 0 0.6px, transparent 1px),
+        radial-gradient(circle at 8% 48%, rgba(255, 255, 255, 0.55) 0 0.6px, transparent 1px),
+        /* Brume violette façon aérographe */
+        radial-gradient(ellipse at 30% 55%, rgba(130, 90, 210, 0.3) 0%, transparent 60%),
+        /* Crêtes rocheuses au bas du visuel */
+        radial-gradient(ellipse at 12% 118%, rgb(6, 8, 16) 0% 42%, transparent 43%),
+        radial-gradient(ellipse at 48% 124%, rgb(8, 10, 20) 0% 46%, transparent 47%),
+        radial-gradient(ellipse at 88% 120%, rgb(6, 8, 16) 0% 40%, transparent 41%),
+        /* Nuit profonde du t-shirt foncé */
+        linear-gradient(160deg, rgb(16, 20, 42) 0%, rgb(35, 32, 66) 50%, rgb(10, 13, 28) 100%);
+    color: #e6e9ff !important;
     text-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.65),
-        0 0 2px rgba(255, 255, 255, 0.18);
+        0 1px 1px rgba(0, 0, 0, 0.75),
+        0 0 3px rgba(190, 200, 255, 0.3);
     box-shadow:
         0 2px 4px rgba(25, 30, 55, 0.45),
         inset 0 0 0 1px rgba(201, 207, 255, 0.28);
 }
 
 .assignment-code.skin-johnny-wolf-moon::before {
-    /* Pleine lune en haut à droite */
-    content: "🌕";
+    /* Pleine lune: disque crème lumineux avec cratères, halo d'aérographe */
+    content: "";
     position: absolute;
-    top: -3px;
+    top: 1px;
     right: 2px;
-    font-size: 20px;
-    line-height: 1;
-    opacity: 0.9;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 32%, rgba(170, 175, 195, 0.55) 0 1.6px, transparent 2px),
+        radial-gradient(circle at 62% 60%, rgba(170, 175, 195, 0.45) 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 48% 22%, rgba(170, 175, 195, 0.4) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 42% 42%, #fdf8e4 0% 60%, #e3dbba 100%);
+    box-shadow:
+        0 0 5px rgba(253, 248, 228, 0.85),
+        0 0 10px rgba(200, 190, 255, 0.4);
     pointer-events: none;
+    animation: johnny-moon-glow 3.6s ease-in-out infinite;
 }
 
 .assignment-code.skin-johnny-wolf-moon::after {
-    /* Loup en bas à gauche */
-    content: "🐺";
+    /* Silhouette du loup qui hurle, museau levé vers la lune */
+    content: "";
     position: absolute;
-    bottom: -3px;
-    left: 2px;
-    font-size: 20px;
-    line-height: 1;
-    opacity: 0.99;
+    bottom: 1px;
+    right: 7px;
+    width: 15px;
+    height: 13px;
+    background: rgb(4, 6, 13);
+    clip-path: polygon(
+        88% 2%, 84% 16%, 72% 28%, 64% 48%, 60% 70%, 58% 100%,
+        48% 100%, 44% 78%, 32% 100%, 22% 100%, 18% 86%,
+        4% 84%, 0% 66%, 14% 56%, 30% 42%, 46% 28%,
+        54% 12%, 60% 0%, 66% 10%, 74% 6%
+    );
+    filter: drop-shadow(0 0 2px rgba(140, 110, 230, 0.55));
     pointer-events: none;
+    animation: johnny-wolf-howl 3.6s ease-in-out infinite;
+    transform-origin: 50% 100%;
+}
+
+@keyframes johnny-moon-glow {
+    0%, 100% { box-shadow: 0 0 4px rgba(253, 248, 228, 0.7), 0 0 8px rgba(200, 190, 255, 0.3); }
+    50% { box-shadow: 0 0 7px rgba(253, 248, 228, 1), 0 0 13px rgba(200, 190, 255, 0.55); }
+}
+
+@keyframes johnny-wolf-howl {
+    0%, 55%, 100% { transform: scaleY(1); }
+    70%, 85% { transform: scaleY(1.06) rotate(-2deg); }
 }
 
 /* Skin The Division: ambiance agent SHD — fond urbain sombre, anneau orange, HUD.
