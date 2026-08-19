@@ -75,7 +75,7 @@ class Employee(models.Model):
 
     skin_type = fields.Selection(
         [
-            ("sakura", "🌸 Pétales de cerisier"),
+            ("sakura", "🌸 Pétales de cerisier (fête du printemps)"),
             ("johnny_wolf_moon", "🐺🌕 Johnny Legend"),
             ("the_division", "🟠 The Division (agent SHD)"),
             ("zelda", "🗡️ Zelda (Triforce)"),
