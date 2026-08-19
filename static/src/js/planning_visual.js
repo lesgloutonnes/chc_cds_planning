@@ -286,6 +286,15 @@
        sakura: 'skin-sakura',
        johnny_wolf_moon: 'skin-johnny-wolf-moon',
        the_division: 'skin-the-division',
+       zelda: 'skin-zelda',
+       star_wars: 'skin-star-wars',
+       matrix: 'skin-matrix',
+       resident_evil: 'skin-resident-evil',
+       batman: 'skin-batman',
+       monster_ultra_white: 'skin-monster-ultra-white',
+       hard_rock: 'skin-hard-rock',
+       french_pride: 'skin-french-pride',
+       dbz: 'skin-dbz',
    };
 
    function applyEmployeeSkin(element) {
