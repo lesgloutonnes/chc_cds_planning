@@ -306,6 +306,13 @@
        av_tech: 'skin-av-tech',
        slimer: 'skin-slimer',
        seducteur: 'skin-seducteur',
+       dionaea: 'skin-dionaea',
+       gym: 'skin-gym',
+       formula_one: 'skin-formula-one',
+       rasta: 'skin-rasta',
+       jesus: 'skin-jesus',
+       davinci_code: 'skin-davinci-code',
+       beer_lover: 'skin-beer-lover',
    };
 
    function applyEmployeeSkin(element) {
