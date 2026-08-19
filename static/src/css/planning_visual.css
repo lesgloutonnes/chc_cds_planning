@@ -1349,6 +1349,443 @@
     100% { transform: translateX(13px) scale(1.5); opacity: 0; }
 }
 
+/* Skin Labo zombie: labo contaminé + fiole de liquide vert + bulles toxiques */
+.assignment-code.skin-undead-lab {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        radial-gradient(circle at 70% 85%, rgba(80, 220, 90, 0.28) 0%, transparent 55%),
+        linear-gradient(150deg, rgb(16, 24, 18) 0%, rgb(30, 44, 32) 55%, rgb(10, 18, 12) 100%);
+    color: #b8ffb0 !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.85),
+        0 0 4px rgba(80, 255, 100, 0.45);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(90, 230, 100, 0.4);
+}
+
+.assignment-code.skin-undead-lab::before {
+    /* Fiole Erlenmeyer: col en verre + liquide vert fluo */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    width: 11px;
+    height: 12px;
+    background: linear-gradient(
+        180deg,
+        rgba(210, 235, 255, 0.4) 0% 42%,
+        #52e05a 42% 100%
+    );
+    clip-path: polygon(36% 0%, 64% 0%, 64% 38%, 100% 100%, 0% 100%);
+    filter: drop-shadow(0 0 3px rgba(80, 255, 100, 0.85));
+    pointer-events: none;
+    animation: undead-flask-glow 2.2s ease-in-out infinite;
+}
+
+.assignment-code.skin-undead-lab::after {
+    /* Bulles toxiques qui s'échappent de la fiole */
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 7px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(140, 255, 150, 0.9);
+    box-shadow:
+        -3px -2px 0 -1px rgba(140, 255, 150, 0.75),
+        2.5px -4px 0 -1.3px rgba(140, 255, 150, 0.6);
+    pointer-events: none;
+    animation: undead-bubbles-rise 2.2s ease-in infinite;
+}
+
+@keyframes undead-flask-glow {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(80, 255, 100, 0.6)); }
+    50% { filter: drop-shadow(0 0 5px rgba(80, 255, 100, 1)); }
+}
+
+@keyframes undead-bubbles-rise {
+    0% { transform: translateY(2px) scale(0.5); opacity: 0; }
+    40% { opacity: 0.95; }
+    100% { transform: translateY(-7px) scale(1.15); opacity: 0; }
+}
+
+/* Skin James Bond: smoking rayé + canon de pistolet + nœud papillon */
+.assignment-code.skin-james-bond {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05) 0 1px,
+            transparent 1px 5px
+        ),
+        linear-gradient(135deg, rgb(10, 10, 14) 0%, rgb(26, 26, 34) 55%, rgb(6, 6, 10) 100%);
+    color: #f0e2c0 !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.9),
+        0 0 3px rgba(240, 226, 192, 0.3);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(212, 190, 140, 0.4);
+}
+
+.assignment-code.skin-james-bond::before {
+    /* Vue du canon: cercle blanc aux stries concentriques, générique 007 */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(
+        circle at 50% 50%,
+        #fafafa 0 1.6px,
+        #8d939c 1.6px 2.6px
+    );
+    box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.55),
+        inset 0 0 2px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    animation: bond-barrel-sway 3.4s ease-in-out infinite;
+}
+
+.assignment-code.skin-james-bond::after {
+    /* Nœud papillon argenté */
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 3px;
+    width: 11px;
+    height: 5px;
+    background: linear-gradient(180deg, #e8e8ee 0%, #9a9aa6 100%);
+    clip-path: polygon(
+        0% 0%, 42% 32%, 58% 32%, 100% 0%,
+        100% 100%, 58% 68%, 42% 68%, 0% 100%
+    );
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.4));
+    pointer-events: none;
+}
+
+@keyframes bond-barrel-sway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-2px); }
+}
+
+/* Skin Pikachu: jaune électrique + oreille à pointe noire + joues rouges */
+.assignment-code.skin-pikachu {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+        135deg,
+        rgb(255, 225, 77) 0%,
+        rgb(255, 204, 0) 55%,
+        rgb(245, 183, 0) 100%
+    );
+    color: #5a3d00 !important;
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.7),
+        0 0 3px rgba(255, 255, 255, 0.45);
+    box-shadow:
+        0 2px 4px rgba(200, 150, 0, 0.45),
+        inset 0 0 0 1px rgba(138, 90, 0, 0.45);
+}
+
+.assignment-code.skin-pikachu::before {
+    /* Oreille pointue à bout noir, légèrement inclinée */
+    content: "";
+    position: absolute;
+    top: 1px;
+    right: 5px;
+    width: 7px;
+    height: 11px;
+    background: linear-gradient(180deg, #1c1c1c 0% 38%, #ffd21f 38% 100%);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(18deg);
+    filter: drop-shadow(0 1px 1px rgba(140, 95, 0, 0.5));
+    pointer-events: none;
+}
+
+.assignment-code.skin-pikachu::after {
+    /* Joues rouges qui crépitent d'électricité */
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff4f4f 0% 60%, #e03030 100%);
+    box-shadow: 32px 0 0 0 #ff4f4f;
+    pointer-events: none;
+    animation: pikachu-spark 1.8s ease-in-out infinite;
+}
+
+@keyframes pikachu-spark {
+    0%, 100% { filter: drop-shadow(0 0 1px rgba(255, 80, 80, 0.5)); }
+    45%, 55% { filter: drop-shadow(0 0 4px rgba(255, 200, 40, 1)); }
+}
+
+/* Skin Constructeur: mur de briques + casque de chantier + bande de sécurité */
+.assignment-code.skin-builder {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        /* Joints de mortier horizontaux et verticaux */
+        repeating-linear-gradient(
+            0deg,
+            rgba(235, 225, 215, 0.35) 0 1px,
+            transparent 1px 8px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(235, 225, 215, 0.22) 0 1px,
+            transparent 1px 12px
+        ),
+        linear-gradient(135deg, rgb(178, 84, 48) 0%, rgb(150, 62, 30) 100%);
+    color: #fff3e8 !important;
+    text-shadow:
+        0 1px 1px rgba(80, 30, 5, 0.85),
+        0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 2px 4px rgba(90, 40, 10, 0.5),
+        inset 0 0 0 1px rgba(255, 220, 180, 0.35);
+}
+
+.assignment-code.skin-builder::before {
+    /* Casque de chantier jaune: calotte bombée + visière */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 12px;
+    height: 9px;
+    background:
+        linear-gradient(180deg, transparent 0 74%, #e69500 74% 100%),
+        linear-gradient(180deg, #ffd21f 0%, #f5a800 100%);
+    border-radius: 55% 55% 12% 12% / 90% 90% 12% 12%;
+    filter: drop-shadow(0 1px 1.5px rgba(60, 25, 0, 0.6));
+    pointer-events: none;
+}
+
+.assignment-code.skin-builder::after {
+    /* Bande de sécurité jaune/noir qui défile en bas */
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffd21f 0 4px,
+        #1a1a1a 4px 8px
+    );
+    pointer-events: none;
+    animation: builder-hazard-scroll 1.4s linear infinite;
+}
+
+@keyframes builder-hazard-scroll {
+    from { background-position: 0 0; }
+    to { background-position: 11.3px 0; }
+}
+
+/* Skin Technicien AV: écran de visio + LED + câble jack doré */
+.assignment-code.skin-av-tech {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(120, 190, 255, 0.05) 0 1px,
+            transparent 1px 6px
+        ),
+        linear-gradient(135deg, rgb(18, 23, 32) 0%, rgb(33, 42, 56) 55%, rgb(13, 17, 25) 100%);
+    color: #a8dcff !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.85),
+        0 0 4px rgba(100, 190, 255, 0.4);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(90, 170, 240, 0.4);
+}
+
+.assignment-code.skin-av-tech::before {
+    /* Écran de visioconférence: cadre, objectif caméra, LED verte */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 13px;
+    height: 9px;
+    border: 1px solid #5a6b80;
+    border-radius: 2px;
+    background:
+        /* LED d'enregistrement */
+        radial-gradient(circle at 85% 22%, #3aff6e 0 1px, transparent 1.4px),
+        /* Objectif caméra */
+        radial-gradient(circle at 50% 50%, #4fc3f7 0 1.7px, rgba(79, 195, 247, 0.35) 1.7px 2.6px, transparent 3px),
+        linear-gradient(180deg, #2c3442 0%, #1b2029 100%);
+    pointer-events: none;
+    animation: av-screen-glow 2s ease-in-out infinite;
+}
+
+.assignment-code.skin-av-tech::after {
+    /* Jack audio: pointe dorée + corps noir + gaine de câble */
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    width: 14px;
+    height: 3.5px;
+    background: linear-gradient(
+        90deg,
+        #d9b44a 0 3.5px,
+        #26262b 3.5px 8px,
+        #46464e 8px 100%
+    );
+    clip-path: polygon(0% 50%, 14% 0%, 100% 0%, 100% 100%, 14% 100%);
+    transform: rotate(-6deg);
+    filter: drop-shadow(0 0 1.5px rgba(217, 180, 74, 0.55));
+    pointer-events: none;
+}
+
+@keyframes av-screen-glow {
+    0%, 100% { filter: drop-shadow(0 0 1px rgba(79, 195, 247, 0.4)); }
+    50% { filter: drop-shadow(0 0 3.5px rgba(58, 255, 110, 0.75)); }
+}
+
+/* Skin Bouffe-tout: nuit ecto + Slimer qui flotte + logo anti-fantômes */
+.assignment-code.skin-slimer {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+        160deg,
+        rgb(24, 15, 46) 0%,
+        rgb(45, 27, 78) 55%,
+        rgb(16, 9, 32) 100%
+    );
+    color: #c9ffa8 !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.85),
+        0 0 4px rgba(130, 240, 80, 0.5);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(130, 240, 80, 0.35);
+}
+
+.assignment-code.skin-slimer::before {
+    /* Slimer: blob vert gourmand, yeux blancs, grande bouche ouverte */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 12px;
+    height: 11px;
+    background:
+        radial-gradient(circle at 32% 30%, #ffffff 0 1.3px, transparent 1.7px),
+        radial-gradient(circle at 62% 26%, #ffffff 0 1.3px, transparent 1.7px),
+        radial-gradient(3.4px 2.4px at 50% 68%, #1e4d0a 0 70%, transparent 100%),
+        radial-gradient(circle at 45% 40%, #8ee030 0% 55%, #4a9e0f 100%);
+    border-radius: 55% 45% 58% 42% / 60% 55% 45% 40%;
+    filter: drop-shadow(0 0 3px rgba(130, 240, 80, 0.75));
+    pointer-events: none;
+    animation: slimer-wobble 2.4s ease-in-out infinite;
+}
+
+.assignment-code.skin-slimer::after {
+    /* Logo Ghostbusters: cercle rouge barré */
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid #e02020;
+    border-radius: 50%;
+    background: linear-gradient(
+        45deg,
+        transparent 0 42%,
+        #e02020 42% 58%,
+        transparent 58% 100%
+    );
+    box-shadow: 0 0 3px rgba(224, 32, 32, 0.6);
+    pointer-events: none;
+}
+
+@keyframes slimer-wobble {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-1.5px) rotate(4deg); }
+}
+
+/* Skin Séducteur: velours bordeaux + cœur qui bat + petit cœur qui s'envole */
+.assignment-code.skin-seducteur {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        radial-gradient(circle at 80% 20%, rgba(255, 150, 190, 0.25) 0%, transparent 50%),
+        linear-gradient(135deg, rgb(74, 14, 46) 0%, rgb(122, 25, 72) 55%, rgb(56, 8, 31) 100%);
+    color: #ffd9e8 !important;
+    text-shadow:
+        0 1px 1px rgba(60, 0, 25, 0.85),
+        0 0 4px rgba(255, 140, 180, 0.4);
+    box-shadow:
+        0 2px 4px rgba(70, 5, 35, 0.55),
+        inset 0 0 0 1px rgba(212, 175, 55, 0.5);
+}
+
+.assignment-code.skin-seducteur::before {
+    /* Cœur principal qui bat (double pulsation cardiaque) */
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 11px;
+    height: 10px;
+    background: linear-gradient(180deg, #ff5c8a 0%, #e0114e 100%);
+    clip-path: polygon(
+        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
+        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
+    );
+    filter: drop-shadow(0 0 3px rgba(255, 92, 138, 0.8));
+    transform-origin: center;
+    pointer-events: none;
+    animation: seducteur-heartbeat 1.6s ease-in-out infinite;
+}
+
+.assignment-code.skin-seducteur::after {
+    /* Petit cœur envoyé, qui s'élève et se dissipe */
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 6px;
+    height: 5.5px;
+    background: linear-gradient(180deg, #ff8ab0 0%, #f04578 100%);
+    clip-path: polygon(
+        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
+        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
+    );
+    pointer-events: none;
+    animation: seducteur-heart-float 2.8s ease-out infinite;
+}
+
+@keyframes seducteur-heartbeat {
+    0%, 48%, 100% { transform: scale(1); }
+    12% { transform: scale(1.2); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.14); }
+}
+
+@keyframes seducteur-heart-float {
+    0%, 12% { transform: translateY(2px) scale(0.5); opacity: 0; }
+    30% { opacity: 0.95; }
+    100% { transform: translateY(-9px) scale(1.05); opacity: 0; }
+}
+
 /* ================================
    AJUSTEMENTS SPÉCIFIQUES: TABLE PERMANENCES SPÉCIALES
    ================================ */

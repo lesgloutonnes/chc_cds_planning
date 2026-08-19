@@ -299,6 +299,13 @@
        scream: 'skin-scream',
        tech_nomade: 'skin-tech-nomade',
        pfff: 'skin-pfff',
+       undead_lab: 'skin-undead-lab',
+       james_bond: 'skin-james-bond',
+       pikachu: 'skin-pikachu',
+       builder: 'skin-builder',
+       av_tech: 'skin-av-tech',
+       slimer: 'skin-slimer',
+       seducteur: 'skin-seducteur',
    };
 
    function applyEmployeeSkin(element) {
