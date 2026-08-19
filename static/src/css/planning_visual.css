@@ -846,9 +846,11 @@
 .assignment-code.skin-resident-evil {
     position: relative;
     overflow: hidden;
-    background-image:
-        radial-gradient(circle at 75% 80%, rgba(160, 0, 0, 0.4) 0%, transparent 55%),
-        linear-gradient(135deg, rgb(24, 8, 8) 0%, rgb(52, 14, 14) 55%, rgb(16, 5, 5) 100%);
+    background:
+        /* Ligne de base du moniteur cardiaque */
+        linear-gradient(rgba(255, 42, 42, 0.4), rgba(255, 42, 42, 0.4)) 0 calc(100% - 5px) / 100% 1px no-repeat,
+        radial-gradient(circle at 75% 80%, rgba(160, 0, 0, 0.4) 0%, transparent 55%) 0 0 / 100% 100% no-repeat,
+        linear-gradient(135deg, rgb(24, 8, 8) 0%, rgb(52, 14, 14) 55%, rgb(16, 5, 5) 100%) 0 0 / 100% 100% no-repeat;
     color: #ffb3b3 !important;
     text-shadow:
         0 1px 1px rgba(0, 0, 0, 0.85),
@@ -880,33 +882,29 @@
 }
 
 .assignment-code.skin-resident-evil::after {
-    /* Tracé de rythme cardiaque: bat plusieurs fois puis finit en ligne plate */
+    /* Tracé cardiaque qui défile de droite à gauche: pouls fort, moyen,
+       petit, puis long plat avant que ça reparte */
     content: "";
     position: absolute;
     bottom: 1px;
-    left: 2px;
-    right: 2px;
+    left: 0;
+    width: 55px;
     height: 8px;
     background: #ff2a2a;
     clip-path: polygon(
-        0% 52%, 26% 52%, 32% 8%, 38% 90%, 43% 52%, 100% 52%,
-        100% 64%, 44% 64%, 39% 100%, 31% 28%, 27% 64%, 0% 64%
+        0% 52%, 9% 52%, 12% 0%, 15% 95%, 18% 52%, 29% 52%, 32% 20%, 35% 82%, 38% 52%,
+        49% 52%, 51% 38%, 53% 66%, 55% 52%, 100% 52%,
+        100% 64%, 55% 64%, 53% 78%, 51% 50%, 49% 64%, 38% 64%, 35% 94%, 32% 32%, 29% 64%,
+        18% 64%, 15% 100%, 12% 12%, 9% 64%, 0% 64%
     );
     filter: drop-shadow(0 0 2px rgba(255, 42, 42, 0.85));
-    transform-origin: 50% 58%;
     pointer-events: none;
-    animation: re-heartbeat 4s linear infinite;
+    animation: re-ecg-scroll 5s linear infinite;
 }
 
-@keyframes re-heartbeat {
-    0%, 8% { transform: scaleY(1); opacity: 1; }
-    12% { transform: scaleY(1.3); }
-    16%, 28% { transform: scaleY(1); }
-    32% { transform: scaleY(1.3); }
-    36%, 48% { transform: scaleY(1); }
-    52% { transform: scaleY(1.3); }
-    /* Arrêt cardiaque: la courbe s'aplatit en ligne continue */
-    60%, 100% { transform: scaleY(0.05); opacity: 0.95; }
+@keyframes re-ecg-scroll {
+    from { transform: translateX(52px); }
+    to { transform: translateX(-60px); }
 }
 
 /* Skin Batman: nuit de Gotham + faisceau de projecteur + grand bat-signal animé */
@@ -990,6 +988,13 @@
     position: relative;
     overflow: hidden;
     background-image:
+        /* Arabesques discrètes, comme le motif gravé de la canette */
+        radial-gradient(circle at 18% 28%, transparent 0 2.2px, rgba(150, 160, 172, 0.24) 2.2px 3px, transparent 3px),
+        radial-gradient(circle at 72% 18%, transparent 0 3px, rgba(150, 160, 172, 0.2) 3px 3.8px, transparent 3.8px),
+        radial-gradient(circle at 42% 55%, transparent 0 2.6px, rgba(150, 160, 172, 0.22) 2.6px 3.4px, transparent 3.4px),
+        radial-gradient(circle at 88% 62%, transparent 0 2px, rgba(150, 160, 172, 0.22) 2px 2.8px, transparent 2.8px),
+        radial-gradient(circle at 10% 74%, transparent 0 2.4px, rgba(150, 160, 172, 0.18) 2.4px 3.2px, transparent 3.2px),
+        radial-gradient(circle at 60% 30%, transparent 0 1.6px, rgba(150, 160, 172, 0.18) 1.6px 2.3px, transparent 2.3px),
         linear-gradient(
             105deg,
             rgba(255, 255, 255, 0.98) 0%,
@@ -1005,20 +1010,21 @@
 }
 
 .assignment-code.skin-monster-ultra-white::before {
-    /* Le "M" de Monster, gravé métal sur la canette blanche */
-    content: "M";
+    /* Marquage de la canette, centré en bas */
+    content: "MONSTER\AENERGY ULTRA";
     position: absolute;
-    top: 0;
-    right: 3px;
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    white-space: pre;
+    text-align: center;
     font-family: 'Impact', 'Arial Black', sans-serif;
-    font-size: 14px;
+    font-size: 5px;
     font-weight: 900;
-    line-height: 1.1;
-    color: #6a737d;
-    transform: skewX(-8deg);
-    text-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.9),
-        0 -0.5px 1px rgba(70, 80, 90, 0.6);
+    line-height: 1.25;
+    letter-spacing: 0.6px;
+    color: #5a646e;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
     pointer-events: none;
 }
 
@@ -1057,10 +1063,11 @@
         radial-gradient(circle at 70% 12%, rgba(200, 205, 215, 0.9) 0 1.2px, transparent 1.6px),
         radial-gradient(circle at 90% 12%, rgba(200, 205, 215, 0.9) 0 1.2px, transparent 1.6px),
         linear-gradient(135deg, rgb(20, 20, 24) 0%, rgb(44, 42, 48) 55%, rgb(14, 14, 17) 100%);
-    color: #f2f2f2 !important;
+    color: #ffffff !important;
     text-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.9),
-        0 0 4px rgba(255, 200, 40, 0.3);
+        0 1px 2px rgba(0, 0, 0, 0.95),
+        0 0 5px rgba(0, 0, 0, 0.85),
+        0 0 3px rgba(255, 200, 40, 0.25);
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.6),
         inset 0 0 0 1px rgba(190, 195, 205, 0.35);
@@ -1092,18 +1099,29 @@
 }
 
 .assignment-code.skin-hard-rock::after {
-    /* Mur de flammes qui lèche le bas de la bulle */
+    /* Langues de flammes effilées le long du bas, discrètes sous le texte:
+       cœurs jaunes vifs + halos orange, sur une fine braise rouge */
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 45%;
+    height: 34%;
     background:
-        radial-gradient(ellipse at 12% 100%, rgba(255, 120, 20, 0.85) 0% 42%, transparent 60%),
-        radial-gradient(ellipse at 38% 100%, rgba(255, 60, 10, 0.8) 0% 52%, transparent 70%),
-        radial-gradient(ellipse at 64% 100%, rgba(255, 150, 30, 0.8) 0% 44%, transparent 62%),
-        radial-gradient(ellipse at 90% 100%, rgba(255, 90, 15, 0.75) 0% 40%, transparent 56%);
+        /* Cœurs de flamme jaunes */
+        radial-gradient(1.6px 4.5px at 12% 100%, rgba(255, 220, 90, 0.9) 0 60%, transparent 100%),
+        radial-gradient(1.4px 3.5px at 32% 100%, rgba(255, 210, 80, 0.85) 0 60%, transparent 100%),
+        radial-gradient(1.7px 5px at 52% 100%, rgba(255, 225, 100, 0.9) 0 60%, transparent 100%),
+        radial-gradient(1.4px 3.8px at 72% 100%, rgba(255, 210, 80, 0.85) 0 60%, transparent 100%),
+        radial-gradient(1.6px 4.5px at 90% 100%, rgba(255, 220, 90, 0.9) 0 60%, transparent 100%),
+        /* Halos orange autour des langues */
+        radial-gradient(3.5px 6px at 12% 100%, rgba(255, 110, 20, 0.5) 0 55%, transparent 100%),
+        radial-gradient(3px 5px at 32% 100%, rgba(255, 90, 15, 0.45) 0 55%, transparent 100%),
+        radial-gradient(3.8px 6.5px at 52% 100%, rgba(255, 120, 25, 0.5) 0 55%, transparent 100%),
+        radial-gradient(3px 5px at 72% 100%, rgba(255, 90, 15, 0.45) 0 55%, transparent 100%),
+        radial-gradient(3.5px 6px at 90% 100%, rgba(255, 110, 20, 0.5) 0 55%, transparent 100%),
+        /* Braise au ras du bord */
+        linear-gradient(0deg, rgba(200, 40, 10, 0.55) 0%, transparent 45%);
     transform-origin: 50% 100%;
     pointer-events: none;
     animation: metal-flames-flicker 0.9s ease-in-out infinite;
@@ -1115,8 +1133,8 @@
 }
 
 @keyframes metal-flames-flicker {
-    0%, 100% { transform: scaleY(1); opacity: 0.9; }
-    50% { transform: scaleY(1.25); opacity: 1; }
+    0%, 100% { transform: scaleY(1); opacity: 0.85; }
+    50% { transform: scaleY(1.3); opacity: 1; }
 }
 
 /* Skin Français fier: bandes tricolores + cocarde + tour Eiffel */
@@ -1139,53 +1157,49 @@
 }
 
 .assignment-code.skin-french-pride::before {
-    /* Coq français: crête rouge, silhouette bleu nuit, queue en panache,
-       qui se cambre pour chanter */
+    /* Ondulation lumineuse qui parcourt le drapeau, comme du tissu au vent */
     content: "";
     position: absolute;
-    bottom: 2px;
-    right: 3px;
-    width: 13px;
-    height: 13px;
-    background: linear-gradient(180deg, #d42020 0% 18%, #16295e 18% 100%);
-    clip-path: polygon(
-        2% 38%, 10% 26%, 8% 14%, 16% 20%, 20% 6%, 26% 18%, 32% 8%, 34% 22%,
-        52% 20%, 70% 4%, 78% 14%, 90% 2%, 96% 18%, 100% 40%,
-        78% 55%, 60% 88%, 54% 88%, 54% 100%, 46% 100%, 46% 88%,
-        36% 84%, 12% 62%, 6% 50%
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        75deg,
+        transparent 0% 35%,
+        rgba(255, 255, 255, 0.45) 47% 53%,
+        transparent 65% 100%
     );
-    transform-origin: 50% 100%;
-    filter: drop-shadow(0 1px 1.5px rgba(0, 20, 80, 0.5));
     pointer-events: none;
-    animation: french-cocorico 3.2s ease-in-out infinite;
+    animation: french-flag-wave-light 2.6s linear infinite;
 }
 
 .assignment-code.skin-french-pride::after {
-    /* Le chant du coq, qui apparaît quand il se cambre */
-    content: "cocorico !";
+    /* Creux d'ombre qui suit la vague de lumière, pour le relief du tissu */
+    content: "";
     position: absolute;
-    top: 1px;
-    left: 3px;
-    font-size: 6.5px;
-    line-height: 1;
-    font-style: italic;
-    font-weight: 700;
-    color: #16295e;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        75deg,
+        transparent 0% 35%,
+        rgba(10, 30, 90, 0.22) 47% 53%,
+        transparent 65% 100%
+    );
     pointer-events: none;
-    opacity: 0;
-    animation: french-cocorico-cri 3.2s ease-in-out infinite;
+    animation: french-flag-wave-shadow 2.6s linear infinite;
 }
 
-@keyframes french-cocorico {
-    0%, 58%, 100% { transform: rotate(0deg); }
-    68%, 88% { transform: rotate(-9deg) translateY(-1px); }
+@keyframes french-flag-wave-light {
+    from { transform: translateX(-70%); }
+    to { transform: translateX(70%); }
 }
 
-@keyframes french-cocorico-cri {
-    0%, 62% { opacity: 0; }
-    70%, 90% { opacity: 1; }
-    100% { opacity: 0; }
+@keyframes french-flag-wave-shadow {
+    from { transform: translateX(-105%); }
+    to { transform: translateX(35%); }
 }
 
 /* Skin DBZ: gi orange de Goku + boule de cristal + aura Super Saiyan */
@@ -1216,17 +1230,21 @@
 }
 
 .assignment-code.skin-dbz::before {
-    /* Boule de cristal: sphère orange brillante avec étoile rouge */
+    /* Boule de cristal à 4 étoiles (celle de Son Gohan): sphère orange
+       brillante, quatre étoiles rouges en losange au centre */
     content: "";
     position: absolute;
     top: 2px;
     right: 3px;
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.95) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 58% 58%, #d21f1f 0 1.7px, transparent 2.2px),
+        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.95) 0 1.3px, transparent 1.8px),
+        radial-gradient(circle at 50% 38%, #d21f1f 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 36% 56%, #d21f1f 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 64% 56%, #d21f1f 0 1.2px, transparent 1.6px),
+        radial-gradient(circle at 50% 74%, #d21f1f 0 1.2px, transparent 1.6px),
         radial-gradient(circle at 50% 45%, #ffcf4d 0% 55%, #ff9d00 100%);
     box-shadow:
         0 0 4px rgba(255, 190, 60, 0.9),
@@ -1236,24 +1254,23 @@
 }
 
 .assignment-code.skin-dbz::after {
-    /* Shenron: long dragon vert serpentin qui ondule en bas à gauche,
-       tête cornue dressée vers le haut */
+    /* Kinto-un, le nuage magique doré, qui file en rebondissant */
     content: "";
     position: absolute;
-    bottom: 1px;
-    left: 2px;
-    width: 18px;
-    height: 9px;
-    background: linear-gradient(90deg, #2e8b3a 0%, #46b654 60%, #2e8b3a 100%);
-    clip-path: polygon(
-        0% 78%, 8% 58%, 18% 72%, 28% 46%, 38% 62%, 48% 34%,
-        56% 48%, 64% 22%, 72% 34%, 78% 10%, 84% 0%, 92% 6%,
-        100% 22%, 92% 30%, 96% 46%, 86% 38%, 76% 56%, 68% 46%,
-        58% 70%, 50% 58%, 40% 84%, 30% 70%, 20% 96%, 10% 84%, 4% 96%
-    );
-    filter: drop-shadow(0 0 2px rgba(70, 200, 90, 0.6));
+    bottom: 3px;
+    left: 3px;
+    width: 6px;
+    height: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #fff3b0 0% 45%, #ffd54a 100%);
+    box-shadow:
+        4.5px 0.5px 0 -0.6px #ffd54a,
+        8.5px -0.5px 0 -1px #ffcd2e,
+        3px -2.5px 0 -1.2px #ffe98a,
+        6.5px -2.5px 0 -1.5px #ffd54a;
+    filter: drop-shadow(0 1px 1.5px rgba(180, 90, 0, 0.5));
     pointer-events: none;
-    animation: dbz-shenron-undulate 2.6s ease-in-out infinite;
+    animation: dbz-kintoun-fly 3s ease-in-out infinite;
 }
 
 @keyframes dbz-ball-glow {
@@ -1261,10 +1278,11 @@
     50% { box-shadow: 0 0 6px rgba(255, 210, 90, 1), inset 0 -1px 2px rgba(180, 90, 0, 0.6); }
 }
 
-@keyframes dbz-shenron-undulate {
-    0%, 100% { transform: translateY(0) skewX(0deg); }
-    30% { transform: translateY(-1.4px) skewX(-6deg); }
-    65% { transform: translateY(0.6px) skewX(5deg); }
+@keyframes dbz-kintoun-fly {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(6px, -2px); }
+    50% { transform: translate(12px, 0.5px); }
+    75% { transform: translate(5px, -1.5px); }
 }
 
 /* Skin Top Chef: rouge brigade + toque blanche + vapeur de cuisine */
@@ -1578,9 +1596,9 @@
     content: "";
     position: absolute;
     bottom: 1px;
-    left: 3px;
-    width: 9px;
-    height: 12px;
+    left: 2px;
+    width: 14px;
+    height: 18px;
     background: linear-gradient(180deg, #14331a 0%, #0c2410 100%);
     clip-path: polygon(
         34% 0%, 52% 3%, 56% 14%, 46% 19%, 52% 42%, 48% 100%,
@@ -1610,6 +1628,12 @@
     position: relative;
     overflow: hidden;
     background-image:
+        /* Spirale du canon iconique du générique, en filigrane */
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.11) 0 1.5px,
+            transparent 1.5px 7px
+        ),
         repeating-linear-gradient(
             90deg,
             rgba(255, 255, 255, 0.05) 0 1px,
@@ -1710,46 +1734,37 @@
 }
 
 .assignment-code.skin-pikachu::before {
-    /* Éclair électrique blanc qui crépite en haut à gauche */
+    /* Bouts d'oreilles noirs de Pikachu dans les coins supérieurs */
     content: "";
     position: absolute;
-    top: 2px;
-    left: 4px;
-    width: 8px;
-    height: 11px;
-    background: linear-gradient(180deg, #ffffff 0%, #ffe98a 100%);
-    clip-path: polygon(55% 0%, 15% 55%, 42% 55%, 32% 100%, 85% 38%, 55% 38%);
-    filter: drop-shadow(0 0 3px rgba(80, 160, 255, 0.9));
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background:
+        linear-gradient(to bottom right, #1c1c1c 48%, transparent 50%) left top / 9px 9px no-repeat,
+        linear-gradient(to bottom left, #1c1c1c 48%, transparent 50%) right top / 9px 9px no-repeat;
     pointer-events: none;
-    animation: pika-flash-a 2.2s linear infinite;
 }
 
 .assignment-code.skin-pikachu::after {
-    /* Second éclair, plus petit, en bas à droite, sur un autre tempo */
+    /* Les deux joues rouges, dans la partie basse, qui crépitent doucement */
     content: "";
     position: absolute;
-    bottom: 2px;
-    right: 14px;
+    bottom: 5px;
+    left: 9px;
     width: 6px;
-    height: 8px;
-    background: linear-gradient(180deg, #ffffff 0%, #ffe98a 100%);
-    clip-path: polygon(55% 0%, 15% 55%, 42% 55%, 32% 100%, 85% 38%, 55% 38%);
-    transform: scaleX(-1);
-    filter: drop-shadow(0 0 2.5px rgba(80, 160, 255, 0.9));
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff5050 0% 60%, #e03030 100%);
+    box-shadow: 26px 0 0 0 #ff5050;
     pointer-events: none;
-    animation: pika-flash-b 2.2s linear infinite;
+    animation: pika-cheek-glow 2.4s ease-in-out infinite;
 }
 
-@keyframes pika-flash-a {
-    0%, 4% { opacity: 0; }
-    6%, 22% { opacity: 1; }
-    24%, 100% { opacity: 0; }
-}
-
-@keyframes pika-flash-b {
-    0%, 52% { opacity: 0; }
-    54%, 72% { opacity: 1; }
-    74%, 100% { opacity: 0; }
+@keyframes pika-cheek-glow {
+    0%, 100% { filter: drop-shadow(0 0 1px rgba(255, 80, 80, 0.5)); }
+    50% { filter: drop-shadow(0 0 3.5px rgba(255, 200, 40, 0.95)); }
 }
 
 /* Skin Constructeur: mur de briques + casque de chantier + bande de sécurité */
@@ -1857,23 +1872,29 @@
 }
 
 .assignment-code.skin-av-tech::after {
-    /* Jack audio: pointe dorée + corps noir + gaine de câble */
+    /* Égaliseur audio: 5 barres bleues qui pompent au rythme du son */
     content: "";
     position: absolute;
-    bottom: 3px;
+    bottom: 2px;
     left: 3px;
     width: 14px;
-    height: 3.5px;
-    background: linear-gradient(
-        90deg,
-        #d9b44a 0 3.5px,
-        #26262b 3.5px 8px,
-        #46464e 8px 100%
-    );
-    clip-path: polygon(0% 50%, 14% 0%, 100% 0%, 100% 100%, 14% 100%);
-    transform: rotate(-6deg);
-    filter: drop-shadow(0 0 1.5px rgba(217, 180, 74, 0.55));
+    height: 10px;
+    background:
+        linear-gradient(#1c6ea8, #3a9fd8) 0 100% / 2px 4px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 3px 100% / 2px 9px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 6px 100% / 2px 5.5px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 9px 100% / 2px 10px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 12px 100% / 2px 7px no-repeat;
+    transform-origin: 50% 100%;
     pointer-events: none;
+    animation: av-eq-pump 0.9s ease-in-out infinite;
+}
+
+@keyframes av-eq-pump {
+    0%, 100% { transform: scaleY(0.4); }
+    30% { transform: scaleY(1); }
+    55% { transform: scaleY(0.6); }
+    80% { transform: scaleY(0.9); }
 }
 
 @keyframes av-screen-glow {
@@ -2064,13 +2085,13 @@
     position: absolute;
     bottom: 5px;
     left: 4px;
-    width: 2.5px;
-    height: 2.5px;
+    width: 3.5px;
+    height: 3.5px;
     border-radius: 50%;
     background: #26201a;
     box-shadow:
-        -1px -1.2px 0 -0.6px rgba(210, 225, 235, 0.85),
-        1px -1.2px 0 -0.6px rgba(210, 225, 235, 0.85);
+        -1.4px -1.6px 0 -0.7px rgba(210, 225, 235, 0.9),
+        1.4px -1.6px 0 -0.7px rgba(210, 225, 235, 0.9);
     pointer-events: none;
     animation: dionaea-fly 4.5s ease-in infinite;
 }
