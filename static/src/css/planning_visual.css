@@ -1016,29 +1016,30 @@
 }
 
 .assignment-code.skin-monster-ultra-white::before {
-    /* Déchirure diagonale du métal, dans l'esprit de la griffe Ultra:
-       bande aux bords dentelés, en transparence pour rester en fond */
+    /* Rangée de glaçons le long du bas, pour le côté frais de la boisson:
+       un cube de glace dupliqué par box-shadow, hauteurs légèrement variées */
     content: "";
     position: absolute;
-    top: 45%;
-    left: -8%;
-    width: 116%;
-    height: 8px;
-    background: linear-gradient(
-        180deg,
-        rgba(170, 180, 190, 0.6) 0%,
-        rgba(122, 132, 142, 0.55) 55%,
-        rgba(152, 162, 172, 0.6) 100%
-    );
-    clip-path: polygon(
-        0% 30%, 6% 10%, 12% 35%, 20% 5%, 28% 30%, 36% 12%, 44% 38%,
-        52% 8%, 60% 32%, 68% 10%, 76% 36%, 84% 6%, 92% 30%, 100% 12%,
-        100% 70%, 92% 95%, 84% 60%, 76% 90%, 68% 62%, 60% 95%, 52% 58%,
-        44% 92%, 36% 60%, 28% 88%, 20% 55%, 12% 90%, 6% 62%, 0% 85%
-    );
-    transform: rotate(-14deg);
-    filter: drop-shadow(0 1px 1px rgba(90, 100, 110, 0.45));
+    bottom: 1px;
+    left: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 1.5px;
+    background: rgba(175, 222, 248, 0.92);
+    box-shadow:
+        inset 0.5px 0.5px 1px rgba(255, 255, 255, 0.9),
+        8px 1px 0 0 rgba(160, 214, 244, 0.88),
+        16px -0.5px 0 0.3px rgba(185, 228, 250, 0.9),
+        24px 0.8px 0 -0.3px rgba(160, 214, 244, 0.85),
+        32px 0 0 0.2px rgba(180, 225, 248, 0.9),
+        40px 1px 0 -0.2px rgba(165, 216, 245, 0.85);
     pointer-events: none;
+    animation: monster-ice-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes monster-ice-shimmer {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.25) drop-shadow(0 0 2px rgba(160, 220, 250, 0.8)); }
 }
 
 .assignment-code.skin-monster-ultra-white::after {
@@ -2497,20 +2498,20 @@
 }
 
 .assignment-code.skin-beer-lover::after {
-    /* Bulles dorées qui montent du comptoir */
+    /* Petits cœurs qui s'élèvent du comptoir: l'amour de la bière */
     content: "";
     position: absolute;
     bottom: 3px;
     left: 5px;
-    width: 2.5px;
-    height: 2.5px;
-    border-radius: 50%;
-    background: rgba(255, 220, 120, 0.9);
-    box-shadow:
-        3px -2px 0 -0.8px rgba(255, 220, 120, 0.7),
-        -2px -4px 0 -1px rgba(255, 220, 120, 0.55);
+    width: 5px;
+    height: 4.5px;
+    background: linear-gradient(180deg, #ff8ab0 0%, #f04578 100%);
+    clip-path: polygon(
+        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
+        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
+    );
     pointer-events: none;
-    animation: beer-bubbles-rise 2.6s ease-in infinite;
+    animation: beer-hearts-rise 3s ease-out infinite;
 }
 
 @keyframes beer-cheers {
@@ -2518,10 +2519,14 @@
     70%, 80% { transform: rotate(-9deg); }
 }
 
-@keyframes beer-bubbles-rise {
-    0% { transform: translateY(2px) scale(0.5); opacity: 0; }
-    35% { opacity: 0.95; }
-    100% { transform: translateY(-8px) scale(1.2); opacity: 0; }
+@keyframes beer-hearts-rise {
+    /* Deux petits cœurs par cycle, à deux endroits différents */
+    0% { transform: translate(0, 2px) scale(0.5); opacity: 0; }
+    10% { opacity: 0.95; }
+    40% { transform: translate(1.5px, -6px) scale(1); opacity: 0; }
+    45% { transform: translate(6px, 2px) scale(0.45); opacity: 0; }
+    55% { opacity: 0.9; }
+    90%, 100% { transform: translate(5px, -7px) scale(0.9); opacity: 0; }
 }
 
 /* Skin Spécialiste téléphonie: fond télécom + smartphone + ondes de signal */
