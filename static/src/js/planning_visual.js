@@ -280,15 +280,50 @@
        });
    }
 
+   // Correspondance type de skin (champ skin_type) -> classe CSS.
+   // Pour ajouter un skin : une entrée ici + le bloc CSS + la valeur dans la Selection Odoo.
+   const SKIN_CLASS_BY_TYPE = {
+       sakura: 'skin-sakura',
+       johnny_wolf_moon: 'skin-johnny-wolf-moon',
+       the_division: 'skin-the-division',
+       zelda: 'skin-zelda',
+       star_wars: 'skin-star-wars',
+       matrix: 'skin-matrix',
+       resident_evil: 'skin-resident-evil',
+       batman: 'skin-batman',
+       monster_ultra_white: 'skin-monster-ultra-white',
+       hard_rock: 'skin-hard-rock',
+       french_pride: 'skin-french-pride',
+       dbz: 'skin-dbz',
+       top_chef: 'skin-top-chef',
+       scream: 'skin-scream',
+       tech_nomade: 'skin-tech-nomade',
+       pfff: 'skin-pfff',
+       undead_lab: 'skin-undead-lab',
+       james_bond: 'skin-james-bond',
+       pikachu: 'skin-pikachu',
+       builder: 'skin-builder',
+       av_tech: 'skin-av-tech',
+       slimer: 'skin-slimer',
+       seducteur: 'skin-seducteur',
+       dionaea: 'skin-dionaea',
+       gym: 'skin-gym',
+       formula_one: 'skin-formula-one',
+       rasta: 'skin-rasta',
+       jesus: 'skin-jesus',
+       davinci_code: 'skin-davinci-code',
+       beer_lover: 'skin-beer-lover',
+       telephony: 'skin-telephony',
+       viandard: 'skin-viandard',
+       barbu: 'skin-barbu',
+   };
+
    function applyEmployeeSkin(element) {
        if (!element) {
            return;
        }
 
-       element.classList.remove('skin-sakura');
-       element.classList.remove('skin-johnny-wolf-moon');
-       element.classList.remove('skin-birthday-party');
-       element.classList.remove('skin-carni');
+       Object.values(SKIN_CLASS_BY_TYPE).forEach(cssClass => element.classList.remove(cssClass));
        const employeeId = element.getAttribute('data-employee-id');
        if (!employeeId) {
            return;
@@ -299,14 +334,9 @@
            return;
        }
 
-       if (skinInfo.type === 'sakura') {
-           element.classList.add('skin-sakura');
-       } else if (skinInfo.type === 'johnny_wolf_moon') {
-           element.classList.add('skin-johnny-wolf-moon');
-       } else if (skinInfo.type === 'birthday_party') {
-           element.classList.add('skin-birthday-party');
-       } else if (skinInfo.type === 'carni') {
-           element.classList.add('skin-carni');
+       const cssClass = SKIN_CLASS_BY_TYPE[skinInfo.type];
+       if (cssClass) {
+           element.classList.add(cssClass);
        }
    }
 
