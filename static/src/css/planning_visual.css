@@ -2751,61 +2751,84 @@
     to { background-position: 0 17px; }
 }
 
-/* Skin World of Warcraft: bleu d'Azeroth cadré d'or + épées croisées + portail */
+/* Skin World of Warcraft: la bulle EST la Porte des Ténèbres (Burning Crusade).
+   Le nom apparaît au cœur du portail: centre lumineux cyan, énergie verte
+   tourbillonnante, encadrement de pierre. */
 .assignment-code.skin-wow {
     position: relative;
     overflow: hidden;
-    background-image:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 209, 0, 0.16) 0%, transparent 55%),
-        linear-gradient(160deg, rgb(20, 32, 58) 0%, rgb(38, 54, 92) 55%, rgb(14, 24, 44) 100%);
-    color: #ffd100 !important; /* Le jaune or emblématique de WoW */
+    background-image: radial-gradient(
+        ellipse at 50% 50%,
+        rgba(212, 255, 250, 0.95) 0%,
+        rgba(130, 238, 175, 0.8) 30%,
+        rgba(62, 192, 92, 0.8) 55%,
+        rgba(22, 92, 42, 0.92) 80%,
+        rgb(12, 40, 22) 100%
+    );
+    color: #eaffff !important;
     text-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.9),
-        0 0 4px rgba(255, 180, 0, 0.4);
+        0 1px 2px rgba(0, 40, 20, 0.9),
+        0 0 5px rgba(120, 255, 170, 0.75);
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.55),
-        inset 0 0 0 1.5px rgba(212, 175, 55, 0.65); /* cadre doré des interfaces WoW */
+        0 0 7px rgba(80, 230, 120, 0.5),
+        /* Encadrement de pierre du portail */
+        inset 0 0 0 2px rgba(112, 118, 106, 0.9),
+        inset 0 0 0 3px rgba(58, 64, 54, 0.9),
+        /* Lueur verte qui lèche la pierre */
+        inset 0 0 8px rgba(80, 230, 120, 0.75);
 }
 
 .assignment-code.skin-wow::before {
-    /* Épées croisées en X, lames argentées */
+    /* Tourbillon d'énergie verte qui tourne lentement dans le portail */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(135deg, #e8edf2 0%, #9aa4b0 100%);
-    clip-path: polygon(
-        8% 0%, 50% 42%, 92% 0%, 100% 8%, 58% 50%, 100% 92%,
-        92% 100%, 50% 58%, 8% 100%, 0% 92%, 42% 50%, 0% 8%
+    top: -60%;
+    left: -30%;
+    width: 160%;
+    height: 220%;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 40deg,
+        rgba(140, 255, 185, 0.24) 60deg 80deg,
+        transparent 100deg 160deg,
+        rgba(90, 235, 130, 0.2) 180deg 200deg,
+        transparent 220deg 300deg,
+        rgba(180, 255, 215, 0.22) 320deg 340deg,
+        transparent 340deg 360deg
     );
-    filter: drop-shadow(0 0 2px rgba(255, 209, 0, 0.5));
     pointer-events: none;
+    animation: wow-portal-vortex 6s linear infinite;
 }
 
 .assignment-code.skin-wow::after {
-    /* Portail magique vert qui tourbillonne, façon Porte des Ténèbres */
+    /* Étincelles d'énergie fel qui s'échappent du bas du portail */
     content: "";
     position: absolute;
     bottom: 2px;
-    left: 3px;
-    width: 11px;
-    height: 11px;
+    left: 8px;
+    width: 2.5px;
+    height: 2.5px;
     border-radius: 50%;
-    background: conic-gradient(
-        #1a5c2a, #4de07a, #123d1c, #35c05a, #0d2e14, #4de07a, #1a5c2a
-    );
+    background: rgba(190, 255, 215, 0.95);
     box-shadow:
-        0 0 4px rgba(77, 224, 122, 0.85),
-        inset 0 0 2px rgba(0, 0, 0, 0.6);
+        12px -2px 0 -0.6px rgba(140, 255, 190, 0.8),
+        24px 1px 0 -0.8px rgba(160, 255, 200, 0.7),
+        30px -3px 0 -1px rgba(120, 245, 170, 0.6);
     pointer-events: none;
-    animation: wow-portal-swirl 2.4s linear infinite;
+    animation: wow-portal-sparks 2.2s ease-in infinite;
 }
 
-@keyframes wow-portal-swirl {
+@keyframes wow-portal-vortex {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes wow-portal-sparks {
+    0% { transform: translateY(2px); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(-8px); opacity: 0; }
 }
 
 /* ================================
