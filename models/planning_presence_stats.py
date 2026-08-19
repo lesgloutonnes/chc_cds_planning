@@ -22,7 +22,7 @@ class PlanningPresenceStats(models.Model):
 
     stats_year = fields.Integer(string="Année", required=True, default=date.today().year)
     stats_year_label = fields.Char(
-        string="Année",
+        string="Année affichée",
         compute="_compute_stats_year_label",
         store=True,
         help="Année au format 2026 (sans séparateur de milliers)",
