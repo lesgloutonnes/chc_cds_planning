@@ -521,21 +521,15 @@
 }
 
 .assignment-code.skin-johnny-wolf-moon::after {
-    /* Loup gris clair qui hurle à la lune, museau levé, en bas à gauche */
+    /* Loup qui hurle à la lune, museau levé vers le haut-droit */
     content: "";
     position: absolute;
     bottom: 1px;
-    left: 3px;
-    width: 15px;
-    height: 13px;
-    background: linear-gradient(180deg, #d4d8e2 0%, #a8adbc 100%);
-    clip-path: polygon(
-        88% 2%, 84% 16%, 72% 28%, 64% 48%, 60% 70%, 58% 100%,
-        48% 100%, 44% 78%, 32% 100%, 22% 100%, 18% 86%,
-        4% 84%, 0% 66%, 14% 56%, 30% 42%, 46% 28%,
-        54% 12%, 60% 0%, 66% 10%, 74% 6%
-    );
-    filter: drop-shadow(0 0 2.5px rgba(200, 210, 255, 0.6));
+    left: 2px;
+    width: 22px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 36'%3E%3Cellipse cx='16' cy='26' rx='11' ry='8' fill='%23d0d5e0'/%3E%3Cpath fill='%23d0d5e0' d='M18 22L22 10L28 1L31 8L26 14L33 16L28 21L22 22z'/%3E%3Cpath fill='%23b8becc' d='M22 10L17 3L25 9z'/%3E%3Cpath fill='%23b8becc' d='M6 26Q0 17 9 22Q6 29 12 28z'/%3E%3Crect x='10' y='30' width='3.2' height='6' fill='%23a8adbc'/%3E%3Crect x='18' y='30' width='3.2' height='6' fill='%23a8adbc'/%3E%3C/svg%3E") no-repeat center / contain;
+    filter: drop-shadow(0 0 2.5px rgba(200, 210, 255, 0.7));
     pointer-events: none;
     animation: johnny-wolf-howl 3.6s ease-in-out infinite;
     transform-origin: 50% 100%;
@@ -659,22 +653,14 @@
 }
 
 .assignment-code.skin-zelda::before {
-    /* Triforce: triangle doré avec le triangle central évidé (dessiné en
-       conic-gradient dans la moitié basse), et un éclat brillant périodique */
+    /* Triforce: trois triangles d'or, triangle central évidé */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 10px;
-    background:
-        conic-gradient(
-            from -31deg at 50% 100%,
-            rgb(26, 74, 42) 0deg 62deg,
-            transparent 62deg 360deg
-        ) 0 100% / 100% 50% no-repeat,
-        linear-gradient(180deg, #ffe066 0%, #d4a017 100%);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 1px;
+    right: 2px;
+    width: 14px;
+    height: 13px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpolygon points='12,1 6,11.4 18,11.4' fill='%23ffe066'/%3E%3Cpolygon points='6,11.4 0,21.5 12,21.5' fill='%23ffd24a'/%3E%3Cpolygon points='18,11.4 12,21.5 24,21.5' fill='%23d4a017'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.85));
     pointer-events: none;
     animation: zelda-triforce-glow 4s ease-in-out infinite;
@@ -919,25 +905,25 @@
     overflow: hidden;
     background-color: rgb(10, 12, 20) !important;
     background-image:
-        /* Projecteur au sol, coin bas-gauche */
-        radial-gradient(circle at 8% 90%, rgba(255, 232, 130, 1) 0 2.5px, rgba(255, 232, 130, 0.45) 2.5px 7px, transparent 10px),
-        /* Cœur du faisceau (sky tracer) vers le bat-signal en haut à droite */
-        linear-gradient(
-            48deg,
-            transparent 0% 36%,
-            rgba(255, 250, 200, 0.15) 41%,
-            rgba(255, 245, 180, 0.75) 45%,
-            rgba(255, 250, 200, 0.15) 49%,
-            transparent 54% 100%
+        /* Projecteur au sol, coin bas-droit */
+        radial-gradient(circle at 92% 90%, rgba(255, 232, 130, 1) 0 2.5px, rgba(255, 232, 130, 0.45) 2.5px 7px, transparent 10px),
+        /* Cœur du faisceau : du projecteur (bas droite) vers le bat-signal (haut droite) */
+        conic-gradient(
+            from -8deg at 90% 100%,
+            transparent 0deg 3deg,
+            rgba(255, 250, 200, 0.2) 5deg,
+            rgba(255, 245, 180, 0.85) 8deg,
+            rgba(255, 250, 200, 0.2) 11deg,
+            transparent 13deg 360deg
         ),
         /* Halo plus large du faisceau */
-        linear-gradient(
-            48deg,
-            transparent 0% 28%,
-            rgba(255, 232, 130, 0.12) 36%,
-            rgba(255, 232, 130, 0.38) 45%,
-            rgba(255, 232, 130, 0.12) 54%,
-            transparent 62% 100%
+        conic-gradient(
+            from -8deg at 90% 100%,
+            transparent 0deg 1deg,
+            rgba(255, 232, 130, 0.15) 4deg,
+            rgba(255, 232, 130, 0.35) 8deg,
+            rgba(255, 232, 130, 0.15) 12deg,
+            transparent 16deg 360deg
         ),
         /* Marquage de la route */
         repeating-linear-gradient(
@@ -988,24 +974,15 @@
 }
 
 .assignment-code.skin-batman::after {
-    /* Batmobile tournée vers la droite, en direction du bat-signal */
+    /* Batmobile de profil, nez à droite vers le signal:
+       aileron, verrière, bande or, phare, réacteur, roues */
     content: "";
     position: absolute;
-    bottom: 4px;
-    left: 4px;
-    width: 18px;
-    height: 8px;
-    background:
-        radial-gradient(circle at 12% 88%, #c8a020 0 1px, transparent 1.4px),
-        radial-gradient(circle at 22% 92%, #1a1a1a 0 1.3px, transparent 1.7px),
-        radial-gradient(circle at 78% 92%, #1a1a1a 0 1.3px, transparent 1.7px),
-        linear-gradient(180deg, #2a2e38 0%, #0a0c12 100%);
-    clip-path: polygon(
-        0% 72%, 10% 58%, 32% 52%, 40% 28%, 52% 22%, 62% 30%,
-        66% 52%, 88% 48%, 100% 32%, 96% 72%, 90% 100%,
-        76% 100%, 74% 78%, 24% 78%, 22% 100%, 8% 100%
-    );
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+    bottom: 3px;
+    left: 3px;
+    width: 28px;
+    height: 13px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 24'%3E%3Cellipse cx='3' cy='13' rx='3' ry='1.6' fill='%23ff8a30'/%3E%3Cpath fill='%230b0e16' d='M6 14L10 2L16 11L14 14Z'/%3E%3Cpath fill='%23141a26' d='M8 14L14 12L24 11L34 9L44 11L53 13L54 15L50 17H8Z'/%3E%3Cpath fill='%23080a10' d='M8 17H50L48 19H10Z'/%3E%3Cpath fill='%235a9ad4' d='M30 10C34 3 42 4 46 11L34 11Z'/%3E%3Cpath fill='%23a8d4f0' opacity='.5' d='M33 8C36 5 40 5 43 9L36 9Z'/%3E%3Cpath stroke='%23e0b030' stroke-width='.8' fill='none' d='M14 13.5H50'/%3E%3Ccircle cx='16' cy='19' r='3.4' fill='%23111114' stroke='%23666' stroke-width='.7'/%3E%3Ccircle cx='16' cy='19' r='1.2' fill='%23444'/%3E%3Ccircle cx='40' cy='19' r='3.4' fill='%23111114' stroke='%23666' stroke-width='.7'/%3E%3Ccircle cx='40' cy='19' r='1.2' fill='%23444'/%3E%3Ccircle cx='53' cy='14' r='1.4' fill='%23ffe066'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: batmobile-drive 0.7s ease-in-out infinite;
 }
@@ -1016,8 +993,14 @@
 }
 
 @keyframes batmobile-drive {
-    0%, 100% { transform: scaleX(-1) translateY(0); }
-    50% { transform: scaleX(-1) translateY(-0.6px); }
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7)) drop-shadow(-2px 0 2px rgba(255, 110, 20, 0.35));
+    }
+    50% {
+        transform: translateY(-0.8px);
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7)) drop-shadow(-4px 0 5px rgba(255, 130, 30, 0.8));
+    }
 }
 
 /* Skin Monster Ultra White: canette blanche mate + griffe "M" argentée */
@@ -1113,24 +1096,14 @@
 }
 
 .assignment-code.skin-hard-rock::before {
-    /* Crâne blanc qui headbangue: orbites, nez, dents */
+    /* Crâne metal, orbites, nez, mâchoire, dents */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 11px;
-    height: 12px;
-    background:
-        /* Orbites noires */
-        radial-gradient(circle at 32% 40%, #101014 0 1.6px, transparent 2px),
-        radial-gradient(circle at 68% 40%, #101014 0 1.6px, transparent 2px),
-        /* Cavité nasale */
-        radial-gradient(1.3px 1.7px at 50% 62%, #26262c 0 70%, transparent 100%),
-        /* Dents rayées */
-        repeating-linear-gradient(90deg, #e8e8e8 0 1.4px, #9a9aa2 1.4px 2px) 50% 100% / 6.5px 3px no-repeat,
-        /* Os */
-        linear-gradient(180deg, #f4f4f4 0%, #c6c6cc 100%);
-    border-radius: 48% 48% 42% 42% / 58% 58% 34% 34%;
+    top: 1px;
+    right: 2px;
+    width: 14px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'%3E%3Cellipse cx='12' cy='11' rx='11' ry='10' fill='%23f0f0f2'/%3E%3Crect x='7' y='18' width='10' height='9' rx='1.5' fill='%23f0f0f2'/%3E%3Ccircle cx='8' cy='11' r='3.1' fill='%23111114'/%3E%3Ccircle cx='16' cy='11' r='3.1' fill='%23111114'/%3E%3Cpath d='M12 14L10 18h4z' fill='%23333'/%3E%3Cpath fill='%23111114' d='M8 22h2.2v5H8zm3.4 0h2.2v5h-2.2zm3.4 0H17v5h-2.2z'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 80%;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
     pointer-events: none;
@@ -1296,21 +1269,11 @@
     /* Kinto-un, le nuage magique doré, qui file en rebondissant */
     content: "";
     position: absolute;
-    bottom: 3px;
-    left: 3px;
-    width: 6px;
-    height: 5px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, #fff3b0 0% 45%, #ffd54a 100%);
-    box-shadow:
-        4.5px 0.5px 0 -0.6px #ffd54a,
-        8.5px -0.5px 0 -1px #ffcd2e,
-        3px -2.5px 0 -1.2px #ffe98a,
-        6.5px -2.5px 0 -1.5px #ffd54a,
-        /* Traînée qui s'estompe à l'arrière du nuage */
-        -3.5px 1px 0 -1.6px rgba(255, 213, 74, 0.75),
-        -6.5px 1.5px 0 -2px rgba(255, 213, 74, 0.5),
-        -9px 2px 0 -2.3px rgba(255, 213, 74, 0.3);
+    bottom: 2px;
+    left: 2px;
+    width: 28px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28'%3E%3Cellipse cx='8' cy='20' rx='6' ry='3.5' fill='%23ffd54a' opacity='.4'/%3E%3Cellipse cx='3' cy='22' rx='3.5' ry='2.4' fill='%23ffd54a' opacity='.22'/%3E%3Cellipse cx='34' cy='16' rx='20' ry='9' fill='%23ffd54a'/%3E%3Cellipse cx='24' cy='14' rx='10' ry='8' fill='%23ffe98a'/%3E%3Cellipse cx='42' cy='15' rx='10' ry='8' fill='%23ffcd2e'/%3E%3Cellipse cx='34' cy='10' rx='11' ry='7' fill='%23fff3b0'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(180, 90, 0, 0.5));
     pointer-events: none;
     animation: dbz-kintoun-fly 3s ease-in-out infinite;
@@ -1348,19 +1311,14 @@
 }
 
 .assignment-code.skin-top-chef::before {
-    /* Marmite en inox: couvercle à bouton, liseré, corps sombre */
+    /* Marmite en inox: couvercle à bouton, anses, corps */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 9px;
-    background:
-        /* Bouton du couvercle */
-        radial-gradient(circle at 50% 10%, #f0f0f0 0 1.2px, transparent 1.6px),
-        /* Couvercle inox, liseré clair, corps acier */
-        linear-gradient(180deg, #d8dde2 0% 30%, #eef1f4 30% 38%, #4a5058 38% 100%);
-    border-radius: 2px 2px 3px 3px;
+    top: 1px;
+    right: 2px;
+    width: 14px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22'%3E%3Cellipse cx='14' cy='8' rx='11' ry='3' fill='%23eef1f4'/%3E%3Crect x='4' y='8' width='20' height='11' rx='2' fill='%234a5058'/%3E%3Crect x='4' y='8' width='20' height='3' fill='%23d8dde2'/%3E%3Ccircle cx='14' cy='5' r='1.6' fill='%23f0f0f0'/%3E%3Cpath fill='none' stroke='%23c5ccd3' stroke-width='1.6' d='M4 12H1V16h3M24 12h3v4h-3'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(60, 0, 0, 0.55));
     pointer-events: none;
 }
@@ -1371,13 +1329,9 @@
     position: absolute;
     bottom: 3px;
     left: 3px;
-    width: 15px;
-    height: 6px;
-    background: linear-gradient(90deg, #e8edf2 0% 60%, #3a2b1a 60% 100%);
-    clip-path: polygon(
-        0% 55%, 60% 10%, 60% 32%, 100% 32%,
-        100% 58%, 60% 58%, 60% 80%
-    );
+    width: 20px;
+    height: 8px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M0 7L22 1.5V9.5Z' fill='%23e8edf2'/%3E%3Cpath d='M0 7L22 1.5V4.2Z' fill='%23f7f9fb'/%3E%3Crect x='21' y='3.8' width='18' height='5' rx='1' fill='%233a2b1a'/%3E%3Crect x='21' y='3.8' width='2.2' height='5' fill='%238a9098'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 92% 45%;
     filter: drop-shadow(0 1px 1px rgba(60, 0, 0, 0.5));
     pointer-events: none;
@@ -1409,20 +1363,15 @@
 }
 
 .assignment-code.skin-scream::before {
-    /* Masque Ghostface: visage blanc étiré, yeux et bouche noirs */
+    /* Masque Ghostface: capuche noire, visage allongé, yeux, bouche hurlante */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 4px;
-    width: 10px;
-    height: 13px;
-    background:
-        radial-gradient(1.5px 2.1px at 32% 30%, #000 0 70%, transparent 100%),
-        radial-gradient(1.5px 2.1px at 68% 30%, #000 0 70%, transparent 100%),
-        radial-gradient(1.7px 3.6px at 50% 72%, #000 0 70%, transparent 100%),
-        linear-gradient(180deg, #fafafa 0%, #d8d8dd 100%);
-    border-radius: 50% 50% 48% 48% / 42% 42% 58% 58%;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.45));
+    top: 1px;
+    right: 2px;
+    width: 14px;
+    height: 18px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 32'%3E%3Cellipse cx='12' cy='18' rx='11' ry='13' fill='%23111114'/%3E%3Cellipse cx='12' cy='15' rx='8' ry='12' fill='%23f4f4f6'/%3E%3Cellipse cx='8.5' cy='12' rx='2' ry='3.1' fill='%23000'/%3E%3Cellipse cx='15.5' cy='12' rx='2' ry='3.1' fill='%23000'/%3E%3Cpath d='M12 17Q8 22 9 26Q12 28.5 15 26Q16 22 12 17z' fill='%23000'/%3E%3C/svg%3E") no-repeat center / contain;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
     pointer-events: none;
     animation: ghostface-float 3.2s ease-in-out infinite;
 }
@@ -1433,10 +1382,9 @@
     position: absolute;
     bottom: 4px;
     left: 2px;
-    width: 18px;
-    height: 5px;
-    background: linear-gradient(90deg, #3a3028 0 4.5px, #cdd3da 4.5px 100%);
-    clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%);
+    width: 20px;
+    height: 7px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 10'%3E%3Crect x='0' y='2' width='10' height='6' rx='1' fill='%233a3028'/%3E%3Cpath d='M9 2H32L40 5L32 8H9Z' fill='%23cdd3da'/%3E%3Cpath d='M9 2H32L40 5H9Z' fill='%23eef2f6'/%3E%3C/svg%3E") no-repeat center / contain;
     transform: rotate(-28deg);
     filter: drop-shadow(0 0 2px rgba(200, 210, 220, 0.6));
     pointer-events: none;
@@ -1479,25 +1427,14 @@
 }
 
 .assignment-code.skin-tech-nomade::before {
-    /* Camionnette blanche avec croix médicale, cabine à droite */
+    /* Camionnette médicale de profil, cabine à droite, croix rouge */
     content: "";
     position: absolute;
-    bottom: 4px;
-    right: 4px;
-    width: 15px;
-    height: 8px;
-    background:
-        /* Croix médicale rouge sur le flanc */
-        linear-gradient(90deg, transparent 0 4.5px, #d42020 4.5px 7px, transparent 7px 100%) 0 0 / 100% 100%,
-        linear-gradient(180deg, transparent 0 2.5px, #d42020 2.5px 5px, transparent 5px 100%) -3.75px 0 / 100% 100%,
-        /* Vitre de cabine */
-        linear-gradient(180deg, transparent 0 15%, rgba(80, 140, 190, 0.9) 15% 45%, transparent 45% 100%) 4.5px 0 / 100% 100%,
-        /* Roues sombres */
-        radial-gradient(circle at 20% 92%, #2a2e33 0 1.5px, transparent 1.9px),
-        radial-gradient(circle at 76% 92%, #2a2e33 0 1.5px, transparent 1.9px),
-        /* Carrosserie blanche */
-        linear-gradient(180deg, #fdfdfd 0%, #dde3e8 100%);
-    clip-path: polygon(0% 8%, 62% 8%, 78% 0%, 96% 30%, 100% 100%, 0% 100%);
+    bottom: 3px;
+    right: 3px;
+    width: 26px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24'%3E%3Cpath fill='%23f4f6f8' d='M2 8h26l6-6h8l4 6v10H2z'/%3E%3Crect x='34' y='3.5' width='8' height='6' rx='1' fill='%236aa0c8'/%3E%3Crect x='11' y='9' width='11' height='3' fill='%23d42020'/%3E%3Crect x='15' y='6' width='3' height='9' fill='%23d42020'/%3E%3Ccircle cx='12' cy='19' r='3.4' fill='%232a2e33'/%3E%3Ccircle cx='36' cy='19' r='3.4' fill='%232a2e33'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1px rgba(20, 50, 80, 0.45));
     pointer-events: none;
     animation: nomade-van-bounce 0.7s ease-in-out infinite;
@@ -1619,37 +1556,27 @@
     /* Fiole Erlenmeyer: col en verre + liquide vert fluo */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 4px;
-    width: 11px;
-    height: 12px;
-    background: linear-gradient(
-        180deg,
-        rgba(210, 235, 255, 0.4) 0% 42%,
-        #52e05a 42% 100%
-    );
-    clip-path: polygon(36% 0%, 64% 0%, 64% 38%, 100% 100%, 0% 100%);
+    top: 1px;
+    right: 3px;
+    width: 12px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 24'%3E%3Cpath fill='%23cfe8ff' fill-opacity='.55' d='M7 1h6v8l6.5 14H.5L7 9z'/%3E%3Cpath fill='%2352e05a' d='M6.2 12L.8 23h18.4L13.8 12z'/%3E%3Crect x='6.5' y='0' width='7' height='2.2' rx='.6' fill='%23e8f4ff'/%3E%3Cellipse cx='10' cy='17' rx='4' ry='1.2' fill='%2396ff9a' opacity='.7'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(80, 255, 100, 0.85));
     pointer-events: none;
     animation: undead-flask-glow 2.2s ease-in-out infinite;
 }
 
 .assignment-code.skin-undead-lab::after {
-    /* Zombie qui marche en traînant la patte, bras tendus devant lui */
+    /* Zombie de profil, bras tendus, jambe traînante */
     content: "";
     position: absolute;
     bottom: 1px;
     left: 2px;
-    width: 14px;
-    height: 18px;
-    background: linear-gradient(180deg, #14331a 0%, #0c2410 100%);
-    clip-path: polygon(
-        34% 0%, 52% 3%, 56% 14%, 46% 19%, 52% 42%, 48% 100%,
-        38% 100%, 40% 62%, 30% 60%, 26% 100%, 15% 100%, 21% 56%,
-        27% 32%, 2% 38%, 0% 27%, 26% 20%, 27% 8%
-    );
+    width: 16px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 36'%3E%3Ccircle cx='16' cy='5' r='4.4' fill='%234a7a3a'/%3E%3Ccircle cx='18' cy='4.5' r='1.1' fill='%23c8ff90'/%3E%3Cpath fill='%232d5a28' d='M12 10h8l-2 14h-8z'/%3E%3Cpath fill='%234a7a3a' d='M19 12l9-3v3l-9 3z'/%3E%3Cpath fill='%231a3818' d='M11 24L7 36h4l3-12zm5 0l5 12h4l-6-12z'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 100%;
-    filter: drop-shadow(0 0 2px rgba(0, 40, 10, 0.6));
+    filter: drop-shadow(0 0 2px rgba(0, 40, 10, 0.55));
     pointer-events: none;
     animation: undead-zombie-lurch 1.6s ease-in-out infinite;
 }
@@ -1838,17 +1765,14 @@
 }
 
 .assignment-code.skin-builder::before {
-    /* Casque de chantier jaune: calotte bombée + visière */
+    /* Casque de chantier jaune: calotte bombée + visière + bandeau */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 9px;
-    background:
-        linear-gradient(180deg, transparent 0 74%, #e69500 74% 100%),
-        linear-gradient(180deg, #ffd21f 0%, #f5a800 100%);
-    border-radius: 55% 55% 12% 12% / 90% 90% 12% 12%;
+    top: 1px;
+    right: 2px;
+    width: 16px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 18'%3E%3Cpath fill='%23ffd21f' d='M4 12Q14 1 24 12Z'/%3E%3Cellipse cx='14' cy='11' rx='10' ry='5' fill='%23ffd21f'/%3E%3Crect x='1' y='11' width='26' height='4.2' rx='1.6' fill='%23e69500'/%3E%3Crect x='12.2' y='3' width='3.6' height='8' rx='1' fill='%23f5a800'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(60, 25, 0, 0.6));
     pointer-events: none;
 }
@@ -1966,19 +1890,14 @@
 }
 
 .assignment-code.skin-slimer::before {
-    /* Slimer: gros blob vert gourmand, yeux blancs, grande bouche ouverte */
+    /* Slimer: blob vert gourmand, yeux blancs, grande bouche, gouttes */
     content: "";
     position: absolute;
-    top: 1px;
-    right: 2px;
-    width: 15px;
-    height: 14px;
-    background:
-        radial-gradient(circle at 32% 30%, #ffffff 0 1.6px, transparent 2px),
-        radial-gradient(circle at 62% 26%, #ffffff 0 1.6px, transparent 2px),
-        radial-gradient(4.2px 3px at 50% 68%, #1e4d0a 0 70%, transparent 100%),
-        radial-gradient(circle at 45% 40%, #8ee030 0% 55%, #4a9e0f 100%);
-    border-radius: 55% 45% 58% 42% / 60% 55% 45% 40%;
+    top: 0;
+    right: 1px;
+    width: 20px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='12' fill='%236bc41a'/%3E%3Cellipse cx='16' cy='14' rx='11' ry='10' fill='%238ee030'/%3E%3Cpath d='M8 24Q5 32 10 32Q13 27 13 22' fill='%236bc41a'/%3E%3Cpath d='M21 23Q24 32 28 30Q25 25 23 20' fill='%236bc41a'/%3E%3Cellipse cx='11' cy='12' rx='3.3' ry='4.2' fill='%23fff'/%3E%3Cellipse cx='20.5' cy='11' rx='3.3' ry='4.2' fill='%23fff'/%3E%3Cellipse cx='12' cy='13.2' rx='1.5' ry='2' fill='%231e4d0a'/%3E%3Cellipse cx='21.5' cy='12.2' rx='1.5' ry='2' fill='%231e4d0a'/%3E%3Cellipse cx='16' cy='21' rx='6.5' ry='3.6' fill='%231e4d0a'/%3E%3Cellipse cx='16' cy='20' rx='4' ry='1.4' fill='%234a9e0f'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(130, 240, 80, 0.8));
     pointer-events: none;
     animation: slimer-wobble 2.4s ease-in-out infinite;
@@ -1988,25 +1907,11 @@
     /* Le gros burger que Slimer convoite */
     content: "";
     position: absolute;
-    bottom: 2px;
-    left: 3px;
-    width: 12px;
-    height: 10px;
-    background:
-        /* Graines de sésame */
-        radial-gradient(circle at 28% 12%, #fff8e0 0 0.8px, transparent 1.1px),
-        radial-gradient(circle at 52% 8%, #fff8e0 0 0.8px, transparent 1.1px),
-        radial-gradient(circle at 74% 13%, #fff8e0 0 0.8px, transparent 1.1px),
-        /* Pain doré, salade, steak, cheddar, pain */
-        linear-gradient(
-            180deg,
-            #f0a83c 0% 34%,
-            #7ec636 34% 46%,
-            #7a3c16 46% 66%,
-            #ffd98a 66% 76%,
-            #f0a83c 76% 100%
-        );
-    border-radius: 50% 50% 25% 25% / 70% 70% 30% 30%;
+    bottom: 1px;
+    left: 2px;
+    width: 14px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath fill='%23f0a83c' d='M3 8a9 5 0 0 1 18 0z'/%3E%3Ccircle cx='8' cy='5' r='.8' fill='%23fff8e0'/%3E%3Ccircle cx='12' cy='4' r='.8' fill='%23fff8e0'/%3E%3Ccircle cx='16' cy='5.2' r='.8' fill='%23fff8e0'/%3E%3Crect x='3' y='8' width='18' height='2.2' fill='%237ec636'/%3E%3Crect x='3.5' y='10.2' width='17' height='3.2' rx='.6' fill='%237a3c16'/%3E%3Crect x='3' y='13.2' width='18' height='1.6' fill='%23ffd98a'/%3E%3Cpath fill='%23f0a83c' d='M3 14.8h18v3.4c0 1-2 1.6-9 1.6s-9-.6-9-1.6z'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(40, 20, 80, 0.5));
     pointer-events: none;
     animation: slimer-burger-crave 2.4s ease-in-out infinite;
@@ -2042,15 +1947,11 @@
     /* Cœur principal qui bat (double pulsation cardiaque) */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 11px;
-    height: 10px;
-    background: linear-gradient(180deg, #ff5c8a 0%, #e0114e 100%);
-    clip-path: polygon(
-        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
-        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
-    );
+    top: 1px;
+    right: 2px;
+    width: 13px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath fill='%23e0114e' d='M12 21S1.5 13.8 1.5 7.6A5.6 5.6 0 0 1 12 4.4 5.6 5.6 0 0 1 22.5 7.6C22.5 13.8 12 21 12 21z'/%3E%3Cpath fill='%23ff5c8a' d='M12 18S5 12.5 5 8.2A3.6 3.6 0 0 1 12 6.2 3.6 3.6 0 0 1 19 8.2C19 12.5 12 18 12 18z'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 92, 138, 0.8));
     transform-origin: center;
     pointer-events: none;
@@ -2063,13 +1964,9 @@
     position: absolute;
     bottom: 5px;
     left: 5px;
-    width: 6px;
-    height: 5.5px;
-    background: linear-gradient(180deg, #ff8ab0 0%, #f04578 100%);
-    clip-path: polygon(
-        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
-        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
-    );
+    width: 7px;
+    height: 6.5px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath fill='%23f04578' d='M12 21S1.5 13.8 1.5 7.6A5.6 5.6 0 0 1 12 4.4 5.6 5.6 0 0 1 22.5 7.6C22.5 13.8 12 21 12 21z'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: seducteur-heart-float 2.8s ease-out infinite;
 }
@@ -2104,19 +2001,14 @@
 }
 
 .assignment-code.skin-dionaea::before {
-    /* Piège: intérieur rose, base verte, cils dentés en zigzag sur le haut */
+    /* Piège: intérieur rose, base verte, cils dentés */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 13px;
-    height: 11px;
-    background: linear-gradient(180deg, #ff7d9c 0% 52%, #2f8f3f 52% 100%);
-    clip-path: polygon(
-        0% 32%, 10% 10%, 19% 32%, 30% 6%, 40% 32%, 51% 4%,
-        62% 32%, 73% 8%, 83% 32%, 94% 12%, 100% 34%,
-        86% 100%, 14% 100%
-    );
+    top: 1px;
+    right: 2px;
+    width: 16px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22'%3E%3Cpath fill='%232f8f3f' d='M4 21L8 9h12l4 12z'/%3E%3Cpath fill='%23ff7d9c' d='M8 9h12L18 3 16 9 14 2 12 9 10 3z'/%3E%3Cpath fill='%23d0ffc8' d='M8 9L6 1h2l2 8zm4 0L11 0h2l1 9zm4 0L17 1h2l-1 8z'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 100%;
     filter: drop-shadow(0 1px 2px rgba(0, 30, 8, 0.6));
     pointer-events: none;
@@ -2176,16 +2068,11 @@
     /* Haltère: barre chromée + disques de chaque côté */
     content: "";
     position: absolute;
-    top: 4px;
-    right: 3px;
-    width: 15px;
-    height: 9px;
-    background:
-        linear-gradient(180deg, #3c3c44, #17171c) 0 50% / 3px 9px no-repeat,
-        linear-gradient(180deg, #4a4a52, #222228) 4px 50% / 2px 6.5px no-repeat,
-        linear-gradient(180deg, #3c3c44, #17171c) right 0 top 50% / 3px 9px no-repeat,
-        linear-gradient(180deg, #4a4a52, #222228) right 4px top 50% / 2px 6.5px no-repeat,
-        linear-gradient(180deg, #d8d8de, #8f8f98) 50% 50% / 100% 2.2px no-repeat;
+    top: 3px;
+    right: 2px;
+    width: 20px;
+    height: 10px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Crect x='8' y='6.4' width='24' height='3.2' rx='1.2' fill='%23d8d8de'/%3E%3Crect x='1' y='2' width='4' height='12' rx='1' fill='%2317171c'/%3E%3Crect x='5' y='3.6' width='3' height='8.8' rx='.6' fill='%23222228'/%3E%3Crect x='32' y='3.6' width='3' height='8.8' rx='.6' fill='%23222228'/%3E%3Crect x='35' y='2' width='4' height='12' rx='1' fill='%2317171c'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.7));
     pointer-events: none;
     animation: gym-lift 2.4s ease-in-out infinite;
@@ -2240,20 +2127,17 @@
 }
 
 .assignment-code.skin-formula-one::before {
-    /* Drapeau à damier qui ondule */
+    /* Monoplace F1 de profil, nez à droite, ailerons et roues */
     content: "";
     position: absolute;
-    top: 4px;
-    right: 3px;
-    width: 12px;
-    height: 9px;
-    background: conic-gradient(
-        #111 0% 25%, #fafafa 25% 50%,
-        #111 50% 75%, #fafafa 75% 100%
-    ) 0 0 / 4px 4px;
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+    bottom: 1px;
+    left: 3px;
+    width: 32px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 22'%3E%3Cpath fill='%23c1121f' d='M8 12L28 11L48 10L60 12L58 15H8z'/%3E%3Cpath fill='%23e11d2a' d='M22 7L46 8L50 12H22z'/%3E%3Crect x='30' y='3' width='12' height='7' rx='1.4' fill='%23111'/%3E%3Crect x='33' y='4.5' width='7' height='4' rx='.8' fill='%2366d4ff'/%3E%3Cpolygon points='50,8 62,12 56,8' fill='%23e11d2a'/%3E%3Cpolygon points='60,12 64,10.5 62,13.5' fill='%23ffd166'/%3E%3Crect x='24' y='12' width='22' height='2' fill='%23ffd166'/%3E%3Ccircle cx='18' cy='16' r='4.4' fill='%23111114'/%3E%3Ccircle cx='18' cy='16' r='2' fill='%239aa0a6'/%3E%3Ccircle cx='46' cy='16' r='4.4' fill='%23111114'/%3E%3Ccircle cx='46' cy='16' r='2' fill='%239aa0a6'/%3E%3Crect x='4' y='11' width='8' height='3' fill='%23c1121f'/%3E%3C/svg%3E") no-repeat center / contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
     pointer-events: none;
-    animation: f1-flag-wave 0.9s ease-in-out infinite;
+    animation: f1-car-zoom 0.7s ease-in-out infinite;
 }
 
 .assignment-code.skin-formula-one::after {
@@ -2274,9 +2158,15 @@
     animation: f1-speed-lines 0.5s linear infinite;
 }
 
-@keyframes f1-flag-wave {
-    0%, 100% { transform: skewY(-4deg); }
-    50% { transform: skewY(4deg); }
+@keyframes f1-car-zoom {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+    }
+    50% {
+        transform: translateY(-0.7px);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55)) drop-shadow(-3px 0 3px rgba(255, 255, 255, 0.35));
+    }
 }
 
 @keyframes f1-speed-lines {
@@ -2371,13 +2261,11 @@
     /* Croix dorée */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 4px;
-    width: 9px;
-    height: 12px;
-    background:
-        linear-gradient(180deg, #e8c34a, #b8860b) 50% 0 / 2.5px 100% no-repeat,
-        linear-gradient(180deg, #e8c34a, #b8860b) 0 3px / 100% 2.5px no-repeat;
+    top: 1px;
+    right: 3px;
+    width: 11px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Crect x='6.2' y='1' width='3.6' height='20' rx='.6' fill='%23e8c34a'/%3E%3Crect x='1.2' y='5.2' width='13.6' height='3.4' rx='.6' fill='%23e8c34a'/%3E%3Crect x='6.6' y='1.4' width='2.2' height='19' rx='.4' fill='%23ffe08a'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.8));
     pointer-events: none;
     animation: jesus-holy-glow 2.8s ease-in-out infinite;
@@ -2503,19 +2391,14 @@
 }
 
 .assignment-code.skin-beer-lover::before {
-    /* Pinte: bière ambrée + mousse débordante à 3 bosses */
+    /* Pinte: bière ambrée + mousse débordante + anse */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 4px;
-    width: 10px;
-    height: 12px;
-    background:
-        radial-gradient(circle at 22% 12%, #ffffff 0 2px, transparent 2.4px),
-        radial-gradient(circle at 55% 7%, #ffffff 0 2.3px, transparent 2.7px),
-        radial-gradient(circle at 84% 12%, #ffffff 0 2px, transparent 2.4px),
-        linear-gradient(180deg, #ffffff 0% 24%, #ffc233 24% 100%);
-    border-radius: 2px 2px 2.5px 2.5px;
+    top: 1px;
+    right: 3px;
+    width: 13px;
+    height: 15px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 26'%3E%3Cpath fill='none' stroke='%23d8dee6' stroke-width='1.8' d='M16 10h3.2c1.6 0 2.8 1.4 2.8 3.2v2.4c0 1.8-1.2 3.2-2.8 3.2H16'/%3E%3Cpath fill='%23ffc233' d='M4 8h12l-1.2 16H5.2z'/%3E%3Cpath fill='%23fff' d='M3.5 4c1.5-2 4-3 6.5-2.2 2 .6 3 2 4.2 2.2 1.4.2 3.3-.4 4.3.8.4 2-1 3.2-2.4 3.4H5.2C3.4 8 2.6 6.2 3.5 4z'/%3E%3Cpath fill='%23ffe08a' d='M6 12h8l-.4 4H6.4z' opacity='.45'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 100%;
     filter: drop-shadow(0 1px 2px rgba(30, 15, 0, 0.6));
     pointer-events: none;
@@ -2528,13 +2411,9 @@
     position: absolute;
     bottom: 3px;
     left: 5px;
-    width: 5px;
-    height: 4.5px;
-    background: linear-gradient(180deg, #ff8ab0 0%, #f04578 100%);
-    clip-path: polygon(
-        50% 100%, 10% 58%, 2% 35%, 10% 14%, 30% 5%,
-        50% 20%, 70% 5%, 90% 14%, 98% 35%, 90% 58%
-    );
+    width: 6px;
+    height: 5.5px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath fill='%23f04578' d='M12 21S1.5 13.8 1.5 7.6A5.6 5.6 0 0 1 12 4.4 5.6 5.6 0 0 1 22.5 7.6C22.5 13.8 12 21 12 21z'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: beer-hearts-rise 3s ease-out infinite;
 }
@@ -2578,20 +2457,11 @@
     /* Smartphone: écran lumineux, haut-parleur, bouton home */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 4px;
-    width: 8px;
-    height: 12px;
-    border-radius: 1.5px;
-    background:
-        /* Haut-parleur */
-        linear-gradient(rgba(160, 200, 230, 0.8), rgba(160, 200, 230, 0.8)) 50% 1px / 3px 0.8px no-repeat,
-        /* Bouton home */
-        radial-gradient(circle at 50% calc(100% - 1.2px), rgba(160, 200, 230, 0.8) 0 0.6px, transparent 1px),
-        /* Écran allumé */
-        linear-gradient(160deg, rgba(120, 210, 255, 0.85) 0%, rgba(60, 130, 200, 0.75) 100%) 50% 2.4px / 6px 7.4px no-repeat,
-        /* Coque */
-        linear-gradient(180deg, #2a3542 0%, #141c26 100%);
+    top: 1px;
+    right: 3px;
+    width: 10px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Crect x='1' y='1' width='14' height='22' rx='2.4' fill='%23141c26'/%3E%3Crect x='2.4' y='4.2' width='11.2' height='14.2' rx='.8' fill='%233c82c8'/%3E%3Crect x='5.5' y='2.2' width='5' height='1' rx='.4' fill='%23a0c8e6'/%3E%3Ccircle cx='8' cy='20.6' r='1.1' fill='%23a0c8e6'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 2px rgba(100, 200, 255, 0.55));
     pointer-events: none;
 }
@@ -2647,24 +2517,14 @@
 }
 
 .assignment-code.skin-viandard::before {
-    /* Côte de bœuf: chair rouge persillée, gras en bordure, quadrillage de cuisson */
+    /* Côte de bœuf: chair rouge persillée, os, quadrillage de cuisson */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 13px;
-    height: 10px;
-    background:
-        repeating-linear-gradient(
-            45deg,
-            rgba(60, 20, 10, 0.55) 0 1.3px,
-            transparent 1.3px 4px
-        ),
-        radial-gradient(2.5px 1.2px at 38% 42%, rgba(255, 235, 220, 0.75) 0 70%, transparent 100%),
-        radial-gradient(2px 1px at 62% 62%, rgba(255, 235, 220, 0.65) 0 70%, transparent 100%),
-        radial-gradient(ellipse at 50% 50%, #b5432a 0% 60%, #8a2f1c 100%);
-    border-radius: 55% 45% 50% 50% / 60% 55% 45% 50%;
-    box-shadow: inset 0 0 0 1.5px rgba(255, 230, 210, 0.55);
+    top: 1px;
+    right: 2px;
+    width: 16px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 20'%3E%3Cellipse cx='16' cy='10' rx='11' ry='8' fill='%238a2f1c'/%3E%3Cellipse cx='16' cy='10' rx='9' ry='6.2' fill='%23b5432a'/%3E%3Cellipse cx='13' cy='9' rx='2.4' ry='1.2' fill='%23ffe6d2' opacity='.75'/%3E%3Cellipse cx='19' cy='12' rx='2' ry='1' fill='%23ffe6d2' opacity='.65'/%3E%3Cpath stroke='%233c140a' stroke-width='.7' fill='none' d='M8 6L22 14M10 14L22 7' opacity='.55'/%3E%3Ccircle cx='4.5' cy='10' r='3.2' fill='%23f3e6d4'/%3E%3Ccircle cx='4.5' cy='10' r='1.4' fill='%23e8d0b0'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
     pointer-events: none;
     animation: viandard-sizzle 0.4s linear infinite;
@@ -2726,20 +2586,11 @@
     /* Visage: front, yeux, moustache et barbe fournie */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 11px;
-    height: 12px;
-    background:
-        /* Yeux */
-        radial-gradient(circle at 34% 22%, #2b1d10 0 0.9px, transparent 1.3px),
-        radial-gradient(circle at 66% 22%, #2b1d10 0 0.9px, transparent 1.3px),
-        /* Moustache: deux bosses au-dessus de la barbe */
-        radial-gradient(2.6px 1.4px at 37% 42%, #4a2e14 0 70%, transparent 100%),
-        radial-gradient(2.6px 1.4px at 63% 42%, #4a2e14 0 70%, transparent 100%),
-        /* Peau en haut, barbe dense en bas */
-        linear-gradient(180deg, #e8b88a 0% 40%, #5a3a1a 40% 100%);
-    border-radius: 45% 45% 48% 48% / 40% 40% 58% 58%;
+    top: 1px;
+    right: 2px;
+    width: 14px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'%3E%3Cellipse cx='12' cy='8' rx='7' ry='6.5' fill='%23e8b88a'/%3E%3Ccircle cx='9.2' cy='8' r='1.1' fill='%232b1d10'/%3E%3Ccircle cx='14.8' cy='8' r='1.1' fill='%232b1d10'/%3E%3Cpath fill='%234a2e14' d='M7 12c2 2 8 2 10 0-1 2-2.2 3-5 3s-4-1-5-3z'/%3E%3Cpath fill='%235a3a1a' d='M5 14c1 8 5 13 7 13s6-5 7-13c-2 3-12 3-14 0z'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(0, 20, 20, 0.6));
     pointer-events: none;
     animation: barbu-nod 3.4s ease-in-out infinite;
