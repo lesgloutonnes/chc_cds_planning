@@ -77,3 +77,57 @@ class TestMedicalCertificatePurge(SavepointCase):
         self.assertEqual(deleted, 1)
         self.assertFalse(sick_att.exists())
         self.assertTrue(annual_att.exists())
+
+    def test_purge_missing_employee_image_keeps_existing_files(self):
+        present = self.env["ir.attachment"].create(
+            {
+                "name": "photo.png",
+                "type": "binary",
+                "datas": "dGVzdA==",
+                "res_model": "hr.employee",
+                "res_id": self.employee.id,
+                "res_field": "image_128",
+                "mimetype": "image/png",
+            }
+        )
+        missing = self.env["ir.attachment"].create(
+            {
+                "name": "photo_absente.png",
+                "type": "binary",
+                "datas": "dGVzdA==",
+                "res_model": "hr.employee",
+                "res_id": self.employee.id,
+                "res_field": "image_1920",
+                "mimetype": "image/png",
+            }
+        )
+        self.env.cr.execute(
+            "UPDATE ir_attachment SET store_fname = %s WHERE id = %s",
+            ("zz/missing_filestore_hash", missing.id),
+        )
+        missing.invalidate_recordset(["store_fname"])
+
+        deleted = self.env["ir.attachment"]._chc_purge_missing_image_attachments()
+        self.assertGreaterEqual(deleted, 1)
+        self.assertTrue(present.exists())
+        self.assertFalse(missing.exists())
+
+    def test_remap_removed_skins_birthday_party_and_pikachu(self):
+        other = self.env["hr.employee"].create({"name": "Employé Pikachu"})
+        self.env.cr.execute(
+            "UPDATE hr_employee SET skin_type = 'birthday_party' WHERE id = %s",
+            [self.employee.id],
+        )
+        self.env.cr.execute(
+            "UPDATE hr_employee SET skin_type = 'pikachu' WHERE id = %s",
+            [other.id],
+        )
+        self.employee.invalidate_recordset(["skin_type"])
+        other.invalidate_recordset(["skin_type"])
+
+        remapped = self.env["hr.employee"]._chc_remap_removed_skins()
+        self.assertGreaterEqual(remapped, 2)
+        self.employee.invalidate_recordset(["skin_type"])
+        other.invalidate_recordset(["skin_type"])
+        self.assertEqual(self.employee.skin_type, "sakura")
+        self.assertEqual(other.skin_type, "pokemon")

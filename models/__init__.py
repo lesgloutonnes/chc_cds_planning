@@ -7,6 +7,7 @@ from . import (
     friday_rotation_counter,
     hr_leave,
     hr_leave_type,
+    ir_attachment,
     l1_guard_calendar,
     monthly_planning_generator,
     permanence_type,
