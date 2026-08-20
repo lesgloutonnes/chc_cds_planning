@@ -917,33 +917,46 @@
 .assignment-code.skin-batman {
     position: relative;
     overflow: hidden;
+    background-color: rgb(10, 12, 20) !important;
     background-image:
         /* Projecteur au sol, coin bas-gauche */
-        radial-gradient(circle at 6% 96%, rgba(255, 232, 130, 0.95) 0 2px, transparent 5px),
-        /* Faisceau triangulaire qui remonte vers le bat-signal */
+        radial-gradient(circle at 8% 90%, rgba(255, 232, 130, 1) 0 2.5px, rgba(255, 232, 130, 0.45) 2.5px 7px, transparent 10px),
+        /* Cœur du faisceau (sky tracer) vers le bat-signal en haut à droite */
         linear-gradient(
             48deg,
-            transparent 0% 22%,
-            rgba(255, 232, 130, 0.08) 28%,
-            rgba(255, 232, 130, 0.42) 40%,
-            rgba(255, 232, 130, 0.55) 44%,
-            rgba(255, 232, 130, 0.42) 48%,
-            rgba(255, 232, 130, 0.08) 60%,
-            transparent 68% 100%
+            transparent 0% 36%,
+            rgba(255, 250, 200, 0.15) 41%,
+            rgba(255, 245, 180, 0.75) 45%,
+            rgba(255, 250, 200, 0.15) 49%,
+            transparent 54% 100%
         ),
-        /* Route */
+        /* Halo plus large du faisceau */
+        linear-gradient(
+            48deg,
+            transparent 0% 28%,
+            rgba(255, 232, 130, 0.12) 36%,
+            rgba(255, 232, 130, 0.38) 45%,
+            rgba(255, 232, 130, 0.12) 54%,
+            transparent 62% 100%
+        ),
+        /* Marquage de la route */
         repeating-linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.7) 0 3px,
+            rgba(255, 255, 255, 0.8) 0 3px,
             transparent 3px 8px
-        ) 0 calc(100% - 2px) / 100% 1px no-repeat,
-        linear-gradient(180deg, transparent 0 86%, #2c3038 86% 100%),
+        ),
+        /* Asphalte */
+        linear-gradient(180deg, transparent 0%, transparent 86%, #4a4f56 86%, #2a2e34 100%),
+        /* Ciel de Gotham */
         linear-gradient(
             160deg,
             rgb(10, 12, 20) 0%,
             rgb(28, 33, 52) 55%,
             rgb(7, 8, 14) 100%
         );
+    background-size: auto, auto, auto, 100% 1.5px, auto, auto;
+    background-position: 0 0, 0 0, 0 0, left 0 bottom 2.5px, 0 0, 0 0;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat;
     color: #ffe066 !important;
     text-shadow:
         0 1px 1px rgba(0, 0, 0, 0.85),
@@ -954,30 +967,31 @@
 }
 
 .assignment-code.skin-batman::before {
-    /* Bat-signal dans le ciel: halo + silhouette, halo via drop-shadow */
+    /* Bat-signal projeté: disque jaune lumineux + chauve-souris noire au centre */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 16px;
-    height: 8px;
-    background: #05070f;
-    clip-path: polygon(
-        50% 0%, 56% 20%, 68% 6%, 66% 28%, 100% 40%,
-        80% 50%, 90% 68%, 68% 58%, 58% 82%, 53% 62%,
-        50% 90%, 47% 62%, 42% 82%, 32% 58%, 10% 68%,
-        20% 50%, 0% 40%, 34% 28%, 32% 6%, 44% 20%
-    );
-    filter: drop-shadow(0 0 4px rgba(255, 232, 130, 1)) drop-shadow(0 0 8px rgba(255, 226, 110, 0.9));
+    top: 1px;
+    right: 2px;
+    width: 22px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ffe882;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath fill='%230a0c14' d='M12 11L10 7L8 11L5 8L0 5L5 6L7 3L9 1L11 4L12 0L13 4L15 1L17 3L19 6L24 5L19 8L16 11L14 7Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    background-size: 72% 58%;
+    box-shadow:
+        0 0 6px rgba(255, 232, 130, 1),
+        0 0 12px rgba(255, 226, 110, 0.85);
     pointer-events: none;
     animation: bat-signal-pulse 2.4s ease-in-out infinite;
 }
 
 .assignment-code.skin-batman::after {
-    /* Batmobile sur la route: carrosserie basse, ailerons, phares, roues */
+    /* Batmobile tournée vers la droite, en direction du bat-signal */
     content: "";
     position: absolute;
-    bottom: 3px;
+    bottom: 4px;
     left: 4px;
     width: 18px;
     height: 8px;
@@ -997,13 +1011,13 @@
 }
 
 @keyframes bat-signal-pulse {
-    0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 3px rgba(255, 232, 130, 0.8)) drop-shadow(0 0 6px rgba(255, 226, 110, 0.6)); }
-    50% { opacity: 1; filter: drop-shadow(0 0 5px rgba(255, 232, 130, 1)) drop-shadow(0 0 10px rgba(255, 226, 110, 1)); }
+    0%, 100% { opacity: 0.75; transform: scale(0.96); }
+    50% { opacity: 1; transform: scale(1.06); }
 }
 
 @keyframes batmobile-drive {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-0.6px); }
+    0%, 100% { transform: scaleX(-1) translateY(0); }
+    50% { transform: scaleX(-1) translateY(-0.6px); }
 }
 
 /* Skin Monster Ultra White: canette blanche mate + griffe "M" argentée */
