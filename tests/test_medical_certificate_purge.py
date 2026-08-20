@@ -111,3 +111,23 @@ class TestMedicalCertificatePurge(SavepointCase):
         self.assertGreaterEqual(deleted, 1)
         self.assertTrue(present.exists())
         self.assertFalse(missing.exists())
+
+    def test_remap_removed_skins_birthday_party_and_pikachu(self):
+        other = self.env["hr.employee"].create({"name": "Employé Pikachu"})
+        self.env.cr.execute(
+            "UPDATE hr_employee SET skin_type = 'birthday_party' WHERE id = %s",
+            [self.employee.id],
+        )
+        self.env.cr.execute(
+            "UPDATE hr_employee SET skin_type = 'pikachu' WHERE id = %s",
+            [other.id],
+        )
+        self.employee.invalidate_recordset(["skin_type"])
+        other.invalidate_recordset(["skin_type"])
+
+        remapped = self.env["hr.employee"]._chc_remap_removed_skins()
+        self.assertGreaterEqual(remapped, 2)
+        self.employee.invalidate_recordset(["skin_type"])
+        other.invalidate_recordset(["skin_type"])
+        self.assertEqual(self.employee.skin_type, "sakura")
+        self.assertEqual(other.skin_type, "pokemon")
