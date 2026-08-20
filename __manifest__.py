@@ -7,8 +7,8 @@
     "website": "https://www.chc.be",
     "license": "LGPL-3",
     "category": "Uncategorized",
-    "version": "0.1.6",
-    "depends": ["base", "web", "hr", "portal", "hr_holidays", "website", "mail"],
+    "version": "0.1.7",
+    "depends": ["base", "web", "bus", "hr", "portal", "hr_holidays", "website", "mail"],
     "data": [
         "security/init_groups.xml",
         "security/rules.xml",

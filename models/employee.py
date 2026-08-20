@@ -145,6 +145,35 @@ class Employee(models.Model):
         string="Affectations",
     )
 
+    def _chc_sanitize_skin_type(self, value):
+        """Convertit une ancienne valeur de skin en valeur encore valide."""
+        if not value:
+            return value
+        selection = self._fields["skin_type"].selection
+        if callable(selection):
+            selection = selection(self)
+        valid = {item for item, _label in selection}
+        if value in valid:
+            return value
+        mapped = _REMOVED_SKIN_MAP.get(value, "sakura")
+        return mapped if mapped in valid else "sakura"
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        sanitized = []
+        for vals in vals_list:
+            if vals.get("skin_type"):
+                vals = dict(vals)
+                vals["skin_type"] = self._chc_sanitize_skin_type(vals["skin_type"])
+            sanitized.append(vals)
+        return super().create(sanitized)
+
+    def write(self, vals):
+        if "skin_type" in vals:
+            vals = dict(vals)
+            vals["skin_type"] = self._chc_sanitize_skin_type(vals["skin_type"])
+        return super().write(vals)
+
     @api.model
     def _chc_remap_removed_skins(self):
         """Aligne ``skin_type`` en base sur les valeurs encore dans le Selection.

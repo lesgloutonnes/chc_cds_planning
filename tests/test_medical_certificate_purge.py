@@ -131,3 +131,30 @@ class TestMedicalCertificatePurge(SavepointCase):
         other.invalidate_recordset(["skin_type"])
         self.assertEqual(self.employee.skin_type, "sakura")
         self.assertEqual(other.skin_type, "pokemon")
+
+    def test_write_accepts_removed_skin_and_maps_it(self):
+        self.employee.write({"skin_type": "birthday_party"})
+        self.assertEqual(self.employee.skin_type, "sakura")
+        self.employee.write({"skin_type": "carni"})
+        self.assertEqual(self.employee.skin_type, "sakura")
+        self.employee.write({"skin_type": "pikachu"})
+        self.assertEqual(self.employee.skin_type, "pokemon")
+
+    def test_purge_missing_asset_attachment(self):
+        asset = self.env["ir.attachment"].create(
+            {
+                "name": "bus.websocket_worker_assets.min.js",
+                "type": "binary",
+                "datas": "dGVzdA==",
+                "mimetype": "application/javascript",
+                "url": "/web/assets/bus.websocket_worker_assets.min.js",
+            }
+        )
+        self.env.cr.execute(
+            "UPDATE ir_attachment SET store_fname = %s WHERE id = %s",
+            ("c8/c891bdfba8030184314e667233cbe3101050be33", asset.id),
+        )
+        asset.invalidate_recordset(["store_fname"])
+        deleted = self.env["ir.attachment"]._chc_purge_missing_image_attachments()
+        self.assertGreaterEqual(deleted, 1)
+        self.assertFalse(asset.exists())
