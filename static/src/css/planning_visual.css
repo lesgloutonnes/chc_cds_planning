@@ -551,17 +551,17 @@
     position: relative;
     overflow: hidden;
     background-image:
-        /* Logo SHD: aigle orange, haut gauche */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff7a00' d='M10 3.2L8.2 6.4 3 4.4 5.4 8.6 1 11.2 5.8 12 3.2 16.8 8.4 14.2 9.6 19.6 11.2 15.2 12.8 19.6 14 14.2 19.2 16.8 16.6 12 21.4 11.2 17 8.6 19.4 4.4 14.2 6.4 12.4 3.2 12 6.8z'/%3E%3Cpath fill='%23ffb056' d='M9.4 8.2L7.8 9.4 9.8 10.2 11.2 8.6z'/%3E%3C/svg%3E"),
+        /* Logo SHD (aigle + anneau brisé): grande moitié gauche, derrière le nom */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23f47920' stroke-opacity='.62' stroke-width='9' stroke-linecap='butt' d='M72 38A72 72 0 0 1 128 38'/%3E%3Cpath fill='none' stroke='%23f47920' stroke-opacity='.62' stroke-width='9' stroke-linecap='butt' d='M40 142A76 76 0 0 0 160 142'/%3E%3Cpath fill='%23f47920' fill-opacity='.62' d='M62 56L86 44 100 48 114 44 122 40 128 18 124 40 152 14 140 44 176 28 154 54 192 58 150 74 124 80 128 112 150 164 100 132 50 164 72 112 76 80 50 74 8 58 46 54 24 28 60 44 48 14 76 40 72 18 78 40Z'/%3E%3C/svg%3E"),
         /* Lamelles diagonales orange, façon visuels de la franchise */
         linear-gradient(
             115deg,
             transparent 0% 58%,
-            rgba(255, 122, 0, 0.30) 58% 64%,
+            rgba(255, 122, 0, 0.22) 58% 64%,
             transparent 64% 70%,
-            rgba(255, 122, 0, 0.20) 70% 78%,
+            rgba(255, 122, 0, 0.16) 70% 78%,
             transparent 78% 85%,
-            rgba(255, 122, 0, 0.34) 85% 100%
+            rgba(255, 122, 0, 0.28) 85% 100%
         ),
         /* Scanlines discrètes, effet écran de la montre d'agent */
         repeating-linear-gradient(
@@ -579,13 +579,14 @@
             rgb(24, 24, 28) 55%,
             rgb(6, 6, 8) 100%
         );
-    background-size: 18px 18px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    background-position: 2px 1px, 0 0, 0 0, 0 0, 0 0;
+    background-size: 52% auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-position: 2% 42%, 0 0, 0 0, 0 0, 0 0;
     background-repeat: no-repeat;
     color: #ffffff !important;
     text-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.9),
-        0 0 4px rgba(255, 138, 0, 0.6);
+        0 1px 2px rgba(0, 0, 0, 0.95),
+        0 0 6px rgba(0, 0, 0, 0.8),
+        0 0 4px rgba(255, 138, 0, 0.55);
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.5),
         0 0 6px rgba(255, 122, 0, 0.35),
