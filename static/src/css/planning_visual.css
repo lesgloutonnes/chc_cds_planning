@@ -866,8 +866,8 @@
 }
 
 .assignment-code.skin-resident-evil::after {
-    /* Portes vitrées coulissantes: chaque battant porte une moitié du
-       biohazard ; à la fermeture le signe se reconstitue au joint */
+    /* Portes vitrées: chaque battant porte une moitié du biohazard officiel
+       (trois lobes + anneau). Même viewBox vertical, joint pile à 50%. */
     content: "";
     position: absolute;
     top: 0;
@@ -875,8 +875,8 @@
     left: 0;
     right: 0;
     background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 64'%3E%3Cg fill='%23d8ff1a' fill-rule='evenodd'%3E%3Ccircle cx='32' cy='18' r='14'/%3E%3Ccircle cx='18.1' cy='42' r='14'/%3E%3Ccircle cx='45.9' cy='42' r='14'/%3E%3Ccircle cx='32' cy='18' r='6'/%3E%3Ccircle cx='18.1' cy='42' r='6'/%3E%3Ccircle cx='45.9' cy='42' r='6'/%3E%3Ccircle cx='32' cy='34' r='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='34' r='10.5' fill='none' stroke='%23d8ff1a' stroke-width='2.4'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='32 0 32 64'%3E%3Cg fill='%23d8ff1a' fill-rule='evenodd'%3E%3Ccircle cx='32' cy='18' r='14'/%3E%3Ccircle cx='18.1' cy='42' r='14'/%3E%3Ccircle cx='45.9' cy='42' r='14'/%3E%3Ccircle cx='32' cy='18' r='6'/%3E%3Ccircle cx='18.1' cy='42' r='6'/%3E%3Ccircle cx='45.9' cy='42' r='6'/%3E%3Ccircle cx='32' cy='34' r='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='34' r='10.5' fill='none' stroke='%23d8ff1a' stroke-width='2.4'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-26 -28 26 52'%3E%3Cdefs%3E%3CclipPath id='b'%3E%3Ccircle cy='-15' r='9.5'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(120)'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(240)'/%3E%3C/clipPath%3E%3Cmask id='a' width='60' height='60' x='-30' y='-30' maskUnits='userSpaceOnUse'%3E%3Cpath fill='%23fff' d='M-27-27h54v54h-54z'/%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Ccircle r='3'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23a)' fill='%23d8ff1a'%3E%3Ccircle cy='-11' r='15'/%3E%3Ccircle cy='-11' r='15' transform='rotate(120)'/%3E%3Ccircle cy='-11' r='15' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle r='11.75' fill='none' stroke='%23d8ff1a' stroke-width='3.5' clip-path='url(%23b)'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -28 26 52'%3E%3Cdefs%3E%3CclipPath id='b'%3E%3Ccircle cy='-15' r='9.5'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(120)'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(240)'/%3E%3C/clipPath%3E%3Cmask id='a' width='60' height='60' x='-30' y='-30' maskUnits='userSpaceOnUse'%3E%3Cpath fill='%23fff' d='M-27-27h54v54h-54z'/%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Ccircle r='3'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23a)' fill='%23d8ff1a'%3E%3Ccircle cy='-11' r='15'/%3E%3Ccircle cy='-11' r='15' transform='rotate(120)'/%3E%3Ccircle cy='-11' r='15' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle r='11.75' fill='none' stroke='%23d8ff1a' stroke-width='3.5' clip-path='url(%23b)'/%3E%3C/svg%3E"),
         /* Porte gauche: vitre teintée + montant lumineux côté intérieur */
         linear-gradient(
             90deg,
@@ -889,11 +889,11 @@
             rgba(225, 245, 255, 0.8) 0% 14%,
             rgba(170, 215, 255, 0.18) 14% 100%
         );
-    background-size: 11px 22px, 11px 22px, 50% 100%, 50% 100%;
+    background-size: 14px 28px, 14px 28px, 50% 100%, 50% 100%;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position:
-        calc(50% - 41px) 50%,
-        calc(50% + 30px) 50%,
+        left calc(50% - 44px) center,
+        left calc(50% + 30px) center,
         -30px 0,
         right -30px top 0;
     pointer-events: none;
@@ -903,24 +903,24 @@
 @keyframes re-lab-doors {
     0%, 26% {
         background-position:
-            calc(50% - 41px) 50%,
-            calc(50% + 30px) 50%,
+            left calc(50% - 44px) center,
+            left calc(50% + 30px) center,
             -30px 0,
             right -30px top 0;
         filter: none;
     }
     38%, 66% {
         background-position:
-            calc(50% - 11px) 50%,
-            50% 50%,
+            left calc(50% - 14px) center,
+            left 50% center,
             0 0,
             right 0 top 0;
         filter: drop-shadow(0 0 5px rgba(216, 255, 26, 0.8));
     }
     78%, 100% {
         background-position:
-            calc(50% - 41px) 50%,
-            calc(50% + 30px) 50%,
+            left calc(50% - 44px) center,
+            left calc(50% + 30px) center,
             -30px 0,
             right -30px top 0;
         filter: none;
