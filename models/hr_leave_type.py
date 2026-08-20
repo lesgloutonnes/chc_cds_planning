@@ -1,9 +1,34 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from odoo import api, models
+
+_logger = logging.getLogger(__name__)
 
 
 class HrLeaveType(models.Model):
     _inherit = "hr.leave.type"
+
+    @api.model
+    def _chc_disable_sick_leave_documents(self):
+        """DPO : plus de pièces jointes (certificats) sur les types maladie.
+
+        Désactive le champ standard Odoo « documents justificatifs » pour que
+        l'UI Time Off n'offre plus l'upload, et que de nouveaux PDF ne soient
+        plus écrits dans le filestore.
+        """
+        if "support_document" not in self._fields:
+            return
+        sick_types = self.with_context(active_test=False).search(
+            [("name", "ilike", "maladie")]
+        )
+        to_disable = sick_types.filtered("support_document")
+        if to_disable:
+            to_disable.write({"support_document": False})
+            _logger.info(
+                "DPO: support_document désactivé sur %s type(s) de congé maladie",
+                len(to_disable),
+            )
 
     @api.model
     def _chc_push_dpi_leave_types_to_end(self):
