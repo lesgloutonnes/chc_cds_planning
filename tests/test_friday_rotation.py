@@ -109,6 +109,15 @@ class TestFridayRotationHelpers(unittest.TestCase):
             special_name=False,
         )
         self.assertTrue(is_friday_pm_mle_assignment(ok))
+        deleted = FakeAssignment(
+            day="friday",
+            period="pm",
+            site_id=mle,
+            permanence_type_id=fct,
+            special_name=False,
+            exists=lambda: False,
+        )
+        self.assertFalse(is_friday_pm_mle_assignment(deleted))
 
         self.assertFalse(
             is_friday_pm_mle_assignment(

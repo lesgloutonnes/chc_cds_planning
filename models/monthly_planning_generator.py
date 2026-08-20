@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import logging
 from datetime import date, timedelta
 
 from odoo import fields, models
@@ -9,6 +10,8 @@ from ..utils.friday_rotation import (
     get_friday_date,
     is_friday_pm_mle_assignment,
 )
+
+_logger = logging.getLogger(__name__)
 
 
 class MonthlyPlanningGenerator(models.TransientModel):
@@ -316,7 +319,7 @@ class MonthlyPlanningGenerator(models.TransientModel):
 
             # Incrémenter les compteurs depuis les affectations finales (après conflits/doublons)
             self._commit_friday_rotation_counters(
-                created_assignments, week_start, rotation_state
+                created_assignments.exists(), week_start, rotation_state
             )
 
         return planning, replacements_log
@@ -370,7 +373,9 @@ class MonthlyPlanningGenerator(models.TransientModel):
         Les compteurs ne sont pas incrémentés ici : on attend les corrections
         AM/PM et doublons, puis `_commit_friday_rotation_counters`.
         """
-        friday_pm_assignments = assignments.filtered(is_friday_pm_mle_assignment)
+        friday_pm_assignments = assignments.exists().filtered(
+            is_friday_pm_mle_assignment
+        )
         if not friday_pm_assignments:
             return
 
@@ -417,7 +422,9 @@ class MonthlyPlanningGenerator(models.TransientModel):
     ):
         """Incrémente les compteurs de rotation depuis les affectations finales de la semaine."""
         friday_date = get_friday_date(week_start)
-        friday_pm_assignments = assignments.filtered(is_friday_pm_mle_assignment)
+        friday_pm_assignments = assignments.exists().filtered(
+            is_friday_pm_mle_assignment
+        )
         rotation_state["friday_pm_mle_assigned"] = set()
 
         for assignment in friday_pm_assignments:
@@ -493,7 +500,7 @@ class MonthlyPlanningGenerator(models.TransientModel):
             friday_date = week_start + timedelta(days=4)  # Vendredi
 
             # Récupérer toutes les affectations du vendredi
-            friday_assignments = assignments.filtered(lambda a: a.day == "friday")
+            friday_assignments = assignments.exists().filtered(lambda a: a.day == "friday")
 
             if not friday_assignments:
                 return
@@ -533,11 +540,10 @@ class MonthlyPlanningGenerator(models.TransientModel):
                         )
         except Exception as e:
             # Logger l'erreur mais ne pas bloquer la génération
-            import logging
-
-            _logger = logging.getLogger(__name__)
             _logger.error(
-                f"Erreur dans _check_friday_am_pm_conflicts: {e}", exc_info=True
+                "Erreur dans _check_friday_am_pm_conflicts: %s",
+                e,
+                exc_info=True,
             )
 
     def _find_replacement_for_am_assignment(
@@ -608,6 +614,7 @@ class MonthlyPlanningGenerator(models.TransientModel):
         Si un doublon est détecté, on trouve un remplaçant pour les affectations en doublon.
         """
         try:
+            assignments = assignments.exists()
             # Grouper les affectations par jour et par employé
             assignments_by_day_employee = {}
             for assignment in assignments:
@@ -635,6 +642,8 @@ class MonthlyPlanningGenerator(models.TransientModel):
                     duplicate_assignments = day_assignments_sorted[1:]
 
                     for duplicate in duplicate_assignments:
+                        if not duplicate.exists():
+                            continue
                         # Calculer la date
                         day_index = [
                             "monday",
@@ -644,6 +653,14 @@ class MonthlyPlanningGenerator(models.TransientModel):
                             "friday",
                         ].index(day)
                         target_date = week_start + timedelta(days=day_index)
+
+                        site_code = duplicate.site_id.code if duplicate.site_id else "?"
+                        perm_name = (
+                            duplicate.permanence_type_id.name
+                            if duplicate.permanence_type_id
+                            else "?"
+                        )
+                        period = duplicate.period or "?"
 
                         # Trouver un remplaçant
                         replacement = self._find_replacement_for_duplicate(
@@ -657,7 +674,7 @@ class MonthlyPlanningGenerator(models.TransientModel):
                             ).write({"employee_id": replacement.id})
                             replacements_log.append(
                                 f"🔄 Doublon corrigé {day}: {old_employee_name} (déjà assigné) → {replacement.name} "
-                                f"({duplicate.site_id.code} {duplicate.permanence_type_id.name} {duplicate.period})"
+                                f"({site_code} {perm_name} {period})"
                             )
                         else:
                             # Aucun remplaçant trouvé, on supprime l'affectation en doublon
@@ -667,15 +684,14 @@ class MonthlyPlanningGenerator(models.TransientModel):
                             ).unlink()
                             replacements_log.append(
                                 f"⚠️ Doublon supprimé {day}: {old_employee_name} déjà assigné ce jour-là, "
-                                f"aucun remplaçant trouvé pour {duplicate.site_id.code} {duplicate.permanence_type_id.name} {duplicate.period}"
+                                f"aucun remplaçant trouvé pour {site_code} {perm_name} {period}"
                             )
         except Exception as e:
             # Logger l'erreur mais ne pas bloquer la génération
-            import logging
-
-            _logger = logging.getLogger(__name__)
             _logger.error(
-                f"Erreur dans _check_and_fix_duplicate_assignments: {e}", exc_info=True
+                "Erreur dans _check_and_fix_duplicate_assignments: %s",
+                e,
+                exc_info=True,
             )
 
     def _find_replacement_for_duplicate(
