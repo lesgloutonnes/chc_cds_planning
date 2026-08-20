@@ -109,6 +109,7 @@ class Employee(models.Model):
             ("viandard", "🥩 Viandard"),
             ("barbu", "🧔 Barbu"),
             ("wow", "⚔️ World of Warcraft"),
+            ("pacman", "🟡 Pac-Man"),
         ],
         string="Skin bulle",
         default="sakura",

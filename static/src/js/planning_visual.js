@@ -317,6 +317,7 @@
        viandard: 'skin-viandard',
        barbu: 'skin-barbu',
        wow: 'skin-wow',
+       pacman: 'skin-pacman',
    };
 
    function applyEmployeeSkin(element) {

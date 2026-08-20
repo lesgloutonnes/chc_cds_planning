@@ -505,8 +505,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background:
         radial-gradient(circle at 30% 32%, rgba(170, 175, 195, 0.55) 0 1.6px, transparent 2px),
@@ -526,8 +526,8 @@
     position: absolute;
     bottom: 1px;
     left: 2px;
-    width: 22px;
-    height: 20px;
+    width: 26px;
+    height: 24px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 36'%3E%3Cellipse cx='16' cy='26' rx='11' ry='8' fill='%23d0d5e0'/%3E%3Cpath fill='%23d0d5e0' d='M18 22L22 10L28 1L31 8L26 14L33 16L28 21L22 22z'/%3E%3Cpath fill='%23b8becc' d='M22 10L17 3L25 9z'/%3E%3Cpath fill='%23b8becc' d='M6 26Q0 17 9 22Q6 29 12 28z'/%3E%3Crect x='10' y='30' width='3.2' height='6' fill='%23a8adbc'/%3E%3Crect x='18' y='30' width='3.2' height='6' fill='%23a8adbc'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 2.5px rgba(200, 210, 255, 0.7));
     pointer-events: none;
@@ -552,7 +552,7 @@
     overflow: hidden;
     background-image:
         /* Logo SHD: aigle orange, haut gauche */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff7a00' d='M12 2.2L13.4 6.2 20.5 4.6 18.2 9.2 23 11.4 18.4 12.2 21.2 17.2 15.4 14.6 16.8 20.2 12 16.6 7.2 20.2 8.6 14.6 2.8 17.2 5.6 12.2 1 11.4 5.8 9.2 3.5 4.6 10.6 6.2Z'/%3E%3Cpath fill='%23ff9a33' d='M12 7.2L13.6 10.4 12 13.2 10.4 10.4Z'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff7a00' d='M10 3.2L8.2 6.4 3 4.4 5.4 8.6 1 11.2 5.8 12 3.2 16.8 8.4 14.2 9.6 19.6 11.2 15.2 12.8 19.6 14 14.2 19.2 16.8 16.6 12 21.4 11.2 17 8.6 19.4 4.4 14.2 6.4 12.4 3.2 12 6.8z'/%3E%3Cpath fill='%23ffb056' d='M9.4 8.2L7.8 9.4 9.8 10.2 11.2 8.6z'/%3E%3C/svg%3E"),
         /* Lamelles diagonales orange, façon visuels de la franchise */
         linear-gradient(
             115deg,
@@ -579,7 +579,7 @@
             rgb(24, 24, 28) 55%,
             rgb(6, 6, 8) 100%
         );
-    background-size: 13px 13px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-size: 18px 18px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
     background-position: 2px 1px, 0 0, 0 0, 0 0, 0 0;
     background-repeat: no-repeat;
     color: #ffffff !important;
@@ -598,8 +598,8 @@
     position: absolute;
     top: 2px;
     right: 3px;
-    width: 11px;
-    height: 11px;
+    width: 16px;
+    height: 16px;
     border: 2px solid #ff7a00;
     border-bottom-color: transparent;
     border-radius: 50%;
@@ -663,8 +663,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 14px;
-    height: 13px;
+    width: 20px;
+    height: 18px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpolygon points='12,1 6,11.4 18,11.4' fill='%23ffe066'/%3E%3Cpolygon points='6,11.4 0,21.5 12,21.5' fill='%23ffd24a'/%3E%3Cpolygon points='18,11.4 12,21.5 24,21.5' fill='%23d4a017'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.85));
     pointer-events: none;
@@ -675,10 +675,10 @@
     /* Fée Navi: orbe bleu lumineux à deux ailes, qui volette en bas à gauche */
     content: "";
     position: absolute;
-    bottom: 5px;
-    left: 5px;
-    width: 4.5px;
-    height: 4.5px;
+    bottom: 4px;
+    left: 4px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: radial-gradient(circle at 40% 35%, #ffffff 0% 30%, #9fd4ff 60%, #4fa8f0 100%);
     box-shadow:
@@ -855,8 +855,8 @@
     position: absolute;
     top: 2px;
     right: 3px;
-    width: 12px;
-    height: 12px;
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
     background: conic-gradient(
         #d40000 0deg 45deg, #ffffff 45deg 90deg,
@@ -946,8 +946,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 22px;
-    height: 14px;
+    width: 26px;
+    height: 17px;
     border-radius: 50%;
     background-color: #ffe882;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath fill='%230a0c14' d='M12 2.2L13.3 5l2.6-1.1-.7 2.5 5.8.4-4.2 1.5.8 2L12 9.2 6.4 10.3l.8-2L3 6.8l5.8-.4-.7-2.5 2.6 1.1z'/%3E%3C/svg%3E");
@@ -966,10 +966,10 @@
        aileron, verrière, bande or, phare, réacteur, roues */
     content: "";
     position: absolute;
-    bottom: 3px;
-    left: 3px;
-    width: 28px;
-    height: 13px;
+    bottom: 2px;
+    left: 2px;
+    width: 34px;
+    height: 16px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 24'%3E%3Cellipse cx='3' cy='13' rx='3' ry='1.6' fill='%23ff8a30'/%3E%3Cpath fill='%230b0e16' d='M6 14L10 2L16 11L14 14Z'/%3E%3Cpath fill='%23141a26' d='M8 14L14 12L24 11L34 9L44 11L53 13L54 15L50 17H8Z'/%3E%3Cpath fill='%23080a10' d='M8 17H50L48 19H10Z'/%3E%3Cpath fill='%235a9ad4' d='M30 10C34 3 42 4 46 11L34 11Z'/%3E%3Cpath fill='%23a8d4f0' opacity='.5' d='M33 8C36 5 40 5 43 9L36 9Z'/%3E%3Cpath stroke='%23e0b030' stroke-width='.8' fill='none' d='M14 13.5H50'/%3E%3Ccircle cx='16' cy='19' r='3.4' fill='%23111114' stroke='%23666' stroke-width='.7'/%3E%3Ccircle cx='16' cy='19' r='1.2' fill='%23444'/%3E%3Ccircle cx='40' cy='19' r='3.4' fill='%23111114' stroke='%23666' stroke-width='.7'/%3E%3Ccircle cx='40' cy='19' r='1.2' fill='%23444'/%3E%3Ccircle cx='53' cy='14' r='1.4' fill='%23ffe066'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: batmobile-drive 0.7s ease-in-out infinite;
@@ -1089,8 +1089,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 14px;
-    height: 16px;
+    width: 20px;
+    height: 22px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'%3E%3Cellipse cx='12' cy='11' rx='11' ry='10' fill='%23f0f0f2'/%3E%3Crect x='7' y='18' width='10' height='9' rx='1.5' fill='%23f0f0f2'/%3E%3Ccircle cx='8' cy='11' r='3.1' fill='%23111114'/%3E%3Ccircle cx='16' cy='11' r='3.1' fill='%23111114'/%3E%3Cpath d='M12 14L10 18h4z' fill='%23333'/%3E%3Cpath fill='%23111114' d='M8 22h2.2v5H8zm3.4 0h2.2v5h-2.2zm3.4 0H17v5h-2.2z'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 80%;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
@@ -1236,8 +1236,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon fill='%23c41818' points='16.0,4.3 16.8,6.7 19.3,6.7 17.3,8.2 18.1,10.6 16.0,9.1 13.9,10.6 14.7,8.2 12.7,6.7 15.2,6.7'/%3E%3Cpolygon fill='%23c41818' points='7.8,12.5 8.6,14.9 11.1,14.9 9.1,16.4 9.9,18.8 7.8,17.3 5.7,18.8 6.5,16.4 4.5,14.9 7.0,14.9'/%3E%3Cpolygon fill='%23c41818' points='24.2,12.5 25.0,14.9 27.5,14.9 25.5,16.4 26.3,18.8 24.2,17.3 22.1,18.8 22.9,16.4 20.9,14.9 23.4,14.9'/%3E%3Cpolygon fill='%23c41818' points='16.0,20.7 16.8,23.1 19.3,23.1 17.3,24.6 18.1,27.0 16.0,25.5 13.9,27.0 14.7,24.6 12.7,23.1 15.2,23.1'/%3E%3C/svg%3E") no-repeat center / 88% 88%,
@@ -1254,10 +1254,10 @@
     /* Kinto-un, le nuage magique doré, qui file en rebondissant */
     content: "";
     position: absolute;
-    bottom: 2px;
+    bottom: 1px;
     left: 2px;
-    width: 28px;
-    height: 14px;
+    width: 34px;
+    height: 17px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28'%3E%3Cellipse cx='8' cy='20' rx='6' ry='3.5' fill='%23ffd54a' opacity='.4'/%3E%3Cellipse cx='3' cy='22' rx='3.5' ry='2.4' fill='%23ffd54a' opacity='.22'/%3E%3Cellipse cx='34' cy='16' rx='20' ry='9' fill='%23ffd54a'/%3E%3Cellipse cx='24' cy='14' rx='10' ry='8' fill='%23ffe98a'/%3E%3Cellipse cx='42' cy='15' rx='10' ry='8' fill='%23ffcd2e'/%3E%3Cellipse cx='34' cy='10' rx='11' ry='7' fill='%23fff3b0'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(180, 90, 0, 0.5));
     pointer-events: none;
@@ -1301,8 +1301,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 14px;
-    height: 12px;
+    width: 20px;
+    height: 16px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22'%3E%3Cellipse cx='14' cy='8' rx='11' ry='3' fill='%23eef1f4'/%3E%3Crect x='4' y='8' width='20' height='11' rx='2' fill='%234a5058'/%3E%3Crect x='4' y='8' width='20' height='3' fill='%23d8dde2'/%3E%3Ccircle cx='14' cy='5' r='1.6' fill='%23f0f0f0'/%3E%3Cpath fill='none' stroke='%23c5ccd3' stroke-width='1.6' d='M4 12H1V16h3M24 12h3v4h-3'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(60, 0, 0, 0.55));
     pointer-events: none;
@@ -1312,10 +1312,10 @@
     /* Couteau de chef qui hache: lame triangulaire + manche bois */
     content: "";
     position: absolute;
-    bottom: 3px;
-    left: 3px;
-    width: 20px;
-    height: 8px;
+    bottom: 2px;
+    left: 2px;
+    width: 26px;
+    height: 10px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M0 7L22 1.5V9.5Z' fill='%23e8edf2'/%3E%3Cpath d='M0 7L22 1.5V4.2Z' fill='%23f7f9fb'/%3E%3Crect x='21' y='3.8' width='18' height='5' rx='1' fill='%233a2b1a'/%3E%3Crect x='21' y='3.8' width='2.2' height='5' fill='%238a9098'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 92% 45%;
     filter: drop-shadow(0 1px 1px rgba(60, 0, 0, 0.5));
@@ -1351,10 +1351,10 @@
     /* Masque Ghostface: capuche noire, visage allongé, yeux, bouche hurlante */
     content: "";
     position: absolute;
-    top: 1px;
-    right: 2px;
-    width: 14px;
-    height: 18px;
+    top: 0;
+    right: 1px;
+    width: 20px;
+    height: 24px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 32'%3E%3Cellipse cx='12' cy='18' rx='11' ry='13' fill='%23111114'/%3E%3Cellipse cx='12' cy='15' rx='8' ry='12' fill='%23f4f4f6'/%3E%3Cellipse cx='8.5' cy='12' rx='2' ry='3.1' fill='%23000'/%3E%3Cellipse cx='15.5' cy='12' rx='2' ry='3.1' fill='%23000'/%3E%3Cpath d='M12 17Q8 22 9 26Q12 28.5 15 26Q16 22 12 17z' fill='%23000'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
     pointer-events: none;
@@ -1365,10 +1365,10 @@
     /* Grand couteau qui donne des coups: manche sombre + lame argentée pointue */
     content: "";
     position: absolute;
-    bottom: 4px;
+    bottom: 3px;
     left: 2px;
-    width: 20px;
-    height: 7px;
+    width: 26px;
+    height: 9px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 10'%3E%3Crect x='0' y='2' width='10' height='6' rx='1' fill='%233a3028'/%3E%3Cpath d='M9 2H32L40 5L32 8H9Z' fill='%23cdd3da'/%3E%3Cpath d='M9 2H32L40 5H9Z' fill='%23eef2f6'/%3E%3C/svg%3E") no-repeat center / contain;
     transform: rotate(-28deg);
     filter: drop-shadow(0 0 2px rgba(200, 210, 220, 0.6));
@@ -1416,9 +1416,9 @@
     content: "";
     position: absolute;
     bottom: 3px;
-    right: 3px;
-    width: 26px;
-    height: 14px;
+    right: 2px;
+    width: 32px;
+    height: 18px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24'%3E%3Cpath fill='%23f4f6f8' d='M2 8h26l6-6h8l4 6v10H2z'/%3E%3Crect x='34' y='3.5' width='8' height='6' rx='1' fill='%236aa0c8'/%3E%3Crect x='11' y='9' width='11' height='3' fill='%23d42020'/%3E%3Crect x='15' y='6' width='3' height='9' fill='%23d42020'/%3E%3Ccircle cx='12' cy='19' r='3.4' fill='%232a2e33'/%3E%3Ccircle cx='36' cy='19' r='3.4' fill='%232a2e33'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1px rgba(20, 50, 80, 0.45));
     pointer-events: none;
@@ -1479,7 +1479,7 @@
     position: absolute;
     top: 0;
     right: 3px;
-    font-size: 9.5px;
+    font-size: 12px;
     line-height: 1.2;
     font-style: italic;
     font-weight: 700;
@@ -1496,16 +1496,16 @@
     position: absolute;
     bottom: 1px;
     left: 2px;
-    width: 30px;
-    height: 20px;
+    width: 36px;
+    height: 24px;
     background-image:
         linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)),
         linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)),
         linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0)),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 28'%3E%3Cpath fill='%23e8d5b0' d='M7 14h6l-1 13H8z'/%3E%3Crect x='8.6' y='18' width='2.8' height='3.4' fill='%236b3a18'/%3E%3Cg fill='%23fff' transform='rotate(22 10 11)'%3E%3Crect x='9.2' y='1.2' width='1.6' height='8.4' rx='.3'/%3E%3Crect x='9.2' y='12.4' width='1.6' height='8.4' rx='.3'/%3E%3Crect x='1.6' y='10.2' width='8.4' height='1.6' rx='.3'/%3E%3Crect x='10' y='10.2' width='8.4' height='1.6' rx='.3'/%3E%3C/g%3E%3Ccircle cx='10' cy='11' r='1.7' fill='%23d8c49a' stroke='%236b3a18' stroke-width='.5'/%3E%3C/svg%3E");
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-size: 12px 1.4px, 14px 1.3px, 10px 1.2px, 14px 20px;
-    background-position: 14px 4px, 15px 9px, 14px 14px, 0 0;
+    background-size: 14px 1.6px, 16px 1.5px, 12px 1.4px, 18px 24px;
+    background-position: 18px 5px, 19px 11px, 18px 17px, 0 0;
     pointer-events: none;
     animation: pfff-windmill 3.5s ease-out infinite;
 }
@@ -1517,9 +1517,9 @@
 }
 
 @keyframes pfff-windmill {
-    0%, 12% { background-position: 13px 5px, 14px 10px, 13px 15px, 0 0; }
-    40% { background-position: 16px 4px, 18px 9px, 16px 14px, 0 0; }
-    100% { background-position: 22px 5px, 24px 10px, 21px 15px, 0 0; }
+    0%, 12% { background-position: 17px 6px, 18px 12px, 17px 18px, 0 0; }
+    40% { background-position: 20px 5px, 22px 11px, 20px 17px, 0 0; }
+    100% { background-position: 26px 6px, 28px 12px, 25px 18px, 0 0; }
 }
 
 /* Skin Labo zombie: labo contaminé + fiole de liquide vert + bulles toxiques */
@@ -1542,10 +1542,10 @@
     /* Fiole Erlenmeyer plus grande, liquide vert fluo en ébullition */
     content: "";
     position: absolute;
-    top: 1px;
-    right: 2px;
-    width: 20px;
-    height: 26px;
+    top: 0;
+    right: 1px;
+    width: 24px;
+    height: 30px;
     background-image:
         radial-gradient(circle, rgba(220, 255, 230, 0.95) 0 1.4px, transparent 1.8px),
         radial-gradient(circle, rgba(180, 255, 200, 0.9) 0 1.1px, transparent 1.5px),
@@ -1565,8 +1565,8 @@
     position: absolute;
     bottom: 1px;
     left: 2px;
-    width: 16px;
-    height: 20px;
+    width: 22px;
+    height: 26px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 36'%3E%3Ccircle cx='16' cy='5' r='4.4' fill='%234a7a3a'/%3E%3Ccircle cx='18' cy='4.5' r='1.1' fill='%23c8ff90'/%3E%3Cpath fill='%232d5a28' d='M12 10h8l-2 14h-8z'/%3E%3Cpath fill='%234a7a3a' d='M19 12l9-3v3l-9 3z'/%3E%3Cpath fill='%231a3818' d='M11 24L7 36h4l3-12zm5 0l5 12h4l-6-12z'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 100%;
     filter: drop-shadow(0 0 2px rgba(0, 40, 10, 0.55));
@@ -1629,7 +1629,7 @@
     top: 1px;
     right: 3px;
     font-family: 'Impact', 'Arial Black', sans-serif;
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: 0.5px;
@@ -1702,9 +1702,9 @@
     position: absolute;
     top: 50%;
     left: 4px;
-    width: 9px;
-    height: 9px;
-    margin-top: -4.5px;
+    width: 11px;
+    height: 11px;
+    margin-top: -5.5px;
     border-radius: 50%;
     background: radial-gradient(circle, #ffffff 0% 38%, #1a1a1a 38% 62%, #f5f5f5 62% 100%);
     pointer-events: none;
@@ -1715,13 +1715,13 @@
     /* Petite pokeball en haut à droite qui tremble comme lors d'une capture */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 10px;
-    height: 10px;
+    top: 1px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 50% 50%, #ffffff 0 1.4px, #1a1a1a 1.4px 2.2px, transparent 2.2px),
+        radial-gradient(circle at 50% 50%, #ffffff 0 1.8px, #1a1a1a 1.8px 2.8px, transparent 2.8px),
         linear-gradient(180deg, #e02020 0% 42%, #1a1a1a 42% 58%, #f5f5f5 58% 100%);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transform-origin: 50% 100%;
@@ -1773,8 +1773,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 16px;
-    height: 12px;
+    width: 22px;
+    height: 16px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 18'%3E%3Cpath fill='%23ffd21f' d='M4 12Q14 1 24 12Z'/%3E%3Cellipse cx='14' cy='11' rx='10' ry='5' fill='%23ffd21f'/%3E%3Crect x='1' y='11' width='26' height='4.2' rx='1.6' fill='%23e69500'/%3E%3Crect x='12.2' y='3' width='3.6' height='8' rx='1' fill='%23f5a800'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(60, 25, 0, 0.6));
     pointer-events: none;
@@ -1826,10 +1826,10 @@
     /* Écran de visioconférence: cadre, objectif caméra, LED verte */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 13px;
-    height: 9px;
+    top: 1px;
+    right: 2px;
+    width: 18px;
+    height: 13px;
     border: 1px solid #5a6b80;
     border-radius: 2px;
     background:
@@ -1848,14 +1848,14 @@
     position: absolute;
     bottom: 2px;
     left: 3px;
-    width: 14px;
-    height: 10px;
+    width: 18px;
+    height: 13px;
     background:
-        linear-gradient(#1c6ea8, #3a9fd8) 0 100% / 2px 4px no-repeat,
-        linear-gradient(#1c6ea8, #3a9fd8) 3px 100% / 2px 9px no-repeat,
-        linear-gradient(#1c6ea8, #3a9fd8) 6px 100% / 2px 5.5px no-repeat,
-        linear-gradient(#1c6ea8, #3a9fd8) 9px 100% / 2px 10px no-repeat,
-        linear-gradient(#1c6ea8, #3a9fd8) 12px 100% / 2px 7px no-repeat;
+        linear-gradient(#1c6ea8, #3a9fd8) 0 100% / 2.4px 5px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 4px 100% / 2.4px 11px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 8px 100% / 2.4px 7px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 12px 100% / 2.4px 13px no-repeat,
+        linear-gradient(#1c6ea8, #3a9fd8) 16px 100% / 2.4px 9px no-repeat;
     transform-origin: 50% 100%;
     pointer-events: none;
     animation: av-eq-pump 0.9s ease-in-out infinite;
@@ -1897,9 +1897,9 @@
     content: "";
     position: absolute;
     top: 0;
-    right: 1px;
-    width: 20px;
-    height: 20px;
+    right: 0;
+    width: 26px;
+    height: 26px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='12' fill='%236bc41a'/%3E%3Cellipse cx='16' cy='14' rx='11' ry='10' fill='%238ee030'/%3E%3Cpath d='M8 24Q5 32 10 32Q13 27 13 22' fill='%236bc41a'/%3E%3Cpath d='M21 23Q24 32 28 30Q25 25 23 20' fill='%236bc41a'/%3E%3Cellipse cx='11' cy='12' rx='3.3' ry='4.2' fill='%23fff'/%3E%3Cellipse cx='20.5' cy='11' rx='3.3' ry='4.2' fill='%23fff'/%3E%3Cellipse cx='12' cy='13.2' rx='1.5' ry='2' fill='%231e4d0a'/%3E%3Cellipse cx='21.5' cy='12.2' rx='1.5' ry='2' fill='%231e4d0a'/%3E%3Cellipse cx='16' cy='21' rx='6.5' ry='3.6' fill='%231e4d0a'/%3E%3Cellipse cx='16' cy='20' rx='4' ry='1.4' fill='%234a9e0f'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(130, 240, 80, 0.8));
     pointer-events: none;
@@ -1912,8 +1912,8 @@
     position: absolute;
     bottom: 1px;
     left: 2px;
-    width: 14px;
-    height: 12px;
+    width: 20px;
+    height: 16px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath fill='%23f0a83c' d='M3 8a9 5 0 0 1 18 0z'/%3E%3Ccircle cx='8' cy='5' r='.8' fill='%23fff8e0'/%3E%3Ccircle cx='12' cy='4' r='.8' fill='%23fff8e0'/%3E%3Ccircle cx='16' cy='5.2' r='.8' fill='%23fff8e0'/%3E%3Crect x='3' y='8' width='18' height='2.2' fill='%237ec636'/%3E%3Crect x='3.5' y='10.2' width='17' height='3.2' rx='.6' fill='%237a3c16'/%3E%3Crect x='3' y='13.2' width='18' height='1.6' fill='%23ffd98a'/%3E%3Cpath fill='%23f0a83c' d='M3 14.8h18v3.4c0 1-2 1.6-9 1.6s-9-.6-9-1.6z'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(40, 20, 80, 0.5));
     pointer-events: none;
@@ -1952,8 +1952,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 13px;
-    height: 12px;
+    width: 18px;
+    height: 16px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath fill='%23e0114e' d='M12 21S1.5 13.8 1.5 7.6A5.6 5.6 0 0 1 12 4.4 5.6 5.6 0 0 1 22.5 7.6C22.5 13.8 12 21 12 21z'/%3E%3Cpath fill='%23ff5c8a' d='M12 18S5 12.5 5 8.2A3.6 3.6 0 0 1 12 6.2 3.6 3.6 0 0 1 19 8.2C19 12.5 12 18 12 18z'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 92, 138, 0.8));
     transform-origin: center;
@@ -1965,10 +1965,10 @@
     /* Petit cœur envoyé, qui s'élève et se dissipe */
     content: "";
     position: absolute;
-    bottom: 5px;
-    left: 5px;
-    width: 7px;
-    height: 6.5px;
+    bottom: 4px;
+    left: 4px;
+    width: 10px;
+    height: 9px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath fill='%23f04578' d='M12 21S1.5 13.8 1.5 7.6A5.6 5.6 0 0 1 12 4.4 5.6 5.6 0 0 1 22.5 7.6C22.5 13.8 12 21 12 21z'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: seducteur-heart-float 2.8s ease-out infinite;
@@ -2004,51 +2004,52 @@
 }
 
 .assignment-code.skin-dionaea::before {
-    /* Piège: intérieur rose, base verte, cils dentés */
+    /* Piège: deux lobes, intérieur rose, cils, tige */
     content: "";
     position: absolute;
-    top: 1px;
-    right: 2px;
-    width: 16px;
-    height: 14px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22'%3E%3Cpath fill='%232f8f3f' d='M4 21L8 9h12l4 12z'/%3E%3Cpath fill='%23ff7d9c' d='M8 9h12L18 3 16 9 14 2 12 9 10 3z'/%3E%3Cpath fill='%23d0ffc8' d='M8 9L6 1h2l2 8zm4 0L11 0h2l1 9zm4 0L17 1h2l-1 8z'/%3E%3C/svg%3E") no-repeat center / contain;
-    transform-origin: 50% 100%;
-    filter: drop-shadow(0 1px 2px rgba(0, 30, 8, 0.6));
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 28px;
+    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2042%22%3E%3Cpath%20fill%3D%22%23164a22%22%20d%3D%22M22%2041h5L25.2%2024h-2.2z%22%2F%3E%3Cpath%20fill%3D%22%23247a32%22%20d%3D%22M23%2026C7%2023%203%2010%208%204c9%207%2013%2011%2016%2016z%22%2F%3E%3Cpath%20fill%3D%22%23e23d62%22%20d%3D%22M24%2024C11%2021%208%2011%2012%207c7%205%2010%208%2012%2012z%22%2F%3E%3Cpath%20fill%3D%22%23ff7a96%22%20opacity%3D%22.55%22%20d%3D%22M23%2022C14%2019%2012%2013%2014%2010c5%204%207%206%209%2010z%22%2F%3E%3Cpath%20fill%3D%22%23247a32%22%20d%3D%22M23%2026C39%2023%2043%2010%2038%204c-9%207-13%2011-16%2016z%22%2F%3E%3Cpath%20fill%3D%22%23e23d62%22%20d%3D%22M24%2024C37%2021%2040%2011%2036%207c-7%205-10%208-12%2012z%22%2F%3E%3Cpath%20fill%3D%22%23ff7a96%22%20opacity%3D%22.55%22%20d%3D%22M25%2022C34%2019%2036%2013%2034%2010c-5%204-7%206-9%2010z%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2225.5%22%20rx%3D%223.2%22%20ry%3D%221.6%22%20fill%3D%22%231a5c28%22%2F%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23d8ffc8%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20d%3D%22M8%205L5%20.2M12%206L10-.2M16.5%208L15.5%201.2M20%2012L19.2%206M38%205L41%20.2M36%206L38-.2M31.5%208L32.5%201.2M28%2012L28.8%206%22%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
+    transform-origin: 50% 88%;
+    filter: drop-shadow(0 1px 2px rgba(0, 30, 8, 0.65));
     pointer-events: none;
     animation: dionaea-snap 4.5s ease-in-out infinite;
 }
 
 .assignment-code.skin-dionaea::after {
-    /* Mouche imprudente qui vole vers le piège (et disparaît au clap) */
+    /* Mouche: traverse toute la bulle jusqu'à la bouche du piège, puis disparaît au clap */
     content: "";
     position: absolute;
-    bottom: 5px;
-    left: 4px;
-    width: 3.5px;
-    height: 3.5px;
-    border-radius: 50%;
-    background: #26201a;
-    box-shadow:
-        -1.4px -1.6px 0 -0.7px rgba(210, 225, 235, 0.9),
-        1.4px -1.6px 0 -0.7px rgba(210, 225, 235, 0.9);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2016%22%3E%3Cellipse%20cx%3D%225%22%20cy%3D%226%22%20rx%3D%225%22%20ry%3D%223.2%22%20fill%3D%22%23dce8f0%22%20opacity%3D%22.92%22%2F%3E%3Cellipse%20cx%3D%2215%22%20cy%3D%226%22%20rx%3D%225%22%20ry%3D%223.2%22%20fill%3D%22%23dce8f0%22%20opacity%3D%22.92%22%2F%3E%3Cellipse%20cx%3D%2210%22%20cy%3D%2210%22%20rx%3D%223%22%20ry%3D%223.6%22%20fill%3D%22%231a120c%22%2F%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%226.5%22%20r%3D%221.6%22%20fill%3D%22%232a2018%22%2F%3E%3Ccircle%20cx%3D%228.8%22%20cy%3D%226%22%20r%3D%22.5%22%20fill%3D%22%2388c8ff%22%2F%3E%3Ccircle%20cx%3D%2211.2%22%20cy%3D%226%22%20r%3D%22.5%22%20fill%3D%22%2388c8ff%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 13px 11px;
+    background-position: 2px calc(100% - 2px);
     pointer-events: none;
     animation: dionaea-fly 4.5s ease-in infinite;
 }
 
 @keyframes dionaea-snap {
     0%, 62% { transform: scaleY(1); }
-    68% { transform: scaleY(1.08); }
-    72%, 80% { transform: scaleY(0.28); }
+    68% { transform: scaleY(1.1); }
+    72%, 80% { transform: scaleY(0.18); }
     88%, 100% { transform: scaleY(1); }
 }
 
 @keyframes dionaea-fly {
-    0% { transform: translate(0, 0); opacity: 0; }
-    8% { opacity: 1; }
-    30% { transform: translate(8px, -3px) rotate(10deg); }
-    50% { transform: translate(16px, -1px) rotate(-8deg); }
-    68% { transform: translate(26px, -8px) rotate(6deg); opacity: 1; }
-    71%, 100% { transform: translate(28px, -10px); opacity: 0; }
+    0% { background-position: 2px calc(100% - 2px); opacity: 0; }
+    7% { opacity: 1; }
+    22% { background-position: 18% 68%; }
+    40% { background-position: 42% 38%; }
+    56% { background-position: 68% 16%; }
+    68% { background-position: calc(100% - 22px) 8px; opacity: 1; }
+    72% { background-position: calc(100% - 16px) 6px; opacity: 1; }
+    75%, 100% { background-position: calc(100% - 16px) 6px; opacity: 0; }
 }
 
 /* Skin Musculation: salle sombre + haltère qui enchaîne les répétitions */
@@ -2071,10 +2072,10 @@
     /* Haltère: barre chromée + disques de chaque côté */
     content: "";
     position: absolute;
-    top: 3px;
+    top: 2px;
     right: 2px;
-    width: 20px;
-    height: 10px;
+    width: 26px;
+    height: 13px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Crect x='8' y='6.4' width='24' height='3.2' rx='1.2' fill='%23d8d8de'/%3E%3Crect x='1' y='2' width='4' height='12' rx='1' fill='%2317171c'/%3E%3Crect x='5' y='3.6' width='3' height='8.8' rx='.6' fill='%23222228'/%3E%3Crect x='32' y='3.6' width='3' height='8.8' rx='.6' fill='%23222228'/%3E%3Crect x='35' y='2' width='4' height='12' rx='1' fill='%2317171c'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.7));
     pointer-events: none;
@@ -2134,9 +2135,9 @@
     content: "";
     position: absolute;
     bottom: 1px;
-    left: 3px;
-    width: 32px;
-    height: 12px;
+    left: 2px;
+    width: 38px;
+    height: 15px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 22'%3E%3Cpath fill='%23c1121f' d='M8 12L28 11L48 10L60 12L58 15H8z'/%3E%3Cpath fill='%23e11d2a' d='M22 7L46 8L50 12H22z'/%3E%3Crect x='30' y='3' width='12' height='7' rx='1.4' fill='%23111'/%3E%3Crect x='33' y='4.5' width='7' height='4' rx='.8' fill='%2366d4ff'/%3E%3Cpolygon points='50,8 62,12 56,8' fill='%23e11d2a'/%3E%3Cpolygon points='60,12 64,10.5 62,13.5' fill='%23ffd166'/%3E%3Crect x='24' y='12' width='22' height='2' fill='%23ffd166'/%3E%3Ccircle cx='18' cy='16' r='4.4' fill='%23111114'/%3E%3Ccircle cx='18' cy='16' r='2' fill='%239aa0a6'/%3E%3Ccircle cx='46' cy='16' r='4.4' fill='%23111114'/%3E%3Ccircle cx='46' cy='16' r='2' fill='%239aa0a6'/%3E%3Crect x='4' y='11' width='8' height='3' fill='%23c1121f'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
     pointer-events: none;
@@ -2200,10 +2201,10 @@
     /* Vinyle: sillons, étiquette dorée, repère qui rend la rotation visible */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 12px;
+    top: 1px;
+    right: 2px;
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
     background:
         conic-gradient(rgba(255, 255, 255, 0.4) 0deg 14deg, transparent 14deg 360deg),
@@ -2220,7 +2221,7 @@
     position: absolute;
     bottom: 1px;
     left: 4px;
-    font-size: 8px;
+    font-size: 11px;
     line-height: 1;
     color: rgba(20, 51, 26, 0.9);
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
@@ -2265,9 +2266,9 @@
     content: "";
     position: absolute;
     top: 1px;
-    right: 3px;
-    width: 11px;
-    height: 14px;
+    right: 2px;
+    width: 16px;
+    height: 20px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Crect x='6.2' y='1' width='3.6' height='20' rx='.6' fill='%23e8c34a'/%3E%3Crect x='1.2' y='5.2' width='13.6' height='3.4' rx='.6' fill='%23e8c34a'/%3E%3Crect x='6.6' y='1.4' width='2.2' height='19' rx='.4' fill='%23ffe08a'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.8));
     pointer-events: none;
@@ -2278,10 +2279,10 @@
     /* Auréole qui lévite doucement */
     content: "";
     position: absolute;
-    top: 3px;
-    left: 4px;
-    width: 10px;
-    height: 4px;
+    top: 2px;
+    left: 3px;
+    width: 14px;
+    height: 5px;
     border: 1.5px solid #ffd700;
     border-radius: 50%;
     box-shadow:
@@ -2320,10 +2321,10 @@
     /* Homme de Vitruve stylisé: cercle + carré inscrit, à l'encre sépia */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 12px;
+    top: 1px;
+    right: 2px;
+    width: 17px;
+    height: 17px;
     border: 1px solid rgba(90, 60, 20, 0.8);
     border-radius: 50%;
     background:
@@ -2347,7 +2348,7 @@
     overflow: hidden;
     white-space: nowrap;
     font-family: "Courier New", monospace;
-    font-size: 6px;
+    font-size: 8px;
     line-height: 1.4;
     letter-spacing: 0.4px;
     color: rgba(74, 52, 24, 0.85);
@@ -2398,9 +2399,9 @@
     content: "";
     position: absolute;
     top: 1px;
-    right: 3px;
-    width: 13px;
-    height: 15px;
+    right: 2px;
+    width: 18px;
+    height: 20px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 26'%3E%3Cpath fill='none' stroke='%23d8dee6' stroke-width='1.8' d='M16 10h3.2c1.6 0 2.8 1.4 2.8 3.2v2.4c0 1.8-1.2 3.2-2.8 3.2H16'/%3E%3Cpath fill='%23ffc233' d='M4 8h12l-1.2 16H5.2z'/%3E%3Cpath fill='%23fff' d='M3.5 4c1.5-2 4-3 6.5-2.2 2 .6 3 2 4.2 2.2 1.4.2 3.3-.4 4.3.8.4 2-1 3.2-2.4 3.4H5.2C3.4 8 2.6 6.2 3.5 4z'/%3E%3Cpath fill='%23ffe08a' d='M6 12h8l-.4 4H6.4z' opacity='.45'/%3E%3C/svg%3E") no-repeat center / contain;
     transform-origin: 50% 100%;
     filter: drop-shadow(0 1px 2px rgba(30, 15, 0, 0.6));
@@ -2412,10 +2413,10 @@
     /* Petits cœurs qui s'élèvent du comptoir: l'amour de la bière */
     content: "";
     position: absolute;
-    bottom: 3px;
-    left: 5px;
-    width: 6px;
-    height: 5.5px;
+    bottom: 2px;
+    left: 4px;
+    width: 9px;
+    height: 8px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath fill='%23f04578' d='M12 21S1.5 13.8 1.5 7.6A5.6 5.6 0 0 1 12 4.4 5.6 5.6 0 0 1 22.5 7.6C22.5 13.8 12 21 12 21z'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: beer-hearts-rise 3s ease-out infinite;
@@ -2461,9 +2462,9 @@
     content: "";
     position: absolute;
     top: 1px;
-    right: 3px;
-    width: 10px;
-    height: 14px;
+    right: 2px;
+    width: 14px;
+    height: 20px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Crect x='1' y='1' width='14' height='22' rx='2.4' fill='%23141c26'/%3E%3Crect x='2.4' y='4.2' width='11.2' height='14.2' rx='.8' fill='%233c82c8'/%3E%3Crect x='5.5' y='2.2' width='5' height='1' rx='.4' fill='%23a0c8e6'/%3E%3Ccircle cx='8' cy='20.6' r='1.1' fill='%23a0c8e6'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 0 2px rgba(100, 200, 255, 0.55));
     pointer-events: none;
@@ -2475,13 +2476,13 @@
     position: absolute;
     bottom: 2px;
     left: 3px;
-    width: 10px;
-    height: 9px;
+    width: 14px;
+    height: 12px;
     background:
-        linear-gradient(#16548c, #16548c) 0 100% / 1.8px 3px no-repeat,
-        linear-gradient(#16548c, #16548c) 2.7px 100% / 1.8px 5px no-repeat,
-        linear-gradient(#16548c, #16548c) 5.4px 100% / 1.8px 7px no-repeat,
-        linear-gradient(#1a74c0, #16548c) 8.1px 100% / 1.8px 9px no-repeat;
+        linear-gradient(#16548c, #16548c) 0 100% / 2.4px 4px no-repeat,
+        linear-gradient(#16548c, #16548c) 3.8px 100% / 2.4px 7px no-repeat,
+        linear-gradient(#16548c, #16548c) 7.6px 100% / 2.4px 10px no-repeat,
+        linear-gradient(#1a74c0, #16548c) 11.4px 100% / 2.4px 12px no-repeat;
     pointer-events: none;
     animation: telephony-bars-pulse 1.8s ease-in-out infinite;
 }
@@ -2525,8 +2526,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 16px;
-    height: 12px;
+    width: 22px;
+    height: 16px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 20'%3E%3Cellipse cx='16' cy='10' rx='11' ry='8' fill='%238a2f1c'/%3E%3Cellipse cx='16' cy='10' rx='9' ry='6.2' fill='%23b5432a'/%3E%3Cellipse cx='13' cy='9' rx='2.4' ry='1.2' fill='%23ffe6d2' opacity='.75'/%3E%3Cellipse cx='19' cy='12' rx='2' ry='1' fill='%23ffe6d2' opacity='.65'/%3E%3Cpath stroke='%233c140a' stroke-width='.7' fill='none' d='M8 6L22 14M10 14L22 7' opacity='.55'/%3E%3Ccircle cx='4.5' cy='10' r='3.2' fill='%23f3e6d4'/%3E%3Ccircle cx='4.5' cy='10' r='1.4' fill='%23e8d0b0'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
     pointer-events: none;
@@ -2539,8 +2540,8 @@
     position: absolute;
     bottom: 2px;
     left: 3px;
-    width: 13px;
-    height: 12px;
+    width: 16px;
+    height: 14px;
     background: repeating-linear-gradient(
         90deg,
         rgba(245, 245, 245, 0.9) 0 2.2px,
@@ -2591,8 +2592,8 @@
     position: absolute;
     top: 1px;
     right: 2px;
-    width: 14px;
-    height: 16px;
+    width: 20px;
+    height: 22px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'%3E%3Cellipse cx='12' cy='8' rx='7' ry='6.5' fill='%23e8b88a'/%3E%3Ccircle cx='9.2' cy='8' r='1.1' fill='%232b1d10'/%3E%3Ccircle cx='14.8' cy='8' r='1.1' fill='%232b1d10'/%3E%3Cpath fill='%234a2e14' d='M7 12c2 2 8 2 10 0-1 2-2.2 3-5 3s-4-1-5-3z'/%3E%3Cpath fill='%235a3a1a' d='M5 14c1 8 5 13 7 13s6-5 7-13c-2 3-12 3-14 0z'/%3E%3C/svg%3E") no-repeat center / contain;
     filter: drop-shadow(0 1px 1.5px rgba(0, 20, 20, 0.6));
     pointer-events: none;
@@ -2605,8 +2606,8 @@
     position: absolute;
     bottom: 2px;
     left: 3px;
-    width: 4px;
-    height: 12px;
+    width: 6px;
+    height: 16px;
     border: 1px solid rgba(230, 230, 235, 0.75);
     border-radius: 2px;
     background: repeating-linear-gradient(
@@ -2693,6 +2694,104 @@
 @keyframes wow-gold-shimmer {
     0%, 100% { opacity: 0.55; }
     50% { opacity: 1; }
+}
+
+/* Skin Pac-Man: labyrinthe arcade + boules en bas + Pac-Man qui mange + fantômes */
+.assignment-code.skin-pacman {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        /* Rangée de boules (pellets) le long du bas */
+        repeating-radial-gradient(
+            circle at 5px 50%,
+            #ffd54a 0 1.5px,
+            transparent 1.6px 10px
+        ),
+        /* Ligne de labyrinthe cyan, façon arcade */
+        linear-gradient(#2121de, #2121de),
+        linear-gradient(
+            180deg,
+            rgb(6, 6, 32) 0%,
+            rgb(12, 12, 64) 48%,
+            rgb(4, 4, 24) 100%
+        );
+    background-repeat: repeat-x, no-repeat, no-repeat;
+    background-size: 100% 8px, 100% 2px, 100% 100%;
+    background-position: 0 calc(100% - 4px), 0 0, 0 0;
+    color: #ffe566 !important;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.9),
+        0 0 4px rgba(255, 213, 74, 0.45);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(33, 33, 222, 0.7);
+}
+
+.assignment-code.skin-pacman::before {
+    /* Trois fantômes sur le chemin, disparition synchro au passage de Pac-Man */
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2018%2020%22%3E%3Cpath%20fill%3D%22%23ff2020%22%20d%3D%22M1%209Q1%202%209%202q8%200%208%207v10l-2.7-2.2-2.6%202.2-2.7-2.2-2.6%202.2-2.7-2.2L1%2019z%22%2F%3E%3Cellipse%20cx%3D%226%22%20cy%3D%228%22%20rx%3D%222.2%22%20ry%3D%222.6%22%20fill%3D%22%23fff%22%2F%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%228%22%20rx%3D%222.2%22%20ry%3D%222.6%22%20fill%3D%22%23fff%22%2F%3E%3Ccircle%20cx%3D%226.7%22%20cy%3D%228.5%22%20r%3D%221.15%22%20fill%3D%22%232244ff%22%2F%3E%3Ccircle%20cx%3D%2212.7%22%20cy%3D%228.5%22%20r%3D%221.15%22%20fill%3D%22%232244ff%22%2F%3E%3C%2Fsvg%3E"),
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2018%2020%22%3E%3Cpath%20fill%3D%22%23ffb8ff%22%20d%3D%22M1%209Q1%202%209%202q8%200%208%207v10l-2.7-2.2-2.6%202.2-2.7-2.2-2.6%202.2-2.7-2.2L1%2019z%22%2F%3E%3Cellipse%20cx%3D%226%22%20cy%3D%228%22%20rx%3D%222.2%22%20ry%3D%222.6%22%20fill%3D%22%23fff%22%2F%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%228%22%20rx%3D%222.2%22%20ry%3D%222.6%22%20fill%3D%22%23fff%22%2F%3E%3Ccircle%20cx%3D%226.7%22%20cy%3D%228.5%22%20r%3D%221.15%22%20fill%3D%22%232244ff%22%2F%3E%3Ccircle%20cx%3D%2212.7%22%20cy%3D%228.5%22%20r%3D%221.15%22%20fill%3D%22%232244ff%22%2F%3E%3C%2Fsvg%3E"),
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2018%2020%22%3E%3Cpath%20fill%3D%22%2300e8e8%22%20d%3D%22M1%209Q1%202%209%202q8%200%208%207v10l-2.7-2.2-2.6%202.2-2.7-2.2-2.6%202.2-2.7-2.2L1%2019z%22%2F%3E%3Cellipse%20cx%3D%226%22%20cy%3D%228%22%20rx%3D%222.2%22%20ry%3D%222.6%22%20fill%3D%22%23fff%22%2F%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%228%22%20rx%3D%222.2%22%20ry%3D%222.6%22%20fill%3D%22%23fff%22%2F%3E%3Ccircle%20cx%3D%226.7%22%20cy%3D%228.5%22%20r%3D%221.15%22%20fill%3D%22%232244ff%22%2F%3E%3Ccircle%20cx%3D%2212.7%22%20cy%3D%228.5%22%20r%3D%221.15%22%20fill%3D%22%232244ff%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 12px 14px, 12px 14px, 12px 14px;
+    background-position: 32% 50%, 56% 50%, 78% 50%;
+    pointer-events: none;
+    animation: pacman-ghosts-eaten 5.2s linear infinite;
+}
+
+.assignment-code.skin-pacman::after {
+    /* Bande sombre (boules mangées) + Pac-Man à droite qui avance en claquant la bouche */
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23ffd000%22%20d%3D%22M10%2010L18.6%203.1A9%209%200%201%200%2018.6%2016.9Z%22%2F%3E%3Ccircle%20cx%3D%228.2%22%20cy%3D%226%22%20r%3D%221.55%22%20fill%3D%22%231a1200%22%2F%3E%3C%2Fsvg%3E"),
+        linear-gradient(#080820, #080820);
+    background-repeat: no-repeat;
+    background-size: 14px 14px, 100% 100%;
+    background-position: right center, 0 0;
+    pointer-events: none;
+    animation:
+        pacman-advance 5.2s linear infinite,
+        pacman-chomp 0.28s steps(2, end) infinite;
+}
+
+@keyframes pacman-advance {
+    0% { width: 16px; }
+    90% { width: calc(100% - 1px); }
+    100% { width: calc(100% - 1px); }
+}
+
+@keyframes pacman-chomp {
+    0%, 49% {
+        background-image:
+            url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23ffd000%22%20d%3D%22M10%2010L18.6%203.1A9%209%200%201%200%2018.6%2016.9Z%22%2F%3E%3Ccircle%20cx%3D%228.2%22%20cy%3D%226%22%20r%3D%221.55%22%20fill%3D%22%231a1200%22%2F%3E%3C%2Fsvg%3E"),
+            linear-gradient(#080820, #080820);
+    }
+    50%, 100% {
+        background-image:
+            url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23ffd000%22%20d%3D%22M10%2010L18.6%208.1A9%209%200%201%200%2018.6%2011.9Z%22%2F%3E%3Ccircle%20cx%3D%228.2%22%20cy%3D%226%22%20r%3D%221.55%22%20fill%3D%22%231a1200%22%2F%3E%3C%2Fsvg%3E"),
+            linear-gradient(#080820, #080820);
+    }
+}
+
+@keyframes pacman-ghosts-eaten {
+    0%, 28% { background-size: 12px 14px, 12px 14px, 12px 14px; }
+    32% { background-size: 0 0, 12px 14px, 12px 14px; }
+    52% { background-size: 0 0, 12px 14px, 12px 14px; }
+    56% { background-size: 0 0, 0 0, 12px 14px; }
+    74% { background-size: 0 0, 0 0, 12px 14px; }
+    78%, 100% { background-size: 0 0, 0 0, 0 0; }
 }
 
 /* ================================
