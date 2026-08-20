@@ -919,25 +919,25 @@
     overflow: hidden;
     background-color: rgb(10, 12, 20) !important;
     background-image:
-        /* Projecteur au sol, coin bas-gauche */
-        radial-gradient(circle at 8% 90%, rgba(255, 232, 130, 1) 0 2.5px, rgba(255, 232, 130, 0.45) 2.5px 7px, transparent 10px),
-        /* Cœur du faisceau (sky tracer) vers le bat-signal en haut à droite */
-        linear-gradient(
-            48deg,
-            transparent 0% 36%,
-            rgba(255, 250, 200, 0.15) 41%,
-            rgba(255, 245, 180, 0.75) 45%,
-            rgba(255, 250, 200, 0.15) 49%,
-            transparent 54% 100%
+        /* Projecteur au sol, coin bas-droit */
+        radial-gradient(circle at 92% 90%, rgba(255, 232, 130, 1) 0 2.5px, rgba(255, 232, 130, 0.45) 2.5px 7px, transparent 10px),
+        /* Cœur du faisceau : du projecteur (bas droite) vers le bat-signal (haut droite) */
+        conic-gradient(
+            from -8deg at 90% 100%,
+            transparent 0deg 3deg,
+            rgba(255, 250, 200, 0.2) 5deg,
+            rgba(255, 245, 180, 0.85) 8deg,
+            rgba(255, 250, 200, 0.2) 11deg,
+            transparent 13deg 360deg
         ),
         /* Halo plus large du faisceau */
-        linear-gradient(
-            48deg,
-            transparent 0% 28%,
-            rgba(255, 232, 130, 0.12) 36%,
-            rgba(255, 232, 130, 0.38) 45%,
-            rgba(255, 232, 130, 0.12) 54%,
-            transparent 62% 100%
+        conic-gradient(
+            from -8deg at 90% 100%,
+            transparent 0deg 1deg,
+            rgba(255, 232, 130, 0.15) 4deg,
+            rgba(255, 232, 130, 0.35) 8deg,
+            rgba(255, 232, 130, 0.15) 12deg,
+            transparent 16deg 360deg
         ),
         /* Marquage de la route */
         repeating-linear-gradient(
