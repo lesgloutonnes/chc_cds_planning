@@ -562,8 +562,8 @@
     position: relative;
     overflow: hidden;
     background-image:
-        /* Logo SHD (aigle + anneau brisé): grande moitié gauche, derrière le nom */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23f47920' stroke-opacity='.62' stroke-width='9' stroke-linecap='butt' d='M72 38A72 72 0 0 1 128 38'/%3E%3Cpath fill='none' stroke='%23f47920' stroke-opacity='.62' stroke-width='9' stroke-linecap='butt' d='M40 142A76 76 0 0 0 160 142'/%3E%3Cpath fill='%23f47920' fill-opacity='.62' d='M62 56L86 44 100 48 114 44 122 40 128 18 124 40 152 14 140 44 176 28 154 54 192 58 150 74 124 80 128 112 150 164 100 132 50 164 72 112 76 80 50 74 8 58 46 54 24 28 60 44 48 14 76 40 72 18 78 40Z'/%3E%3C/svg%3E"),
+        /* Logo SHD entier (aigle + anneau brisé), calé à gauche derrière le nom */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23f47920' stroke-opacity='.88' stroke-width='11' stroke-linecap='butt' d='M70 40A72 72 0 0 1 130 40'/%3E%3Cpath fill='none' stroke='%23f47920' stroke-opacity='.88' stroke-width='11' stroke-linecap='butt' d='M38 142A76 76 0 0 0 162 142'/%3E%3Cpath fill='%23f47920' fill-opacity='.88' d='M62 56L86 44 100 48 114 44 122 40 128 18 124 40 152 14 140 44 176 28 154 54 192 58 150 74 124 80 128 112 150 164 100 132 50 164 72 112 76 80 50 74 8 58 46 54 24 28 60 44 48 14 76 40 72 18 78 40Z'/%3E%3C/svg%3E"),
         /* Lamelles diagonales orange, façon visuels de la franchise */
         linear-gradient(
             115deg,
@@ -590,8 +590,8 @@
             rgb(24, 24, 28) 55%,
             rgb(6, 6, 8) 100%
         );
-    background-size: 52% auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    background-position: 2% 42%, 0 0, 0 0, 0 0, 0 0;
+    background-size: auto 92%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-position: 3px 50%, 0 0, 0 0, 0 0, 0 0;
     background-repeat: no-repeat;
     color: #ffffff !important;
     text-shadow:
@@ -908,13 +908,14 @@
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0;
     pointer-events: none;
-    animation: re-lab-doors 6s ease-in-out infinite;
+    animation: re-lab-doors 10s ease-in-out infinite;
 }
 
 @keyframes re-lab-doors {
-    0%, 26% { background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0; }
-    38%, 66% { background-position: 0 0, right 0 top 0, 0 0, right 0 top 0; }
-    78%, 100% { background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0; }
+    /* Ouvertes presque tout le temps ; une fermeture toutes les 10 s */
+    0%, 84% { background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0; }
+    91.5%, 94% { background-position: 0 0, right 0 top 0, 0 0, right 0 top 0; }
+    100% { background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0; }
 }
 
 /* Skin Batman: nuit de Gotham, faisceau du projecteur, Batmobile sur la route */
@@ -2024,7 +2025,7 @@
     width: 30px;
     height: 28px;
     background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2042%22%3E%3Cpath%20fill%3D%22%23164a22%22%20d%3D%22M22%2041h5L25.2%2024h-2.2z%22%2F%3E%3Cpath%20fill%3D%22%23247a32%22%20d%3D%22M23%2026C7%2023%203%2010%208%204c9%207%2013%2011%2016%2016z%22%2F%3E%3Cpath%20fill%3D%22%23e23d62%22%20d%3D%22M24%2024C11%2021%208%2011%2012%207c7%205%2010%208%2012%2012z%22%2F%3E%3Cpath%20fill%3D%22%23ff7a96%22%20opacity%3D%22.55%22%20d%3D%22M23%2022C14%2019%2012%2013%2014%2010c5%204%207%206%209%2010z%22%2F%3E%3Cpath%20fill%3D%22%23247a32%22%20d%3D%22M23%2026C39%2023%2043%2010%2038%204c-9%207-13%2011-16%2016z%22%2F%3E%3Cpath%20fill%3D%22%23e23d62%22%20d%3D%22M24%2024C37%2021%2040%2011%2036%207c-7%205-10%208-12%2012z%22%2F%3E%3Cpath%20fill%3D%22%23ff7a96%22%20opacity%3D%22.55%22%20d%3D%22M25%2022C34%2019%2036%2013%2034%2010c-5%204-7%206-9%2010z%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2225.5%22%20rx%3D%223.2%22%20ry%3D%221.6%22%20fill%3D%22%231a5c28%22%2F%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23d8ffc8%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20d%3D%22M8%205L5%20.2M12%206L10-.2M16.5%208L15.5%201.2M20%2012L19.2%206M38%205L41%20.2M36%206L38-.2M31.5%208L32.5%201.2M28%2012L28.8%206%22%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
-    transform-origin: 50% 88%;
+    transform-origin: 50% 62%;
     filter: drop-shadow(0 1px 2px rgba(0, 30, 8, 0.65));
     pointer-events: none;
     animation: dionaea-snap 4.5s ease-in-out infinite;
@@ -2047,10 +2048,11 @@
 }
 
 @keyframes dionaea-snap {
-    0%, 62% { transform: scaleY(1); }
-    68% { transform: scaleY(1.1); }
-    72%, 80% { transform: scaleY(0.18); }
-    88%, 100% { transform: scaleY(1); }
+    /* Les deux lobes se rejoignent (scaleX), sans s'écraser vers le bas */
+    0%, 62% { transform: scaleX(1) scaleY(1); }
+    68% { transform: scaleX(1.08) scaleY(1.02); }
+    72%, 80% { transform: scaleX(0.22) scaleY(1.08); }
+    88%, 100% { transform: scaleX(1) scaleY(1); }
 }
 
 @keyframes dionaea-fly {
