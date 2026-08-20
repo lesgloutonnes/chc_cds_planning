@@ -1,7 +1,11 @@
+import logging
+
 from pytz import timezone
 from odoo import api, models
 from odoo.tools.misc import format_date
 from odoo.tools.translate import _
+
+_logger = logging.getLogger(__name__)
 
 
 class HrLeave(models.Model):
@@ -304,3 +308,56 @@ class HrLeave(models.Model):
                     overlapping_assignments |= assignment
 
         return overlapping_assignments
+
+    @api.model
+    def _chc_purge_medical_certificate_attachments(self):
+        """DPO : supprime les pièces jointes des congés maladie.
+
+        Odoo lit d'abord les enregistrements ``ir.attachment`` en base, puis
+        ouvre le fichier filestore. Si on a effacé les PDF sur disque sans
+        retirer les lignes SQL, chaque ouverture de congé (ou du menu) relance
+        un FileNotFoundError. Unlink des enregistrements arrête la recherche.
+        """
+        sick_types = (
+            self.env["hr.leave.type"]
+            .with_context(active_test=False)
+            .search([("name", "ilike", "maladie")])
+        )
+        if not sick_types:
+            _logger.info("DPO: aucun type de congé maladie, rien à purger")
+            return 0
+
+        sick_leaves = (
+            self.with_context(active_test=False)
+            .sudo()
+            .search([("holiday_status_id", "in", sick_types.ids)])
+        )
+        attachments = self.env["ir.attachment"].sudo().browse()
+        if sick_leaves:
+            attachments = self.env["ir.attachment"].sudo().search(
+                [
+                    ("res_model", "=", "hr.leave"),
+                    ("res_id", "in", sick_leaves.ids),
+                ]
+            )
+            chatter = (
+                self.env["mail.message"]
+                .sudo()
+                .search(
+                    [
+                        ("model", "=", "hr.leave"),
+                        ("res_id", "in", sick_leaves.ids),
+                    ]
+                )
+                .mapped("attachment_ids")
+            )
+            attachments |= chatter
+
+        count = len(attachments)
+        if attachments:
+            attachments.unlink()
+        _logger.info(
+            "DPO: %s pièce(s) jointe(s) de congé maladie supprimée(s)",
+            count,
+        )
+        return count

@@ -2,6 +2,7 @@
 <odoo>
     <menuitem id="menu_chc_cds_planning_root"
         name="Planning CDS"
+        web_icon="chc_cds_planning,static/description/icon.png"
         groups="chc_cds_planning.group_planning_user,chc_cds_planning.group_planning_admin" />
 
     <menuitem id="menu_chc_cds_planning_planning"
