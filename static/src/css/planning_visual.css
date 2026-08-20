@@ -866,37 +866,65 @@
 }
 
 .assignment-code.skin-resident-evil::after {
-    /* Portes vitrées coulissantes du labo Umbrella: elles se ferment,
-       marquent une pause, puis se rouvrent en boucle */
+    /* Portes vitrées coulissantes: chaque battant porte une moitié du
+       biohazard ; à la fermeture le signe se reconstitue au joint */
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background:
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 64'%3E%3Cg fill='%23d8ff1a' fill-rule='evenodd'%3E%3Ccircle cx='32' cy='18' r='14'/%3E%3Ccircle cx='18.1' cy='42' r='14'/%3E%3Ccircle cx='45.9' cy='42' r='14'/%3E%3Ccircle cx='32' cy='18' r='6'/%3E%3Ccircle cx='18.1' cy='42' r='6'/%3E%3Ccircle cx='45.9' cy='42' r='6'/%3E%3Ccircle cx='32' cy='34' r='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='34' r='10.5' fill='none' stroke='%23d8ff1a' stroke-width='2.4'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='32 0 32 64'%3E%3Cg fill='%23d8ff1a' fill-rule='evenodd'%3E%3Ccircle cx='32' cy='18' r='14'/%3E%3Ccircle cx='18.1' cy='42' r='14'/%3E%3Ccircle cx='45.9' cy='42' r='14'/%3E%3Ccircle cx='32' cy='18' r='6'/%3E%3Ccircle cx='18.1' cy='42' r='6'/%3E%3Ccircle cx='45.9' cy='42' r='6'/%3E%3Ccircle cx='32' cy='34' r='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='34' r='10.5' fill='none' stroke='%23d8ff1a' stroke-width='2.4'/%3E%3C/svg%3E"),
         /* Porte gauche: vitre teintée + montant lumineux côté intérieur */
         linear-gradient(
             90deg,
             rgba(170, 215, 255, 0.18) 0% 86%,
             rgba(225, 245, 255, 0.8) 86% 100%
-        ) no-repeat,
+        ),
         /* Porte droite, miroir */
         linear-gradient(
             90deg,
             rgba(225, 245, 255, 0.8) 0% 14%,
             rgba(170, 215, 255, 0.18) 14% 100%
-        ) no-repeat;
-    background-size: 50% 100%, 50% 100%;
-    background-position: -30px 0, right -30px top 0;
+        );
+    background-size: 11px 22px, 11px 22px, 50% 100%, 50% 100%;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position:
+        calc(50% - 41px) 50%,
+        calc(50% + 30px) 50%,
+        -30px 0,
+        right -30px top 0;
     pointer-events: none;
     animation: re-lab-doors 6s ease-in-out infinite;
 }
 
 @keyframes re-lab-doors {
-    0%, 26% { background-position: -30px 0, right -30px top 0; }
-    38%, 66% { background-position: 0 0, right 0 top 0; }
-    78%, 100% { background-position: -30px 0, right -30px top 0; }
+    0%, 26% {
+        background-position:
+            calc(50% - 41px) 50%,
+            calc(50% + 30px) 50%,
+            -30px 0,
+            right -30px top 0;
+        filter: none;
+    }
+    38%, 66% {
+        background-position:
+            calc(50% - 11px) 50%,
+            50% 50%,
+            0 0,
+            right 0 top 0;
+        filter: drop-shadow(0 0 5px rgba(216, 255, 26, 0.8));
+    }
+    78%, 100% {
+        background-position:
+            calc(50% - 41px) 50%,
+            calc(50% + 30px) 50%,
+            -30px 0,
+            right -30px top 0;
+        filter: none;
+    }
 }
 
 /* Skin Batman: nuit de Gotham, faisceau du projecteur, Batmobile sur la route */
@@ -905,34 +933,16 @@
     overflow: hidden;
     background-color: rgb(10, 12, 20) !important;
     background-image:
-        /* Projecteur au sol, coin bas-droit */
-        radial-gradient(circle at 92% 90%, rgba(255, 232, 130, 1) 0 2.5px, rgba(255, 232, 130, 0.45) 2.5px 7px, transparent 10px),
-        /* Cœur du faisceau : du projecteur (bas droite) vers le bat-signal (haut droite) */
-        conic-gradient(
-            from -8deg at 90% 100%,
-            transparent 0deg 3deg,
-            rgba(255, 250, 200, 0.2) 5deg,
-            rgba(255, 245, 180, 0.85) 8deg,
-            rgba(255, 250, 200, 0.2) 11deg,
-            transparent 13deg 360deg
-        ),
-        /* Halo plus large du faisceau */
-        conic-gradient(
-            from -8deg at 90% 100%,
-            transparent 0deg 1deg,
-            rgba(255, 232, 130, 0.15) 4deg,
-            rgba(255, 232, 130, 0.35) 8deg,
-            rgba(255, 232, 130, 0.15) 12deg,
-            transparent 16deg 360deg
-        ),
-        /* Marquage de la route */
+        /* Marquage de la route (au-dessus du faisceau) */
         repeating-linear-gradient(
             90deg,
             rgba(255, 255, 255, 0.8) 0 3px,
             transparent 3px 8px
         ),
-        /* Asphalte */
+        /* Asphalte: recouvre l'origine du cône, plus besoin de boule jaune */
         linear-gradient(180deg, transparent 0%, transparent 86%, #4a4f56 86%, #2a2e34 100%),
+        /* Faisceau conique: point caché derrière la route, s'évase jusqu'au signal */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='beam' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23ffe082' stop-opacity='0'/%3E%3Cstop offset='.14' stop-color='%23ffe082' stop-opacity='.22'/%3E%3Cstop offset='.5' stop-color='%23fff3b0' stop-opacity='.5'/%3E%3Cstop offset='1' stop-color='%23fff8d0' stop-opacity='.88'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='84,41.5 100,0 64,0' fill='url(%23beam)' opacity='.4'/%3E%3Cpolygon points='84,41.5 97.5,0.4 70.5,0.4' fill='url(%23beam)'/%3E%3C/svg%3E"),
         /* Ciel de Gotham */
         linear-gradient(
             160deg,
@@ -940,9 +950,9 @@
             rgb(28, 33, 52) 55%,
             rgb(7, 8, 14) 100%
         );
-    background-size: auto, auto, auto, 100% 1.5px, auto, auto;
-    background-position: 0 0, 0 0, 0 0, left 0 bottom 2.5px, 0 0, 0 0;
-    background-repeat: no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat;
+    background-size: 100% 1.5px, auto, 100% 100%, auto;
+    background-position: left 0 bottom 2.5px, 0 0, 0 0, 0 0;
+    background-repeat: repeat-x, no-repeat, no-repeat, no-repeat;
     color: #ffe066 !important;
     text-shadow:
         0 1px 1px rgba(0, 0, 0, 0.85),
@@ -1243,21 +1253,18 @@
 
 .assignment-code.skin-dbz::before {
     /* Boule de cristal à 4 étoiles (celle de Son Gohan): sphère orange
-       brillante, quatre étoiles rouges en losange au centre */
+       brillante, quatre étoiles rouges bien écartées en losange */
     content: "";
     position: absolute;
-    top: 2px;
-    right: 3px;
-    width: 12px;
-    height: 12px;
+    top: 1px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.95) 0 1.3px, transparent 1.8px),
-        radial-gradient(circle at 50% 38%, #d21f1f 0 1.2px, transparent 1.6px),
-        radial-gradient(circle at 36% 56%, #d21f1f 0 1.2px, transparent 1.6px),
-        radial-gradient(circle at 64% 56%, #d21f1f 0 1.2px, transparent 1.6px),
-        radial-gradient(circle at 50% 74%, #d21f1f 0 1.2px, transparent 1.6px),
-        radial-gradient(circle at 50% 45%, #ffcf4d 0% 55%, #ff9d00 100%);
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon fill='%23c41818' points='16.0,4.3 16.8,6.7 19.3,6.7 17.3,8.2 18.1,10.6 16.0,9.1 13.9,10.6 14.7,8.2 12.7,6.7 15.2,6.7'/%3E%3Cpolygon fill='%23c41818' points='7.8,12.5 8.6,14.9 11.1,14.9 9.1,16.4 9.9,18.8 7.8,17.3 5.7,18.8 6.5,16.4 4.5,14.9 7.0,14.9'/%3E%3Cpolygon fill='%23c41818' points='24.2,12.5 25.0,14.9 27.5,14.9 25.5,16.4 26.3,18.8 24.2,17.3 22.1,18.8 22.9,16.4 20.9,14.9 23.4,14.9'/%3E%3Cpolygon fill='%23c41818' points='16.0,20.7 16.8,23.1 19.3,23.1 17.3,24.6 18.1,27.0 16.0,25.5 13.9,27.0 14.7,24.6 12.7,23.1 15.2,23.1'/%3E%3C/svg%3E") no-repeat center / 88% 88%,
+        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.95) 0 1.6px, transparent 2.2px),
+        radial-gradient(circle at 50% 48%, #ffcf4d 0% 55%, #ff9d00 100%);
     box-shadow:
         0 0 4px rgba(255, 190, 60, 0.9),
         inset 0 -1px 2px rgba(180, 90, 0, 0.6);
@@ -1553,17 +1560,24 @@
 }
 
 .assignment-code.skin-undead-lab::before {
-    /* Fiole Erlenmeyer: col en verre + liquide vert fluo */
+    /* Fiole Erlenmeyer plus grande, liquide vert fluo en ébullition */
     content: "";
     position: absolute;
     top: 1px;
-    right: 3px;
-    width: 12px;
-    height: 14px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 24'%3E%3Cpath fill='%23cfe8ff' fill-opacity='.55' d='M7 1h6v8l6.5 14H.5L7 9z'/%3E%3Cpath fill='%2352e05a' d='M6.2 12L.8 23h18.4L13.8 12z'/%3E%3Crect x='6.5' y='0' width='7' height='2.2' rx='.6' fill='%23e8f4ff'/%3E%3Cellipse cx='10' cy='17' rx='4' ry='1.2' fill='%2396ff9a' opacity='.7'/%3E%3C/svg%3E") no-repeat center / contain;
+    right: 2px;
+    width: 20px;
+    height: 26px;
+    background-image:
+        radial-gradient(circle, rgba(220, 255, 230, 0.95) 0 1.4px, transparent 1.8px),
+        radial-gradient(circle, rgba(180, 255, 200, 0.9) 0 1.1px, transparent 1.5px),
+        radial-gradient(circle, rgba(230, 255, 235, 0.95) 0 0.9px, transparent 1.3px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 36'%3E%3Cpath fill='%23cfe8ff' fill-opacity='.45' d='M10 2h8v10l9 21H1L10 12z'/%3E%3Cpath fill='%2352e05a' d='M8.2 17L2 33h24L19.8 17z'/%3E%3Cellipse cx='14' cy='17.4' rx='6.4' ry='1.8' fill='%2378f080'/%3E%3Crect x='9' y='0' width='10' height='3.2' rx='1' fill='%23e8f4ff'/%3E%3Ccircle cx='11' cy='24' r='1.5' fill='%23c8ffd0' opacity='.85'/%3E%3Ccircle cx='17' cy='27' r='1.2' fill='%23c8ffd0' opacity='.75'/%3E%3Ccircle cx='13.5' cy='30' r='.9' fill='%23e8ffe8' opacity='.7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 4px 4px, 3.2px 3.2px, 2.6px 2.6px, contain;
+    background-position: 7px 18px, 12px 20px, 9px 16px, center;
     filter: drop-shadow(0 0 3px rgba(80, 255, 100, 0.85));
     pointer-events: none;
-    animation: undead-flask-glow 2.2s ease-in-out infinite;
+    animation: undead-flask-boil 1.35s ease-out infinite;
 }
 
 .assignment-code.skin-undead-lab::after {
@@ -1581,9 +1595,19 @@
     animation: undead-zombie-lurch 1.6s ease-in-out infinite;
 }
 
-@keyframes undead-flask-glow {
-    0%, 100% { filter: drop-shadow(0 0 2px rgba(80, 255, 100, 0.6)); }
-    50% { filter: drop-shadow(0 0 5px rgba(80, 255, 100, 1)); }
+@keyframes undead-flask-boil {
+    0% {
+        background-position: 7px 20px, 13px 22px, 9px 18px, center;
+        filter: drop-shadow(0 0 2px rgba(80, 255, 100, 0.55));
+    }
+    45% {
+        background-position: 8px 11px, 12px 13px, 10px 9px, center;
+        filter: drop-shadow(0 0 5px rgba(80, 255, 100, 1));
+    }
+    100% {
+        background-position: 6px 3px, 14px 4px, 9px 2px, center;
+        filter: drop-shadow(0 0 3px rgba(120, 255, 140, 0.85));
+    }
 }
 
 @keyframes undead-zombie-lurch {
