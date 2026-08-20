@@ -132,6 +132,45 @@ class TestMedicalCertificatePurge(SavepointCase):
         self.assertEqual(self.employee.skin_type, "sakura")
         self.assertEqual(other.skin_type, "pokemon")
 
+    def test_fields_get_hides_removed_skins(self):
+        field = (
+            self.env["ir.model.fields"]
+            .sudo()
+            .search(
+                [("model", "=", "hr.employee"), ("name", "=", "skin_type")],
+                limit=1,
+            )
+        )
+        if field:
+            self.env["ir.model.fields.selection"].sudo().create(
+                {
+                    "field_id": field.id,
+                    "value": "birthday_party",
+                    "name": "Anniversaire",
+                    "sequence": 99,
+                }
+            )
+        options = {
+            value for value, _label in self.env["hr.employee"].fields_get(
+                ["skin_type"]
+            )["skin_type"]["selection"]
+        }
+        self.assertNotIn("birthday_party", options)
+        self.assertNotIn("carni", options)
+        self.env["hr.employee"]._chc_purge_stale_skin_selection_options()
+        leftover = (
+            self.env["ir.model.fields.selection"]
+            .sudo()
+            .search(
+                [
+                    ("field_id.model", "=", "hr.employee"),
+                    ("field_id.name", "=", "skin_type"),
+                    ("value", "in", ["birthday_party", "carni"]),
+                ]
+            )
+        )
+        self.assertFalse(leftover)
+
     def test_write_accepts_removed_skin_and_maps_it(self):
         self.employee.write({"skin_type": "birthday_party"})
         self.assertEqual(self.employee.skin_type, "sakura")

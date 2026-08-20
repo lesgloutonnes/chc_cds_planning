@@ -145,6 +145,21 @@ class Employee(models.Model):
         string="Affectations",
     )
 
+    def fields_get(self, allfields=None, attributes=None):
+        """Le dropdown Odoo lit ``ir.model.fields.selection``, pas le Python.
+
+        Après retrait de birthday_party / carni du Selection, les anciennes
+        lignes restent en base : le menu les affiche encore, alors que
+        ``write`` les refuse. On force la liste Python.
+        """
+        result = super().fields_get(allfields=allfields, attributes=attributes)
+        field_name = "skin_type"
+        if field_name in result:
+            selection = self._fields[field_name].selection
+            if not callable(selection):
+                result[field_name]["selection"] = list(selection)
+        return result
+
     def _chc_sanitize_skin_type(self, value):
         """Convertit une ancienne valeur de skin en valeur encore valide."""
         if not value:
@@ -218,7 +233,45 @@ class Employee(models.Model):
             )
         if remapped:
             self.invalidate_model(["skin_type"])
+        self._chc_purge_stale_skin_selection_options(valid)
         return remapped
+
+    @api.model
+    def _chc_purge_stale_skin_selection_options(self, valid=None):
+        """Supprime Anniversaire / Carni de la table qui alimente le dropdown."""
+        if valid is None:
+            selection = self._fields["skin_type"].selection
+            if callable(selection):
+                return 0
+            valid = {value for value, _label in selection}
+        field = (
+            self.env["ir.model.fields"]
+            .sudo()
+            .search(
+                [("model", "=", "hr.employee"), ("name", "=", "skin_type")],
+                limit=1,
+            )
+        )
+        if not field:
+            return 0
+        stale = (
+            self.env["ir.model.fields.selection"]
+            .sudo()
+            .search(
+                [
+                    ("field_id", "=", field.id),
+                    ("value", "not in", list(valid)),
+                ]
+            )
+        )
+        count = len(stale)
+        if stale:
+            stale.unlink()
+            _logger.info(
+                "Skin: %s option(s) retirée(s) de ir.model.fields.selection",
+                count,
+            )
+        return count
 
     def get_color_value(self):
         """Retourne la valeur numérique de la couleur pour JavaScript"""
