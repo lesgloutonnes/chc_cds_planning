@@ -6,5 +6,6 @@
         <function model="hr.leave.type" name="_chc_disable_sick_leave_documents"/>
         <function model="hr.leave" name="_chc_purge_medical_certificate_attachments"/>
         <function model="ir.attachment" name="_chc_purge_missing_image_attachments"/>
+        <function model="hr.employee" name="_chc_remap_removed_skins"/>
     </data>
 </odoo>

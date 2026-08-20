@@ -1,4 +1,16 @@
-from odoo import fields, models
+import logging
+
+from odoo import api, fields, models
+
+_logger = logging.getLogger(__name__)
+
+# Skins retirés du Selection : la copie de prod peut encore les avoir en base.
+# La migration 0.1.4 / 0.1.5 ne se rejoue pas si le module est déjà à jour.
+_REMOVED_SKIN_MAP = {
+    "birthday_party": "sakura",
+    "carni": "sakura",
+    "pikachu": "pokemon",
+}
 
 
 class Employee(models.Model):
@@ -132,6 +144,52 @@ class Employee(models.Model):
         "employee_id",
         string="Affectations",
     )
+
+    @api.model
+    def _chc_remap_removed_skins(self):
+        """Aligne ``skin_type`` en base sur les valeurs encore dans le Selection.
+
+        Sans ça, ouvrir/sauver une fiche employé lève :
+        ``Wrong value for hr.employee.skin_type: 'birthday_party'``.
+        """
+        selection = self._fields["skin_type"].selection
+        if callable(selection):
+            selection = selection(self)
+        valid = {value for value, _label in selection}
+
+        self.env.cr.execute(
+            """
+            SELECT DISTINCT skin_type
+              FROM hr_employee
+             WHERE skin_type IS NOT NULL
+            """
+        )
+        stale_values = [
+            value for (value,) in self.env.cr.fetchall() if value not in valid
+        ]
+        remapped = 0
+        for old_value in stale_values:
+            new_value = _REMOVED_SKIN_MAP.get(old_value, "sakura")
+            if new_value not in valid:
+                new_value = "sakura"
+            self.env.cr.execute(
+                """
+                UPDATE hr_employee
+                   SET skin_type = %s
+                 WHERE skin_type = %s
+                """,
+                (new_value, old_value),
+            )
+            remapped += self.env.cr.rowcount
+            _logger.info(
+                "Skin: %s employé(s) remappé(s) de %s vers %s",
+                self.env.cr.rowcount,
+                old_value,
+                new_value,
+            )
+        if remapped:
+            self.invalidate_model(["skin_type"])
+        return remapped
 
     def get_color_value(self):
         """Retourne la valeur numérique de la couleur pour JavaScript"""
