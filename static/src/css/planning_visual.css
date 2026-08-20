@@ -866,8 +866,8 @@
 }
 
 .assignment-code.skin-resident-evil::after {
-    /* Portes vitrées: chaque battant porte une moitié du biohazard officiel
-       (trois lobes + anneau). Même viewBox vertical, joint pile à 50%. */
+    /* Portes vitrées: le biohazard (evenodd, sans mask) est collé au
+       montant intérieur de chaque battant — il coulisse AVEC les portes. */
     content: "";
     position: absolute;
     top: 0;
@@ -875,54 +875,38 @@
     left: 0;
     right: 0;
     background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-26 -28 26 52'%3E%3Cdefs%3E%3CclipPath id='b'%3E%3Ccircle cy='-15' r='9.5'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(120)'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(240)'/%3E%3C/clipPath%3E%3Cmask id='a' width='60' height='60' x='-30' y='-30' maskUnits='userSpaceOnUse'%3E%3Cpath fill='%23fff' d='M-27-27h54v54h-54z'/%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Ccircle r='3'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23a)' fill='%23d8ff1a'%3E%3Ccircle cy='-11' r='15'/%3E%3Ccircle cy='-11' r='15' transform='rotate(120)'/%3E%3Ccircle cy='-11' r='15' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle r='11.75' fill='none' stroke='%23d8ff1a' stroke-width='3.5' clip-path='url(%23b)'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -28 26 52'%3E%3Cdefs%3E%3CclipPath id='b'%3E%3Ccircle cy='-15' r='9.5'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(120)'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(240)'/%3E%3C/clipPath%3E%3Cmask id='a' width='60' height='60' x='-30' y='-30' maskUnits='userSpaceOnUse'%3E%3Cpath fill='%23fff' d='M-27-27h54v54h-54z'/%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M2-23v-4h-4v4M-.5-6v4h1v-4'/%3E%3Ccircle cy='-15' r='10.5'/%3E%3C/g%3E%3Ccircle r='3'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23a)' fill='%23d8ff1a'%3E%3Ccircle cy='-11' r='15'/%3E%3Ccircle cy='-11' r='15' transform='rotate(120)'/%3E%3Ccircle cy='-11' r='15' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle r='11.75' fill='none' stroke='%23d8ff1a' stroke-width='3.5' clip-path='url(%23b)'/%3E%3C/svg%3E"),
-        /* Porte gauche: vitre teintée + montant lumineux côté intérieur */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-26 -28 26.4 52' preserveAspectRatio='xMaxYMid meet'%3E%3Cg fill='%23d8ff1a' fill-rule='evenodd'%3E%3Ccircle cx='0' cy='-11' r='15'/%3E%3Ccircle cx='9.526' cy='5.5' r='15'/%3E%3Ccircle cx='-9.526' cy='5.5' r='15'/%3E%3Ccircle cx='0' cy='-15' r='10.5'/%3E%3Ccircle cx='12.99' cy='7.5' r='10.5'/%3E%3Ccircle cx='-12.99' cy='7.5' r='10.5'/%3E%3Ccircle cx='0' cy='0' r='3'/%3E%3C/g%3E%3Ccircle cx='0' cy='0' r='11.75' fill='none' stroke='%23d8ff1a' stroke-width='3.5'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.4 -28 26.4 52' preserveAspectRatio='xMinYMid meet'%3E%3Cg fill='%23d8ff1a' fill-rule='evenodd'%3E%3Ccircle cx='0' cy='-11' r='15'/%3E%3Ccircle cx='9.526' cy='5.5' r='15'/%3E%3Ccircle cx='-9.526' cy='5.5' r='15'/%3E%3Ccircle cx='0' cy='-15' r='10.5'/%3E%3Ccircle cx='12.99' cy='7.5' r='10.5'/%3E%3Ccircle cx='-12.99' cy='7.5' r='10.5'/%3E%3Ccircle cx='0' cy='0' r='3'/%3E%3C/g%3E%3Ccircle cx='0' cy='0' r='11.75' fill='none' stroke='%23d8ff1a' stroke-width='3.5'/%3E%3C/svg%3E"),
+        /* Porte gauche: vitre + fin montant intérieur */
         linear-gradient(
             90deg,
-            rgba(170, 215, 255, 0.18) 0% 86%,
-            rgba(225, 245, 255, 0.8) 86% 100%
+            rgba(170, 215, 255, 0.18) 0% 96%,
+            rgba(225, 245, 255, 0.85) 96% 100%
         ),
         /* Porte droite, miroir */
         linear-gradient(
             90deg,
-            rgba(225, 245, 255, 0.8) 0% 14%,
-            rgba(170, 215, 255, 0.18) 14% 100%
+            rgba(225, 245, 255, 0.85) 0% 4%,
+            rgba(170, 215, 255, 0.18) 4% 100%
         );
-    background-size: 14px 28px, 14px 28px, 50% 100%, 50% 100%;
+    background-size: 50% 100%, 50% 100%, 50% 100%, 50% 100%;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-position:
-        left calc(50% - 44px) center,
-        left calc(50% + 30px) center,
-        -30px 0,
-        right -30px top 0;
+    background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0;
     pointer-events: none;
     animation: re-lab-doors 6s ease-in-out infinite;
 }
 
 @keyframes re-lab-doors {
     0%, 26% {
-        background-position:
-            left calc(50% - 44px) center,
-            left calc(50% + 30px) center,
-            -30px 0,
-            right -30px top 0;
+        background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0;
         filter: none;
     }
     38%, 66% {
-        background-position:
-            left calc(50% - 14px) center,
-            left 50% center,
-            0 0,
-            right 0 top 0;
-        filter: drop-shadow(0 0 5px rgba(216, 255, 26, 0.8));
+        background-position: 0 0, right 0 top 0, 0 0, right 0 top 0;
+        filter: drop-shadow(0 0 4px rgba(216, 255, 26, 0.7));
     }
     78%, 100% {
-        background-position:
-            left calc(50% - 44px) center,
-            left calc(50% + 30px) center,
-            -30px 0,
-            right -30px top 0;
+        background-position: -30px 0, right -30px top 0, -30px 0, right -30px top 0;
         filter: none;
     }
 }
