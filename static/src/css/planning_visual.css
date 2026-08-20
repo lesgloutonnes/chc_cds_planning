@@ -988,24 +988,15 @@
 }
 
 .assignment-code.skin-batman::after {
-    /* Batmobile tournée vers la droite, en direction du bat-signal */
+    /* Batmobile de profil, nez à droite vers le signal:
+       aileron, verrière, bande or, phare, réacteur, roues */
     content: "";
     position: absolute;
-    bottom: 4px;
-    left: 4px;
-    width: 18px;
-    height: 8px;
-    background:
-        radial-gradient(circle at 12% 88%, #c8a020 0 1px, transparent 1.4px),
-        radial-gradient(circle at 22% 92%, #1a1a1a 0 1.3px, transparent 1.7px),
-        radial-gradient(circle at 78% 92%, #1a1a1a 0 1.3px, transparent 1.7px),
-        linear-gradient(180deg, #2a2e38 0%, #0a0c12 100%);
-    clip-path: polygon(
-        0% 72%, 10% 58%, 32% 52%, 40% 28%, 52% 22%, 62% 30%,
-        66% 52%, 88% 48%, 100% 32%, 96% 72%, 90% 100%,
-        76% 100%, 74% 78%, 24% 78%, 22% 100%, 8% 100%
-    );
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+    bottom: 3px;
+    left: 3px;
+    width: 28px;
+    height: 13px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 24'%3E%3Cellipse cx='3' cy='13' rx='3' ry='1.6' fill='%23ff8a30'/%3E%3Cpath fill='%230b0e16' d='M6 14L10 2L16 11L14 14Z'/%3E%3Cpath fill='%23141a26' d='M8 14L14 12L24 11L34 9L44 11L53 13L54 15L50 17H8Z'/%3E%3Cpath fill='%23080a10' d='M8 17H50L48 19H10Z'/%3E%3Cpath fill='%235a9ad4' d='M30 10C34 3 42 4 46 11L34 11Z'/%3E%3Cpath fill='%23a8d4f0' opacity='.5' d='M33 8C36 5 40 5 43 9L36 9Z'/%3E%3Cpath stroke='%23e0b030' stroke-width='.8' fill='none' d='M14 13.5H50'/%3E%3Ccircle cx='16' cy='19' r='3.4' fill='%23111114' stroke='%23666' stroke-width='.7'/%3E%3Ccircle cx='16' cy='19' r='1.2' fill='%23444'/%3E%3Ccircle cx='40' cy='19' r='3.4' fill='%23111114' stroke='%23666' stroke-width='.7'/%3E%3Ccircle cx='40' cy='19' r='1.2' fill='%23444'/%3E%3Ccircle cx='53' cy='14' r='1.4' fill='%23ffe066'/%3E%3C/svg%3E") no-repeat center / contain;
     pointer-events: none;
     animation: batmobile-drive 0.7s ease-in-out infinite;
 }
@@ -1016,8 +1007,14 @@
 }
 
 @keyframes batmobile-drive {
-    0%, 100% { transform: scaleX(-1) translateY(0); }
-    50% { transform: scaleX(-1) translateY(-0.6px); }
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7)) drop-shadow(-2px 0 2px rgba(255, 110, 20, 0.35));
+    }
+    50% {
+        transform: translateY(-0.8px);
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7)) drop-shadow(-4px 0 5px rgba(255, 130, 30, 0.8));
+    }
 }
 
 /* Skin Monster Ultra White: canette blanche mate + griffe "M" argentée */
