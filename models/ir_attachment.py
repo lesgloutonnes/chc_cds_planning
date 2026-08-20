@@ -30,28 +30,30 @@ class IrAttachment(models.Model):
 
     @api.model
     def _chc_purge_missing_image_attachments(self):
-        """Retire les photos / icônes dont le fichier filestore n'existe plus.
+        """Retire photos, icônes et assets JS/CSS dont le fichier filestore n'existe plus.
 
         Cas typique : copie de base sans filestore. Ouvrir une fiche employé
-        tente de lire ``image_128`` / ``avatar_128`` et loggue un
-        FileNotFoundError alors que la fiche s'affiche quand même (HTTP 200).
+        tente de lire ``image_128`` / ``avatar_128``. Le bundle
+        ``/bus/websocket_worker_bundle`` fait un ``os.stat`` et répond 500.
         """
         attachments = self.sudo().search(
             [
                 ("type", "=", "binary"),
                 ("store_fname", "!=", False),
+                "|",
                 ("res_field", "!=", False),
+                ("url", "!=", False),
             ]
         )
         missing = attachments.filtered(
-            lambda att: att._chc_is_image_field_attachment()
+            lambda att: (att._chc_is_image_field_attachment() or bool(att.url))
             and att._chc_filestore_file_missing()
         )
         count = len(missing)
         if missing:
             missing.unlink()
         _logger.info(
-            "Filestore: %s pièce(s) jointe(s) image absente(s) du disque supprimée(s)",
+            "Filestore: %s pièce(s) jointe(s) image/asset absente(s) du disque supprimée(s)",
             count,
         )
         return count
