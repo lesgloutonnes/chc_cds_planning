@@ -913,18 +913,31 @@
     78%, 100% { background-position: -30px 0, right -30px top 0; }
 }
 
-/* Skin Batman: nuit de Gotham + faisceau de projecteur + grand bat-signal animé */
+/* Skin Batman: nuit de Gotham, faisceau du projecteur, Batmobile sur la route */
 .assignment-code.skin-batman {
     position: relative;
     overflow: hidden;
     background-image:
-        /* Faisceau du projecteur qui monte du coin bas-gauche vers le signal */
+        /* Projecteur au sol, coin bas-gauche */
+        radial-gradient(circle at 6% 96%, rgba(255, 232, 130, 0.95) 0 2px, transparent 5px),
+        /* Faisceau triangulaire qui remonte vers le bat-signal */
         linear-gradient(
-            55deg,
-            transparent 0% 18%,
-            rgba(255, 232, 130, 0.20) 32% 48%,
-            transparent 62% 100%
+            48deg,
+            transparent 0% 22%,
+            rgba(255, 232, 130, 0.08) 28%,
+            rgba(255, 232, 130, 0.42) 40%,
+            rgba(255, 232, 130, 0.55) 44%,
+            rgba(255, 232, 130, 0.42) 48%,
+            rgba(255, 232, 130, 0.08) 60%,
+            transparent 68% 100%
         ),
+        /* Route */
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.7) 0 3px,
+            transparent 3px 8px
+        ) 0 calc(100% - 2px) / 100% 1px no-repeat,
+        linear-gradient(180deg, transparent 0 86%, #2c3038 86% 100%),
         linear-gradient(
             160deg,
             rgb(10, 12, 20) 0%,
@@ -941,31 +954,11 @@
 }
 
 .assignment-code.skin-batman::before {
-    /* Bat-signal: grand halo jaune projeté dans le ciel, qui s'allume par vagues */
+    /* Bat-signal dans le ciel: halo + silhouette, halo via drop-shadow */
     content: "";
     position: absolute;
-    top: 1px;
-    right: 1px;
-    width: 22px;
-    height: 14px;
-    border-radius: 50%;
-    background: radial-gradient(
-        ellipse,
-        rgba(255, 232, 130, 1) 0% 42%,
-        rgba(255, 226, 110, 0.4) 70%,
-        transparent 100%
-    );
-    box-shadow: 0 0 8px rgba(255, 226, 110, 0.9);
-    pointer-events: none;
-    animation: bat-signal-pulse 2.4s ease-in-out infinite;
-}
-
-.assignment-code.skin-batman::after {
-    /* Chauve-souris du logo, grande et centrée dans le halo, qui bat des ailes */
-    content: "";
-    position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 2px;
+    right: 3px;
     width: 16px;
     height: 8px;
     background: #05070f;
@@ -975,18 +968,42 @@
         50% 90%, 47% 62%, 42% 82%, 32% 58%, 10% 68%,
         20% 50%, 0% 40%, 34% 28%, 32% 6%, 44% 20%
     );
+    filter: drop-shadow(0 0 4px rgba(255, 232, 130, 1)) drop-shadow(0 0 8px rgba(255, 226, 110, 0.9));
     pointer-events: none;
-    animation: bat-flap 2.4s ease-in-out infinite;
+    animation: bat-signal-pulse 2.4s ease-in-out infinite;
+}
+
+.assignment-code.skin-batman::after {
+    /* Batmobile sur la route: carrosserie basse, ailerons, phares, roues */
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 4px;
+    width: 18px;
+    height: 8px;
+    background:
+        radial-gradient(circle at 12% 88%, #c8a020 0 1px, transparent 1.4px),
+        radial-gradient(circle at 22% 92%, #1a1a1a 0 1.3px, transparent 1.7px),
+        radial-gradient(circle at 78% 92%, #1a1a1a 0 1.3px, transparent 1.7px),
+        linear-gradient(180deg, #2a2e38 0%, #0a0c12 100%);
+    clip-path: polygon(
+        0% 72%, 10% 58%, 32% 52%, 40% 28%, 52% 22%, 62% 30%,
+        66% 52%, 88% 48%, 100% 32%, 96% 72%, 90% 100%,
+        76% 100%, 74% 78%, 24% 78%, 22% 100%, 8% 100%
+    );
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+    pointer-events: none;
+    animation: batmobile-drive 0.7s ease-in-out infinite;
 }
 
 @keyframes bat-signal-pulse {
-    0%, 100% { opacity: 0.55; transform: scale(0.96); }
-    50% { opacity: 1; transform: scale(1.05); }
+    0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 3px rgba(255, 232, 130, 0.8)) drop-shadow(0 0 6px rgba(255, 226, 110, 0.6)); }
+    50% { opacity: 1; filter: drop-shadow(0 0 5px rgba(255, 232, 130, 1)) drop-shadow(0 0 10px rgba(255, 226, 110, 1)); }
 }
 
-@keyframes bat-flap {
-    0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(0.88) translateY(-0.5px); }
+@keyframes batmobile-drive {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-0.6px); }
 }
 
 /* Skin Monster Ultra White: canette blanche mate + griffe "M" argentée */
@@ -1016,24 +1033,20 @@
 }
 
 .assignment-code.skin-monster-ultra-white::before {
-    /* Rangée de glaçons sur toute la largeur du bas, côté frais de la boisson */
+    /* Glaçons du coin bas-gauche (forme cubique avec reflets) */
     content: "";
     position: absolute;
     bottom: 1px;
     left: 2px;
-    right: 2px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 1.5px;
-    background-image: repeating-linear-gradient(
-        90deg,
-        rgba(175, 222, 248, 0.95) 0px,
-        rgba(215, 242, 255, 0.95) 1.4px,
-        rgba(150, 208, 238, 0.9) 3.6px,
-        rgba(175, 222, 248, 0.95) 5px,
-        transparent 5px,
-        transparent 7.5px
-    );
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.75);
+    background: rgba(175, 222, 248, 0.92);
+    box-shadow:
+        inset 0.5px 0.5px 1px rgba(255, 255, 255, 0.9),
+        8px 1px 0 0 rgba(160, 214, 244, 0.88),
+        16px -0.5px 0 0.3px rgba(185, 228, 250, 0.9),
+        24px 0.8px 0 -0.3px rgba(160, 214, 244, 0.85);
     pointer-events: none;
     animation: monster-ice-shimmer 3s ease-in-out infinite;
 }
@@ -1044,26 +1057,23 @@
 }
 
 .assignment-code.skin-monster-ultra-white::after {
-    /* Reflet métallique de la canette */
+    /* Même rangée de glaçons, en miroir sur le coin bas-droit */
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 45%;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.85) 50%,
-        transparent 100%
-    );
+    bottom: 1px;
+    right: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 1.5px;
+    background: rgba(175, 222, 248, 0.92);
+    box-shadow:
+        inset -0.5px 0.5px 1px rgba(255, 255, 255, 0.9),
+        -8px 1px 0 0 rgba(160, 214, 244, 0.88),
+        -16px -0.5px 0 0.3px rgba(185, 228, 250, 0.9),
+        -24px 0.8px 0 -0.3px rgba(160, 214, 244, 0.85);
     pointer-events: none;
-    animation: monster-can-shine 4s ease-in-out infinite;
-}
-
-@keyframes monster-can-shine {
-    0%, 100% { transform: translateX(-40%); opacity: 0; }
-    50% { transform: translateX(140%); opacity: 1; }
+    animation: monster-ice-shimmer 3s ease-in-out infinite;
+    animation-delay: -1.5s;
 }
 
 /* Skin Hard Rock Metal: cuir noir clouté + éclair jaune */
@@ -2752,13 +2762,13 @@
     to { background-position: 0 17px; }
 }
 
-/* Skin World of Warcraft: icône officielle — bordure dorée épaisse,
-   nom or, fond bleu roi / bleu marine avec relief de carte. */
+/* Skin World of Warcraft: icône officielle — cadre or épais, nom or,
+   fond bleu roi / bleu marine avec relief de carte. */
 .assignment-code.skin-wow {
     position: relative;
     overflow: hidden;
+    border: 3px solid #e8c34a !important;
     background-image:
-        /* Relief de carte: continents et sillons discrets */
         radial-gradient(ellipse at 22% 35%, rgba(90, 140, 210, 0.35) 0 8px, transparent 14px),
         radial-gradient(ellipse at 78% 62%, rgba(70, 120, 190, 0.3) 0 10px, transparent 16px),
         radial-gradient(ellipse at 48% 78%, rgba(50, 95, 165, 0.28) 0 7px, transparent 12px),
@@ -2779,47 +2789,41 @@
         0 0 4px rgba(255, 190, 50, 0.55);
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.5),
-        /* Bordure dorée épaisse, biseautée comme l'anneau de l'icône */
-        inset 0 0 0 2px #e8c34a,
-        inset 0 0 0 4px #9a7018,
-        inset 0 0 0 5px #f0d060,
-        inset 0 0 10px rgba(0, 15, 50, 0.45);
+        inset 0 0 0 1.5px #7a5410,
+        inset 0 0 0 2.5px #f5d56a,
+        inset 0 0 8px rgba(0, 15, 50, 0.4);
 }
 
 .assignment-code.skin-wow::before {
-    /* Reflet métallique sur la bordure supérieure, or martelé */
+    /* Filet d'or intérieur, tout autour, pour épaissir le cadre */
     content: "";
     position: absolute;
-    top: 1px;
-    left: 4px;
-    right: 4px;
-    height: 3px;
-    border-radius: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 236, 160, 0.85) 50%,
-        transparent 100%
-    );
+    inset: 0;
+    border: 1.5px solid rgba(245, 213, 106, 0.85);
+    border-radius: 3px;
     pointer-events: none;
     animation: wow-gold-shimmer 3.4s ease-in-out infinite;
 }
 
 .assignment-code.skin-wow::after {
-    /* Accents dorés dans les coins, façon boussole de l'icône */
+    /* Reflet martelé sur le haut du cadre */
     content: "";
     position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(135deg, #e8c34a 0 4px, transparent 4px) left top / 7px 7px no-repeat,
-        linear-gradient(225deg, #e8c34a 0 4px, transparent 4px) right top / 7px 7px no-repeat,
-        linear-gradient(45deg, #e8c34a 0 4px, transparent 4px) left bottom / 7px 7px no-repeat,
-        linear-gradient(-45deg, #e8c34a 0 4px, transparent 4px) right bottom / 7px 7px no-repeat;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 244, 190, 0.95) 50%,
+        transparent 100%
+    );
     pointer-events: none;
 }
 
 @keyframes wow-gold-shimmer {
-    0%, 100% { opacity: 0.45; }
+    0%, 100% { opacity: 0.55; }
     50% { opacity: 1; }
 }
 
