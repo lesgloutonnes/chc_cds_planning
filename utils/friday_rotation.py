@@ -14,6 +14,9 @@ def is_friday_pm_mle_assignment(assignment):
     """
     if not assignment:
         return False
+    exists = getattr(assignment, "exists", None)
+    if callable(exists) and not exists():
+        return False
     if getattr(assignment, "special_name", None):
         return False
     if assignment.day != "friday":
