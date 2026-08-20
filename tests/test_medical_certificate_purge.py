@@ -77,3 +77,37 @@ class TestMedicalCertificatePurge(SavepointCase):
         self.assertEqual(deleted, 1)
         self.assertFalse(sick_att.exists())
         self.assertTrue(annual_att.exists())
+
+    def test_purge_missing_employee_image_keeps_existing_files(self):
+        present = self.env["ir.attachment"].create(
+            {
+                "name": "photo.png",
+                "type": "binary",
+                "datas": "dGVzdA==",
+                "res_model": "hr.employee",
+                "res_id": self.employee.id,
+                "res_field": "image_128",
+                "mimetype": "image/png",
+            }
+        )
+        missing = self.env["ir.attachment"].create(
+            {
+                "name": "photo_absente.png",
+                "type": "binary",
+                "datas": "dGVzdA==",
+                "res_model": "hr.employee",
+                "res_id": self.employee.id,
+                "res_field": "image_1920",
+                "mimetype": "image/png",
+            }
+        )
+        self.env.cr.execute(
+            "UPDATE ir_attachment SET store_fname = %s WHERE id = %s",
+            ("zz/missing_filestore_hash", missing.id),
+        )
+        missing.invalidate_recordset(["store_fname"])
+
+        deleted = self.env["ir.attachment"]._chc_purge_missing_image_attachments()
+        self.assertGreaterEqual(deleted, 1)
+        self.assertTrue(present.exists())
+        self.assertFalse(missing.exists())
