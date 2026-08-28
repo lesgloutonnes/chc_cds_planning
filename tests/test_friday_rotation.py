@@ -6,7 +6,11 @@ import unittest
 
 from utils.friday_rotation import (
     EXCLUDED_EMPLOYEE_CODES,
+    collect_friday_pm_counts,
     find_best_friday_pm_candidate,
+    friday_belongs_to_year,
+    get_friday_date,
+    get_week_start_range_for_fridays_in_year,
     is_friday_pm_mle_assignment,
 )
 
@@ -246,6 +250,101 @@ class TestFridayRotationHelpers(unittest.TestCase):
         # Parmi ceux à 5, tie-break par id → ANSCH (id plus petit que les autres à 5? )
         # ANSCH id=2, ROMAC=3, ... JEDEL=1 excluded. Min id among count=5 is ANSCH=2
         self.assertEqual(candidate.id, ansch.id)
+
+
+class TestFridayPmYearMembership(unittest.TestCase):
+    def test_week_start_range_includes_december_monday_of_jan_2(self):
+        start_min, start_max = get_week_start_range_for_fridays_in_year(2026)
+        # Vendredi 2 janv. 2026 → lundi 29 déc. 2025
+        self.assertLessEqual(start_min, date(2025, 12, 29))
+        self.assertGreaterEqual(start_max, date(2025, 12, 29))
+        # Vendredi 1er janv. 2027 → lundi 28 déc. 2026 : hors 2026
+        self.assertLess(start_max, date(2026, 12, 28))
+
+    def test_friday_belongs_to_year_uses_friday_not_monday(self):
+        week_jan_2 = date(2025, 12, 29)
+        self.assertEqual(get_friday_date(week_jan_2), date(2026, 1, 2))
+        self.assertTrue(friday_belongs_to_year(week_jan_2, 2026))
+        self.assertFalse(friday_belongs_to_year(week_jan_2, 2025))
+
+        week_jan_1_2027 = date(2026, 12, 28)
+        self.assertEqual(get_friday_date(week_jan_1_2027), date(2027, 1, 1))
+        self.assertFalse(friday_belongs_to_year(week_jan_1_2027, 2026))
+        self.assertTrue(friday_belongs_to_year(week_jan_1_2027, 2027))
+
+    def test_collect_counts_jan_2_in_2026_not_2025(self):
+        mle = FakeSite(id=1, code="MLE")
+        fct = FakePermType(id=10, code="FCT")
+        emp = FakeEmployee(id=1, employee_code="JEDEL")
+        week = SimpleNamespace(start_date=date(2025, 12, 29))
+        assignment = FakeAssignment(
+            day="friday",
+            period="pm",
+            site_id=mle,
+            permanence_type_id=fct,
+            special_name=False,
+            employee_id=emp,
+            planning_week_id=week,
+        )
+        counts_2026 = collect_friday_pm_counts([assignment], 2026)
+        counts_2025 = collect_friday_pm_counts([assignment], 2025)
+        self.assertEqual(counts_2026[emp.id]["counter_fct"], 1)
+        self.assertEqual(counts_2026[emp.id]["last_fct_date"], date(2026, 1, 2))
+        self.assertEqual(counts_2025, {})
+
+    def test_collect_counts_dedupes_same_friday_and_type(self):
+        mle = FakeSite(id=1, code="MLE")
+        fct = FakePermType(id=10, code="FCT")
+        tch = FakePermType(id=20, code="TCH")
+        emp = FakeEmployee(id=1, employee_code="JEDEL")
+        week = SimpleNamespace(start_date=date(2026, 1, 5))
+        duplicate_fct = FakeAssignment(
+            day="friday",
+            period="pm",
+            site_id=mle,
+            permanence_type_id=fct,
+            special_name=False,
+            employee_id=emp,
+            planning_week_id=week,
+        )
+        tch_same_day = FakeAssignment(
+            day="friday",
+            period="pm",
+            site_id=mle,
+            permanence_type_id=tch,
+            special_name=False,
+            employee_id=emp,
+            planning_week_id=week,
+        )
+        counts = collect_friday_pm_counts(
+            [duplicate_fct, duplicate_fct, tch_same_day], 2026
+        )
+        self.assertEqual(counts[emp.id]["counter_fct"], 1)
+        self.assertEqual(counts[emp.id]["counter_tch"], 1)
+
+    def test_collect_counts_skips_juape_and_specials(self):
+        mle = FakeSite(id=1, code="MLE")
+        fct = FakePermType(id=10, code="FCT")
+        week = SimpleNamespace(start_date=date(2026, 1, 5))
+        juape = FakeAssignment(
+            day="friday",
+            period="pm",
+            site_id=mle,
+            permanence_type_id=fct,
+            special_name=False,
+            employee_id=FakeEmployee(id=9, employee_code="JUAPE"),
+            planning_week_id=week,
+        )
+        special = FakeAssignment(
+            day="friday",
+            period="pm",
+            site_id=mle,
+            permanence_type_id=fct,
+            special_name="Formation",
+            employee_id=FakeEmployee(id=1, employee_code="JEDEL"),
+            planning_week_id=week,
+        )
+        self.assertEqual(collect_friday_pm_counts([juape, special], 2026), {})
 
 
 if __name__ == "__main__":

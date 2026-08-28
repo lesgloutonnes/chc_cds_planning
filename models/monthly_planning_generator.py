@@ -426,6 +426,7 @@ class MonthlyPlanningGenerator(models.TransientModel):
             is_friday_pm_mle_assignment
         )
         rotation_state["friday_pm_mle_assigned"] = set()
+        seen = set()
 
         for assignment in friday_pm_assignments:
             emp = assignment.employee_id
@@ -434,6 +435,11 @@ class MonthlyPlanningGenerator(models.TransientModel):
             perm_code = assignment.permanence_type_id.code
             if perm_code not in ("FCT", "TCH"):
                 continue
+            # Un seul incrément par employé/type et par vendredi (doublons).
+            key = (emp.id, perm_code)
+            if key in seen:
+                continue
+            seen.add(key)
             counter_key = f"employee_friday_pm_{perm_code.lower()}"
             last_dates_key = f"last_{perm_code.lower()}_dates"
             rotation_state["friday_pm_mle_assigned"].add(emp.id)
