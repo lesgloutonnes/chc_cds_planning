@@ -1,12 +1,13 @@
-from datetime import date, timedelta
+from datetime import date
 
 from odoo import api, fields, models
 
 from ..utils.friday_rotation import (
     EXCLUDED_EMPLOYEE_CODES,
+    collect_friday_pm_counts,
     get_counter_field,
     get_last_date_field,
-    get_planning_week_ids_for_year,
+    get_planning_week_ids_for_fridays_in_year,
 )
 
 
@@ -124,7 +125,11 @@ class FridayRotationCounter(models.Model):
 
     @api.model
     def rebuild_from_assignments(self, year=None):
-        """Recalcule les compteurs depuis les affectations réelles (source de vérité)."""
+        """Recalcule les compteurs depuis les affectations réelles (source de vérité).
+
+        L'année retenue est celle du vendredi (pas du lundi de la semaine),
+        pour ne pas rater un 2 janvier dont le lundi est encore en décembre.
+        """
         year = year or date.today().year
         mle_site = self.env["chc_cds_planning.site"].search(
             [("code", "=", "MLE")], limit=1
@@ -132,49 +137,26 @@ class FridayRotationCounter(models.Model):
         if not mle_site:
             return
 
-        week_ids = get_planning_week_ids_for_year(self.env, year)
-        if not week_ids:
-            return
+        week_ids = get_planning_week_ids_for_fridays_in_year(self.env, year)
+        assignments = self.env["chc_cds_planning.planning_assignment"].browse()
+        if week_ids:
+            # Filtre SQL large : le décompte précis (année du vendredi,
+            # spéciales, doublons, JUAPE) est fait dans collect_friday_pm_counts.
+            assignments = self.env["chc_cds_planning.planning_assignment"].search(
+                [
+                    ("day", "=", "friday"),
+                    ("period", "=", "pm"),
+                    ("site_id", "=", mle_site.id),
+                    ("permanence_type_id.code", "in", ["FCT", "TCH"]),
+                    ("planning_week_id", "in", week_ids),
+                ],
+                order="id",
+            )
+            assignments = assignments.sorted(
+                key=lambda a: a.planning_week_id.start_date or date.min
+            )
 
-        # Uniquement FCT/TCH sur MLE : les on site (HEU/HRM/WAR) et ATL
-        # (on site MLE) ne sont jamais comptés.
-        assignments = self.env["chc_cds_planning.planning_assignment"].search(
-            [
-                ("day", "=", "friday"),
-                ("period", "=", "pm"),
-                ("site_id", "=", mle_site.id),
-                ("permanence_type_id.code", "in", ["FCT", "TCH"]),
-                ("special_name", "=", False),
-                ("planning_week_id", "in", week_ids),
-            ],
-            order="id",
-        )
-        assignments = assignments.sorted(
-            key=lambda a: a.planning_week_id.start_date or date.min
-        )
-
-        counts = {}
-        for assignment in assignments:
-            emp = assignment.employee_id
-            if emp.employee_code in EXCLUDED_EMPLOYEE_CODES:
-                continue
-            perm_code = assignment.permanence_type_id.code
-            friday_date = assignment.planning_week_id.start_date + timedelta(days=4)
-
-            if emp.id not in counts:
-                counts[emp.id] = {
-                    "counter_fct": 0,
-                    "counter_tch": 0,
-                    "last_fct_date": False,
-                    "last_tch_date": False,
-                }
-
-            if perm_code == "FCT":
-                counts[emp.id]["counter_fct"] += 1
-                counts[emp.id]["last_fct_date"] = friday_date
-            elif perm_code == "TCH":
-                counts[emp.id]["counter_tch"] += 1
-                counts[emp.id]["last_tch_date"] = friday_date
+        counts = collect_friday_pm_counts(assignments, year)
 
         existing = {
             c.employee_id.id: c

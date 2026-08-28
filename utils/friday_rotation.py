@@ -37,8 +37,33 @@ def get_friday_date(week_start):
     return week_start + timedelta(days=4)
 
 
+def friday_belongs_to_year(week_start, year):
+    """True si le vendredi de la semaine (lundi + 4) tombe dans l'année civile."""
+    if not week_start or not year:
+        return False
+    return get_friday_date(week_start).year == year
+
+
+def get_week_start_range_for_fridays_in_year(year):
+    """Bornes inclusives des lundis dont le vendredi tombe dans `year`.
+
+    Un planning est rattaché à son lundi (`start_date`). Un vendredi peut donc
+    appartenir à l'année N alors que son lundi est encore en N-1 (ex. vendredi
+    2 janvier 2026 → lundi 29 décembre 2025). Inversement, un lundi en N peut
+    avoir son vendredi en N+1.
+    """
+    year_start = date(year, 1, 1)
+    year_end = date(year, 12, 31)
+    return (year_start - timedelta(days=4), year_end - timedelta(days=4))
+
+
 def get_planning_week_ids_for_year(env, year):
-    """Retourne les IDs des plannings hebdomadaires d'une année donnée."""
+    """IDs des plannings dont le lundi (`start_date`) est dans l'année civile.
+
+    Sert aux stats de présence (Perm FCT/TCH/Onsite) qui suivent l'appartenance
+    des semaines au mois/année du lundi. Ne pas utiliser pour le compteur
+    vendredi PM : voir `get_planning_week_ids_for_fridays_in_year`.
+    """
     weeks = env["chc_cds_planning.planning_weekly"].search(
         [
             ("start_date", ">=", f"{year}-01-01"),
@@ -47,6 +72,62 @@ def get_planning_week_ids_for_year(env, year):
         order="start_date asc",
     )
     return weeks.ids
+
+
+def get_planning_week_ids_for_fridays_in_year(env, year):
+    """IDs des plannings dont le vendredi tombe dans l'année civile donnée."""
+    start_min, start_max = get_week_start_range_for_fridays_in_year(year)
+    weeks = env["chc_cds_planning.planning_weekly"].search(
+        [
+            ("start_date", ">=", start_min),
+            ("start_date", "<=", start_max),
+        ],
+        order="start_date asc",
+    )
+    return weeks.ids
+
+
+def collect_friday_pm_counts(assignments, year):
+    """Agrège les vendredis PM MLE FCT/TCH d'une année civile.
+
+    - L'année est celle du **vendredi**, pas du lundi de la semaine.
+    - Une seule occurrence par (employé, vendredi, type FCT/TCH).
+    - JUAPE, on site, permanences spéciales : exclus via
+      `is_friday_pm_mle_assignment`.
+    """
+    counts = {}
+    seen = set()
+    for assignment in assignments:
+        if not is_friday_pm_mle_assignment(assignment):
+            continue
+        emp = assignment.employee_id
+        if not emp or emp.employee_code in EXCLUDED_EMPLOYEE_CODES:
+            continue
+        week = assignment.planning_week_id
+        week_start = week.start_date if week else None
+        if not friday_belongs_to_year(week_start, year):
+            continue
+        perm_code = assignment.permanence_type_id.code
+        friday_date = get_friday_date(week_start)
+        key = (emp.id, friday_date, perm_code)
+        if key in seen:
+            continue
+        seen.add(key)
+
+        if emp.id not in counts:
+            counts[emp.id] = {
+                "counter_fct": 0,
+                "counter_tch": 0,
+                "last_fct_date": False,
+                "last_tch_date": False,
+            }
+        if perm_code == "FCT":
+            counts[emp.id]["counter_fct"] += 1
+            counts[emp.id]["last_fct_date"] = friday_date
+        elif perm_code == "TCH":
+            counts[emp.id]["counter_tch"] += 1
+            counts[emp.id]["last_tch_date"] = friday_date
+    return counts
 
 
 def get_counter_field(perm_type_code):
